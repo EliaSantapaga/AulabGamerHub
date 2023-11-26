@@ -1,0 +1,1013 @@
+:root {
+  --red: #dc152c;
+  --blue: #2670b7;
+  --pink: #ff3cf2;
+  --grey: #dcbeda;
+  --gold: #ff8c00;
+  --indigo: #710096;
+}
+
+* {
+  font-family: "Saira", sans-serif;
+  box-sizing: border-box;
+}
+
+.ff-orbitron {
+  font-family: "Orbitron", sans-serif;
+}
+
+.text-red {
+  color: var(--red);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-pink {
+  color: var(--pink);
+}
+
+.text-grey {
+  color: var(--grey);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-indigo {
+  color: var(--indigo);
+}
+
+.text-shadow {
+  text-shadow: 2px -2px 0px var(--gold);
+}
+
+.shadow-pink {
+  text-shadow: 2px -2px 0px var(--pink);
+  font-size: 50px;
+}
+
+.fs-6 {
+  font-size: 50px;
+}
+
+.text-gradient {
+  font-size: 45px;
+  background: -webkit-linear-gradient(180deg, var(--red), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 0px white);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+
+  background: 
+  
+    url("/src/assets/black-background.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.accordion {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.space {
+  height: 100px;
+}
+
+Link {
+  text-decoration: none;
+}
+
+.decoration-none {
+  text-decoration: none !important;
+}
+
+/*NAVBAR ------------------------------------- */
+
+.navbar {
+  animation: navbar 1s ease 0s normal;
+  transition: 0.5s;
+}
+
+@keyframes navbar {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav {
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
+
+.nav-container-anim {
+  animation: navContainer 0.5s ease 0s 1 normal forwards;
+}
+
+@keyframes navContainer {
+  0% {
+    opacity: 0;
+    margin-top: -50px;
+    transform-origin: top;
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: top;
+  }
+}
+
+.nav-container {
+  /* background: linear-gradient(120deg, var(--red), var(--blue)); */
+  background-color: #1818188e;
+  overflow-x: hidden;
+  box-shadow: 0 0 9px 3px var(--gold);
+  height: 70px;
+}
+
+.nav-link {
+  font-family: "Orbitron", sans-serif;
+}
+
+.presto {
+  animation: presto 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0.3s 1 normal forwards;
+  text-shadow: 2px -2px 0px var(--gold);
+  animation-fill-mode: both;
+}
+
+@keyframes presto {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logo {
+  animation: logo 0.5s cubic-bezier(0.7, 0, 0.84, 0) 0.4s 1 normal forwards,
+    neon 1.5s infinite alternate;
+  text-shadow: 2px -2px 0px var(--gold);
+  animation-fill-mode: both;
+  margin-left: 9px;
+}
+
+@keyframes logo {
+  0% {
+    transform: scale(0);
+    transform-origin: 50% 0%;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+  }
+}
+
+.menu {
+  animation: menu 0.5s ease 0.6s 1 normal forwards;
+  animation-fill-mode: both;
+}
+
+@keyframes menu {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.offcanvas {
+  overflow: hidden;
+}
+
+/* HEADER ------------------------------------ */
+
+.header {
+  height: 800px;
+  margin-bottom: -235px;
+  padding: 0px;
+  z-index: -2;
+
+  position: relative;
+
+  background: url("/src/assets/assassins\ creed\ transparent.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  animation: fadeIn 1s ease 0s normal both;
+}
+
+.header-text {
+  animation: fadeInUp 1s ease 0.6s normal both,
+    arrow 0.75s ease 0s infinite alternate forwards;
+  font-size: 50px;
+}
+
+.neon {
+  animation: neon 1.5s infinite alternate;
+  text-shadow: 2px -2px 0px var(--gold);
+  font-size: 90px;
+}
+
+.glitch {
+  font-size: 90px;
+  text-shadow: 3px -3px 0px var(--pink);
+  position: relative;
+
+  animation: fadeInUp 1s ease 0.3s normal both;
+}
+
+.glitch::after,
+.glitch-start::after {
+  width: 370px;
+  height: 90px;
+  font-size: 90px;
+  background: linear-gradient(45deg, transparent 5%, rgb(12, 111, 232) 5%);
+  border: 0;
+  color: #fff;
+  box-shadow: 6px -6px 0px var(--pink);
+  outline: transparent;
+  position: relative;
+
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 3%,
+    var(--red) 3%,
+    var(--blue) 5%,
+    var(--pink) 5%
+  );
+  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px var(--blue);
+  clip-path: var(--slice-0);
+
+  animation: 2s glitchHeader infinite;
+  animation-timing-function: steps(2, end);
+}
+
+.glitch::after {
+  content: "PRESS";
+}
+
+.glitch-start::after {
+  content: "START!";
+  animation-delay: 0.3s;
+}
+
+.glitch-start {
+  margin-top: -20px;
+}
+
+.glitch-start::after {
+  margin-top: -5px;
+}
+
+.arrow {
+  animation: fadeInUp 1s ease 0.6s normal both,
+    arrow 0.75s ease 0s infinite alternate forwards,
+    neon 1.5s infinite alternate;
+  font-size: 50px;
+}
+
+/* GAME LIST --------------------------------- */
+
+.game-list {
+  position: relative;
+  animation: fadeInUp 1s ease 0.9s normal both;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  box-shadow: 6px 3px 6px rgb(38, 38, 38);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* CARDS ------------------------------------- */
+
+.game-card {
+  background: linear-gradient(45deg, transparent 5%, rgb(5, 66, 139) 5%);
+  border: 0;
+  color: #fff;
+  box-shadow: 6px -6px 0px var(--pink);
+  outline: transparent;
+}
+
+.xbox-game-card {
+  background: linear-gradient(45deg, transparent 5%, #107c0f 5%);
+}
+
+.switch-game-card {
+  background: linear-gradient(45deg, transparent 5%, #e70012 5%);
+}
+
+.profile-card {
+  color: #fff;
+  box-shadow: 6px -6px 0px var(--pink);
+  outline: transparent;
+  width: 600px;
+  height: fit-content;
+  background: linear-gradient(
+    45deg,
+    transparent 5%,
+    rgba(38, 112, 183, 0.8) 5%,
+    rgba(220, 21, 44, 0.8)
+  );
+}
+
+.profile-pic {
+  height: 300px;
+}
+
+.profile-p2 {
+  height: 300px;
+  margin-left: 40px;
+}
+
+/* BUTTONS ----------------------------------- */
+
+.cardbutton,
+.article-btn,
+.cardbutton::after {
+  width: 230px;
+  height: 56px;
+  font-size: 20px;
+  background: linear-gradient(45deg, transparent 5%, rgb(12, 111, 232) 5%);
+  border: 0;
+  color: #fff;
+  box-shadow: 6px -6px 0px var(--pink);
+  outline: transparent;
+  position: relative;
+}
+
+.xboxbutton,
+.edit-btn {
+  background: linear-gradient(45deg, transparent 5%, #1cc519 5%);
+}
+
+.switchbutton,
+.remove-btn {
+  background: linear-gradient(45deg, transparent 5%, #ff4141 5%);
+}
+
+.cardbutton::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: "Acquista ora";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 3%,
+    var(--red) 3%,
+    var(--blue) 5%,
+    var(--pink) 5%
+  );
+  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px var(--blue);
+  clip-path: var(--slice-0);
+}
+
+.cardbutton:hover::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+.btn-social-google {
+  width: 300px !important;
+  background: linear-gradient(45deg, transparent 5%, rgb(66, 133, 244) 5%);
+}
+
+.btn-social-discord {
+  width: 300px !important;
+  background: linear-gradient(45deg, transparent 5%, rgb(114, 137, 218) 5%);
+}
+
+.btn-social-steam {
+  width: 300px !important;
+  background: linear-gradient(45deg, transparent 5%, rgb(23, 26, 33) 5%);
+}
+
+/* TRAILER ----------------------------------- */
+
+.trailer {
+  background-image: url("src/assets/Hollow\ Knight\ Silksong.png");
+  background-position: top;
+  background-repeat: none;
+  background-size: cover;
+  height: 1050px;
+}
+
+.trailer-card {
+  width: 550px;
+  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(
+    45deg,
+    transparent 5%,
+    rgba(38, 112, 183, 0.8) 5%,
+    rgba(220, 21, 44, 0.8)
+  );
+  box-shadow: 6px -6px 0px var(--pink);
+}
+
+.trailer-col {
+  height: 900px;
+  display: flex;
+  align-items: end;
+}
+
+.video-trailer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-bottom: 20px;
+}
+
+.video-trailer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-trailer {
+  font-size: 30px;
+}
+
+#games-number {
+  font-size: 40px;
+}
+
+.trailer-button {
+  background: linear-gradient(
+    45deg,
+    transparent 5%,
+    rgb(220, 21, 44) 5%,
+    rgb(38, 112, 183)
+  );
+  box-shadow: 6px -6px 0px var(--pink);
+}
+
+.git {
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+
+/* ARTICLES ---------------------------------- */
+
+.img-article,
+.img-edit {
+  box-shadow: 0 0 9px 3px var(--pink);
+}
+
+.img-article {
+  width: 100%;
+}
+
+.bg-light-trans {
+  background: linear-gradient(
+    45deg,
+    transparent 5%,
+    rgba(255, 255, 255, 0.7) 5%
+  );
+}
+
+.article-btn {
+  height: 40px;
+  width: 170px;
+  box-shadow: none;
+}
+
+/* .article-btn:hover {
+  height: 50px;
+  width: 200px;
+  animation-duration: 0.5s;
+  box-shadow: none;
+} */
+
+.article-form,
+.articles {
+  animation: fadeInUp 0.6s ease 0.3s normal both;
+}
+
+/* FOOTER ------------------------------------ */
+
+.footer {
+  background: linear-gradient(120deg, var(--red), var(--blue));
+  box-shadow: 0 0 9px 3px var(--pink);
+  position: relative;
+  display: block;
+  bottom: 0;
+}
+
+.footer-container {
+  margin-bottom: -500px;
+}
+
+.git-sentence {
+  height: 150px;
+  margin-top: 55px;
+}
+
+.gamesintime-logo {
+  height: 150px;
+}
+
+/* Social */
+
+.slider-social {
+  margin-bottom: 0px;
+}
+
+.menu-slider {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 40px;
+  border-radius: 50px;
+  box-shadow: 0 0 9px 3px var(--pink);
+
+  /* background-color: rgb(211, 211, 211); */
+  background: linear-gradient(120deg, #dc152c, #2670b7);
+  overflow: hidden;
+}
+
+.menu-slider a.item {
+  height: 40px;
+  width: 60px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  z-index: 10;
+  text-decoration: none;
+  color: white;
+  transition: 0.4s;
+}
+
+.menu-slider a.item:hover {
+  color: white;
+  text-shadow: 2px -2px 0px var(--pink);
+  transform: scale(1.3) rotateZ(360deg);
+}
+
+.menu-slider .slider {
+  position: absolute;
+  top: 0px;
+  left: -60px;
+  height: 100%;
+  width: 60px;
+  z-index: 1;
+  background: linear-gradient(120deg, var(--pink), var(--blue));
+  border-radius: 40px;
+
+  transition: 1s cubic-bezier(0.7, -0.3, 0, 1);
+}
+
+.item:nth-child(1):hover ~ .slider {
+  left: 0px;
+}
+
+.item:nth-child(2):hover ~ .slider {
+  left: 60px;
+}
+
+.item:nth-child(3):hover ~ .slider {
+  left: 120px;
+}
+
+.item:nth-child(4):hover ~ .slider {
+  left: 180px;
+}
+
+.item:nth-child(5):hover ~ .slider {
+  left: 240px;
+}
+
+/* VIDEOGAMES -------------------------------- */
+
+.card-annunci {
+  background: linear-gradient(45deg, transparent 5%, white 5%);
+  border-radius: 5px 5px 0px 0px;
+  border: none;
+}
+
+.card-img {
+  height: 170px;
+  object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.btn-prezzo {
+  background: linear-gradient(
+    45deg,
+    transparent 5%,
+    rgb(220, 21, 44) 5%,
+    rgb(38, 112, 183)
+  );
+
+  width: 200px;
+  height: 45px;
+  font-size: 19px;
+  border-radius: 0px;
+}
+
+.btn-prezzo::after {
+  width: 200px;
+  height: 45px;
+  color: #fff;
+
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: "Acquista ora";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 3%,
+    var(--red) 3%,
+    var(--blue) 5%,
+    var(--pink) 5%
+  );
+  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px var(--blue);
+  clip-path: var(--slice-0);
+}
+
+.word-input {
+  width: 100%;
+  text-align: center;
+  border: 2px solid;
+  /* border-image: linear-gradient(120deg, var(--red), var(--blue)) 1; */
+  border-radius: 10px;
+  background-image: url("/resources/img/search.png");
+  background-position: right;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position-x: 99%;
+}
+
+#spaceWrapper {
+  height: 15.9vh;
+}
+
+/* MEDIA SCREEN ------------------------------ */
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .cardbutton {
+    width: 170px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .game-card {
+    height: 575px;
+  }
+
+  .cardbutton {
+    justify-self: end;
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .game-card {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .trailer {
+    background-position: -600px;
+  }
+
+  .trailer-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trailer-card {
+    width: auto;
+  }
+
+  .logo-git {
+    margin-bottom: 0px;
+  }
+
+  .gamesintime-logo {
+    padding-bottom: 0px;
+  }
+
+  .git-sentence {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .nav {
+    height: 70px;
+  }
+
+  .menu {
+    top: 70px;
+  }
+
+  .trailer {
+    margin-top: -200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .swiper-slide {
+    width: 300px;
+  }
+
+  .gamesintime-logo {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header-text,
+  .arrow {
+    font-size: 40px;
+  }
+
+  .glitch,
+  .glitch-start,
+  .glitch::after {
+    font-size: 70px;
+    width: 287px;
+    height: 70px;
+  }
+
+  .glitch-start,
+  .glitch-start::after {
+    width: 290px;
+    margin-top: 5px;
+  }
+
+  .space-trailer {
+    height: 0px;
+  }
+
+  .gamesintime-logo {
+    height: 100px;
+    margin-bottom: 20px;
+  }
+}
+
+/* ANIMAZIONI -------------------------------- */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes arrow {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes neon {
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
+      0 0 40px var(--gold), 0 0 80px var(--gold), 0 0 90px var(--gold),
+      0 0 100px var(--gold), 0 0 150px var(--gold);
+  }
+
+  0% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px var(--gold),
+      0 0 45px var(--gold), 0 0 55px var(--gold), 0 0 70px var(--gold),
+      0 0 80px var(--gold);
+  }
+}
+
+@keyframes glitchHeader {
+  55% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+
+  60% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+
+  65% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+
+  75% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+
+  80% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+
+  85% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+
+  90% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+
+  95% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(10px, -10px);
+  }
+
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
