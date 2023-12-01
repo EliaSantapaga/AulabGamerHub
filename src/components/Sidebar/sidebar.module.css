@@ -1,0 +1,30 @@
+.sidebar {
+    height: 62.5%;
+    width: 220px;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    background-color: #1818188e;
+    overflow-x: hidden;
+    box-shadow: 0 0 9px 3px var(--gold);
+    padding-top: 20px;
+  }
+  
+  .sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  

@@ -9,8 +9,6 @@ function Genre() {
   const { genre } = useParams();
 
   useEffect(() => {
-    setLoading(true);
-
     async function getGenre() {
       const response = await fetch(
         `${import.meta.env.VITE_BASE_URL}games?key=${
@@ -20,11 +18,8 @@ function Genre() {
       const json = await response.json();
       setGenres(json.results);
     }
-
-    setLoading(false);
     getGenre();
-  }),
-    [genre];
+  }, [genre]);
 
   return (
     <div className="container my-5">
