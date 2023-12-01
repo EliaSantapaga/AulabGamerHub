@@ -1,8 +1,14 @@
+import Space from "../components/Space";
+import AppLayout from "../layout/AppLayout";
+
 function AccountProfile() {
   return (
-    <div className="text-white center-flex my-5">
-      <h1>Benvenuto, AccountProfile</h1>
-    </div>
+    <AppLayout>
+      <div className="text-white center-flex mb-5">
+        <Space />
+        <h1 className="mt-5">Benvenuto, AccountProfile</h1>
+      </div>
+    </AppLayout>
   );
 }
 

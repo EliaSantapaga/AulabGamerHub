@@ -6,7 +6,7 @@ function HomeCards() {
   return (
     <section className="container px-4 py-5" id="featured-3">
       <h2
-        className="pb-2 border-bottom text-center text-white shadow-pink ff-orbitron"
+        className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel"
         data-aos="fade-up"
         data-aos-delay="300"
         data-aos-anchor-placement="center-bottom"
@@ -42,7 +42,7 @@ function HomeCards() {
               href="https://www.playstation.com/it-it/ps-plus/?emcid=pa-co-445764&gclid=Cj0KCQjwr4eYBhDrARIsANPywChaApCAlP8rNuTVhVlIf9HmA9VHdn6S9SFKNvwhaBRsZy1kOmjexNUaAhjdEALw_wcB&gclsrc=aw.ds"
               rel="noreferrer"
             >
-              <button className="ff-orbitron text-uppercase cardbutton playstationbutton my-4 mx-1">
+              <button className="ff-cinzel text-uppercase cardbutton playstationbutton my-4 mx-1">
                 Vai al sito
               </button>
             </a>
@@ -77,7 +77,7 @@ function HomeCards() {
               href="https://www.xbox.com/it-IT/xbox-game-pass"
               rel="noreferrer"
             >
-              <button className="ff-orbitron text-uppercase cardbutton xboxbutton my-4">
+              <button className="ff-cinzel text-uppercase cardbutton xboxbutton my-4">
                 Vai al sito
               </button>
             </a>
@@ -111,7 +111,7 @@ function HomeCards() {
               href="https://www.nintendo.it/Nintendo-Switch-Online/Nintendo-Switch-Online-1183143.html"
               rel="noreferrer"
             >
-              <button className="ff-orbitron text-uppercase cardbutton switchbutton my-4">
+              <button className="ff-cinzel text-uppercase cardbutton switchbutton my-4">
                 Vai al sito
               </button>
             </a>

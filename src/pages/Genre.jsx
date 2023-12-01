@@ -31,7 +31,7 @@ function Genre() {
       <div className="row mt-5 mb-5">
         <div className="col-12 d-flex justify-content-center mt-5">
           <h1
-            className="pb-2 border-bottom text-center text-white shadow-pink ff-orbitron mt-none mt-md-5"
+            className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel mt-none mt-md-5"
             data-aos="fade-up"
             data-aos-delay="100"
             data-aos-anchor-placement="center-bottom"

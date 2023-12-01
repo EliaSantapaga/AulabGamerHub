@@ -2,7 +2,6 @@ import HomeHeader from "../components/HomeHeader";
 import HomeCards from "../components/HomeCards";
 import HomeTrailer from "../components/HomeTrailer";
 import AppLayout from "../layout/AppLayout";
-// import HomeSlider from "../components/HomeSlider";
 
 function Home() {
   return (
@@ -11,8 +10,6 @@ function Home() {
 
       <div className="space"></div>
       <div className="space"></div>
-
-      {/* <HomeSlider /> */}
 
       <HomeCards />
 

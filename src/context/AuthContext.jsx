@@ -2,6 +2,6 @@ import { createContext } from "react";
 
 //* Il contesto contiene un oggetto
 
-const UserContext = createContext({});
+const AuthContext = createContext({});
 
-export default UserContext;
+export default AuthContext;

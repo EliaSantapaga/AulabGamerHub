@@ -1,62 +1,147 @@
-import { Link } from "react-router-dom";
+import supabase from "../supabase/client";
+import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../layout/AuthLayout";
-// import { supabase } from "../supabase/client";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
+import Space from "../components/Space";
+// import { useContext } from "react";
+// import AuthContext from "../context/AuthContext";
+
+//* VALIDATION FORM
+const schemaValidation = Yup.object({
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(30, "Too Long!")
+    .required("Required"),
+  last_name: Yup.string()
+    .min(2, "Too Short!")
+    .max(30, "Too Long!")
+    .required("Required"),
+  username: Yup.string()
+    .min(3, "Too Short!")
+    .max(30, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string().min(4, "Password too short").required("Required"),
+  confirm_password: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Must match")
+    .required("Required"),
+});
 
 function Register() {
+  // const { signUp } = useContext(AuthContext);
+  const navigate = useNavigate();
+  // const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
   // const handleRegister = async (event) => {
   //   event.preventDefault();
-  //   let { data, error } = await supabase.auth.signUp({
-  //     email: "someone@email.com",
-  //     password: "QmrztiWEYcVIjmjFhQRL",
+
+  //   const { username, email, password } = Object.fromEntries(
+  //     new FormData(event.currentTarget)
+  //   );
+
+  //   let { error } = await signUp({
+  //     email, //* Valore che arriva dal campo email del form
+  //     password, //* Valore che arriva dal campo password del form
+  //     options: {
+  //       data: {
+  //         username,
+  //       },
+  //     },
   //   });
 
   //   if (error) {
   //     alert(error.error_description || error.message);
   //   } else {
-  //     console.log(data);
+  //     navigate("./profile");
   //   }
   // };
 
-  // handleRegister();
+  // const handleRegister = async (event) => {
+  //   event.preventDefault();
+  //   const registerForm = event.currentTarget;
+  //   const { username, email, password } = Object.fromEntries(
+  //     new FormData(registerForm)
+  //   );
+  //   try {
+  //     let { error } = await supabase.auth.signUp({
+  //       email,
+  //       password,
+  //       options: {
+  //         data: {
+  //           username,
+  //         },
+  //       },
+  //     });
+  //     if (error) {
+  //       alert(error.error_description || error.message);
+  //     } else {
+  //       registerForm.reset();
+  //       navigate("/profile");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const handleRegisterFormik = async (values) => {
+    try {
+      let { error } = await supabase.auth.signUp({
+        email: values.email,
+        password: values.password,
+        options: {
+          data: {
+            name: values.name,
+            last_name: values.last_name,
+            username: values.username,
+          },
+        },
+      });
+      if (error) {
+        alert(error.error_description || error.message);
+      } else {
+        navigate("/profile");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <AuthLayout>
-      <div className="text-white center-flex mb-5">
-        <div className="container mt-5">
-          <div className="row mt-5 mb-5">
-            <div className="col-12 d-flex justify-content-center">
-              <h1
-                className="pb-2 border-bottom text-center text-white shadow-pink ff-orbitron mt-none mt-md-5"
-                data-aos="fade-up"
-                data-aos-delay="100"
-                data-aos-anchor-placement="center-bottom"
-              >
-                Registrati
-              </h1>
-            </div>
+      <div className="auth-page container px-3">
+        <Space />
+        <div className="row my-md-5 my-4">
+          <div className="col-12 d-flex justify-content-center">
+            <h1
+              className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-anchor-placement="center-bottom"
+            >
+              Sign Up
+            </h1>
           </div>
-          <div className="row justify-content-center">
-            {/* <div className="col-12">
-                @if (session('message'))
-                    <div className="alert alert-success">
-                        {{ session('message') }}
-                    </div>
-                @endif
-            </div> */}
+        </div>
 
-            <div className="col-12 col-md-5 mb-5 align-items-center justify-content-center text-white">
-              <form method="POST" action="{{ route('register') }}">
-                {/* @csrf */}
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-5 mb-5 text-white">
+            {/* <form onSubmit={handleRegister}>
+                
 
                 <div className="mb-3">
                   <label htmlFor="registerName" className="form-label">
-                    Nome Utente
+                    Username
                   </label>
                   <input
-                    name="name"
-                    type="text"
                     className="form-control"
-                    id="registerName"
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="TarnishedSamurai69"
+                    // onChange={(event) => setUsername(event.target.value)}
                   />
                 </div>
 
@@ -67,8 +152,10 @@ function Register() {
                   <input
                     name="email"
                     type="email"
+                    id="email"
                     className="form-control"
-                    id="registerEmail"
+                    placeholder="nome.cognome@example.com"
+                    // onChange={(event) => setEmail(event.target.value)}
                   />
                 </div>
 
@@ -79,42 +166,266 @@ function Register() {
                   <input
                     name="password"
                     type="password"
+                    id="password"
                     className="form-control"
-                    id="registerPassword"
+                    placeholder="Scrivi una password sicura"
+                    // onChange={(event) => setPassword(event.target.value)}
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label
-                    htmlFor="registerPasswordConfirm"
-                    className="form-label"
-                  >
-                    Conferma Password
+                  <label htmlFor="PasswordConfirm" className="form-label">
+                    Confirm Password
                   </label>
                   <input
-                    name="password_confirmation"
+                    name="password_confirm"
                     type="password"
+                    id="password_confirm"
                     className="form-control"
-                    id="registerPasswordConfirm"
+                    placeholder="Riscrivi la tua password"
                   />
                 </div>
 
                 <div className="center-flex">
                   <button
                     type="submit"
-                    className="cardbutton btn btn-prezzo ff-orbitron d-flex align-items-center justify-content-center text-white linkCard mt-4"
+                    className="cardbutton btn btn-prezzo ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4"
                   >
-                    Registrati
+                    Sign Up
                   </button>
 
-                  <Link className="text-white  mt-3" to="/login">
-                    <p className=" ff-orbitron">
-                      Se hai già un account, fai click qui per accedere
-                    </p>
+                  <Link className="text-white ff-cinzel mt-3" to="/login">
+                    If you already have an account, click here to log in
                   </Link>
                 </div>
-              </form>
-            </div>
+              </form> */}
+
+            {/*//* VALIDATION - INITIAL VALUES  */}
+            <Formik
+              initialValues={{
+                name: "",
+                last_name: "",
+                username: "",
+                email: "",
+                password: "",
+                confirm_password: "",
+              }}
+              validationSchema={schemaValidation}
+              onSubmit={(values) => {
+                handleRegisterFormik(values);
+              }}
+            >
+              {({ errors, touched }) => (
+                <Form>
+                  <div className="row">
+                    {/* //* NAME -----------------------------------*/}
+                    {errors.name && touched.name ? (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label
+                          htmlFor="registerName"
+                          className="form-label text-danger"
+                        >
+                          Name
+                        </label>
+                        <Field
+                          name="name"
+                          type="text"
+                          className="form-control box-shadow-danger"
+                          placeholder="Ranni"
+                        />
+                        <div className="text-danger mt-2">{errors.name}</div>
+                      </div>
+                    ) : (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label htmlFor="registerName" className="form-label">
+                          Name
+                        </label>
+                        <Field
+                          name="name"
+                          type="text"
+                          className="form-control focus-shadow"
+                          placeholder="Ranni"
+                        />
+                      </div>
+                    )}
+
+                    {/* //* LAST NAME -----------------------------------*/}
+                    {errors.last_name && touched.last_name ? (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label
+                          htmlFor="registerName"
+                          className="form-label text-danger"
+                        >
+                          Last Name
+                        </label>
+                        <Field
+                          name="last_name"
+                          type="text"
+                          className="form-control box-shadow-danger"
+                          placeholder="De Witch"
+                        />
+                        <div className="text-danger mt-2">
+                          {errors.last_name}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label htmlFor="registerName" className="form-label">
+                          Last Name
+                        </label>
+                        <Field
+                          name="last_name"
+                          type="text"
+                          className="form-control focus-shadow"
+                          placeholder="De Witch"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* //* USERNAME -----------------------------------*/}
+                  {errors.username && touched.username ? (
+                    <div className="mb-3">
+                      <label
+                        htmlFor="registerName"
+                        className="form-label text-danger"
+                      >
+                        Username
+                      </label>
+                      <Field
+                        name="username"
+                        type="text"
+                        className="form-control box-shadow-danger"
+                        placeholder="TarnishedSamurai69"
+                      />
+                      <div className="text-danger mt-2">{errors.username}</div>
+                    </div>
+                  ) : (
+                    <div className="mb-3">
+                      <label htmlFor="registerName" className="form-label">
+                        Username
+                      </label>
+                      <Field
+                        name="username"
+                        type="text"
+                        className="form-control focus-shadow"
+                        placeholder="TarnishedSamurai69"
+                      />
+                    </div>
+                  )}
+
+                  {/* //* E-MAIL -----------------------------------*/}
+                  {errors.email && touched.email ? (
+                    <div className="mb-3">
+                      <label
+                        htmlFor="registerName"
+                        className="form-label text-danger"
+                      >
+                        E-mail
+                      </label>
+                      <Field
+                        name="email"
+                        type="email"
+                        className="form-control box-shadow-danger"
+                        placeholder="name.lastname@example.com"
+                      />
+                      <div className="text-danger mt-2">{errors.email}</div>
+                    </div>
+                  ) : (
+                    <div className="mb-3">
+                      <label htmlFor="registerName" className="form-label">
+                        E-mail
+                      </label>
+                      <Field
+                        name="email"
+                        type="email"
+                        className="form-control focus-shadow"
+                        placeholder="name.lastname@example.com"
+                      />
+                    </div>
+                  )}
+
+                  <div className="row">
+                    {/* //* PASSWORD -----------------------------------*/}
+                    {errors.password && touched.password ? (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label
+                          htmlFor="registerName"
+                          className="form-label text-danger"
+                        >
+                          Password
+                        </label>
+
+                        <Field
+                          name="password"
+                          type="password"
+                          className="form-control box-shadow-danger"
+                          placeholder="HardPassword2023!"
+                        />
+                        <div className="text-danger mt-2">
+                          {errors.password}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label htmlFor="registerName" className="form-label">
+                          Password
+                        </label>
+                        <Field
+                          name="password"
+                          type="password"
+                          className="form-control focus-shadow"
+                          placeholder="HardPassword2023!"
+                        />
+                      </div>
+                    )}
+
+                    {/* //* CONFIRM PASSWORD -----------------------------------*/}
+                    {errors.confirm_password && touched.confirm_password ? (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label
+                          htmlFor="registerName"
+                          className="form-label text-danger"
+                        >
+                          Confirm Password
+                        </label>
+                        <Field
+                          name="confirm_password"
+                          type="password"
+                          className="form-control box-shadow-danger"
+                          placeholder="HardPassword2023!"
+                        />
+                        <div className="text-danger mt-2">
+                          {errors.confirm_password}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="col-12 col-md-6 mb-3">
+                        <label htmlFor="registerName" className="form-label">
+                          Confirm Password
+                        </label>
+                        <Field
+                          name="confirm_password"
+                          type="password"
+                          className="form-control focus-shadow"
+                          placeholder="HardPassword2023!"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* //* BUTTON SIGN UP -----------------------------------*/}
+                  <div className="center-flex">
+                    <button
+                      type="submit"
+                      className="game-list-button mt-4"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </div>

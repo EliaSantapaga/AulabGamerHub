@@ -78,10 +78,10 @@ function GameList() {
     <AppLayout>
       <div className="container mb-5">
         <div className="row mb-5">
-            <Space />
+          <Space />
           <div className="col-12 d-flex justify-content-center">
             <h1
-              className="pb-2 border-bottom text-center text-white shadow-pink ff-orbitron mt-none mt-4 mb-5"
+              className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel mt-none mt-4 mb-5"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -128,7 +128,7 @@ function GameList() {
           {error && (
             <div className="center-flex">
               <div className="col-12 col-lg-6 mb-3 center-flex text-center text-white git-sentence">
-                <p className="neon ff-orbitron git">{error}</p>
+                <p className="neon ff-cinzel git">{error}</p>
               </div>
             </div>
           )}

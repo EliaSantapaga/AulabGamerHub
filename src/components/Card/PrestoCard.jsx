@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 // import AppContext from "../context/AppContext";
 
@@ -11,10 +13,11 @@ function PrestoCard({ game }) {
         className="card d-flex justify-content-center text-center card-annunci"
         style={{ height: "370px" }}
       >
-        <img
-          src={game.background_image}
+        <LazyLoadImage
           className="card-img-top card-img"
+          src={game.background_image}
           alt={game.name}
+          effect="blur"
         />
 
         <div className="card-body d-flex justify-content-between align-items-center flex-column">
@@ -23,14 +26,8 @@ function PrestoCard({ game }) {
             {game.genres.map((genre) => genre.name).join(", ")}
           </p>
 
-          <Link className="decoration-none" to={`/game/${game.slug}`}>
-            <a
-              href=""
-              className="cardbutton btn btn-prezzo ff-orbitron d-flex align-items-center justify-content-center text-white linkCard decoration-none"
-              target="_blank"
-            >
-              Scopri di più...
-            </a>
+          <Link to={`/game/${game.slug}`}>
+            <button className="game-list-button ff-cinzel">Scopri di più...</button>
           </Link>
         </div>
       </div>

@@ -19,6 +19,9 @@ export function DefaultSwiper(props) {
 
     // initialize swiper
     swiperRef.current.initialize();
+    // setInterval(() => {
+      
+    // }, 1500);
   }, []);
 
   return (

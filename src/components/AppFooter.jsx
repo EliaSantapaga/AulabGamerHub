@@ -26,7 +26,7 @@ function AppFooter() {
           </div>
 
           <div className="col-12 col-lg-6 mb-3 center-flex text-center text-white git-sentence ">
-            <p className="shadow-pink ff-orbitron fs-4 px-3">
+            <p className="shadow-pink ff-cinzel fs-4 px-3">
               Visita il nostro blog{" "}
               <a
                 href="https://gamesintime.altervista.org"
@@ -34,7 +34,7 @@ function AppFooter() {
                 className="git"
                 rel="noreferrer"
               >
-                <span className="neon ff-orbitron git">Games In Time!</span>
+                <span className="neon ff-cinzel git">Games In Time!</span>
               </a>
               <br /> Le notizie di cui hai bisogno a portata di click!
             </p>

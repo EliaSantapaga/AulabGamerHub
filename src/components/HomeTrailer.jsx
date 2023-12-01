@@ -25,20 +25,20 @@ function HomeTrailer() {
 
             <div className="space-trailer"></div>
 
-            <h3 className="text-center px-2 ff-orbitron shadow-pink text-trailer">
+            <h3 className="text-center px-2 ff-cinzel shadow-pink text-trailer">
               Oltre
-              <span className="ff-orbitron neon mx-3" id="games-number">
+              <span className="ff-cinzel neon mx-3" id="games-number">
                 200
               </span>
               videogiochi <br /> disponibili...
             </h3>
 
-            <h3 className="text-center px-4 ff-orbitron shadow-pink  text-trailer">
+            <h3 className="text-center px-4 ff-cinzel shadow-pink  text-trailer">
               ...e moltissimi altri in arrivo!
             </h3>
 
             <a href="./Annunci.html">
-              <button className="ff-orbitron text-uppercase cardbutton trailer-button my-4">
+              <button className="ff-cinzel text-uppercase cardbutton trailer-button my-4">
                 Scopri di più
               </button>
             </a>

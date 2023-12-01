@@ -2,18 +2,47 @@
   --red: #dc152c;
   --blue: #2670b7;
   --pink: #ff3cf2;
-  --grey: #dcbeda;
-  --gold: #ff8c00;
+  --light-pink: #dcbeda;
+  --gold: rgb(255, 140, 0);
   --indigo: #710096;
 }
 
 * {
-  font-family: "Saira", sans-serif;
+  font-family: "Cinzel", serif;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+
+  background: url("/src/assets/black-background.jpg");
+
+  backdrop-filter: blur(5px);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.ff-elden-ring {
+  font-family: "MantiniaRegular";
+  src:
+    local("MantiniaRegular"),
+    url("./fonts/MantiniaRegular.otf") format("truetype");
 }
 
 .ff-orbitron {
   font-family: "Orbitron", sans-serif;
+}
+
+.ff-cinzel {
+  font-family: "Cinzel", serif;
+}
+
+.ff-nova {
+  font-family: "Nova Square", sans-serif;
 }
 
 .text-red {
@@ -28,8 +57,8 @@
   color: var(--pink);
 }
 
-.text-grey {
-  color: var(--grey);
+.text-light-pink {
+  color: var(--light-pink);
 }
 
 .text-gold {
@@ -40,13 +69,8 @@
   color: var(--indigo);
 }
 
-.text-shadow {
-  text-shadow: 2px -2px 0px var(--gold);
-}
-
-.shadow-pink {
-  text-shadow: 2px -2px 0px var(--pink);
-  font-size: 50px;
+.fs-100 {
+  font-size: 100px;
 }
 
 .fs-6 {
@@ -67,20 +91,6 @@
 
 .cursor-default {
   cursor: default;
-}
-
-body {
-  margin: 0px;
-  padding: 0px;
-
-  background: 
-  
-    url("/src/assets/black-background.jpg");
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
 }
 
 .center-flex {
@@ -107,7 +117,52 @@ Link {
   text-decoration: none !important;
 }
 
-/*NAVBAR ------------------------------------- */
+/*//* SHADOWS ----------------------------- */
+
+.text-shadow {
+  text-shadow: 2px -2px 0px var(--gold);
+}
+
+.shadow-pink {
+  text-shadow: 2px -2px 0px var(--gold);
+  font-size: 50px;
+}
+
+.shadow-neon {
+  color: white;
+  text-shadow:
+    2px 2px 1px rgba(0, 0, 0, 0.5),
+    0 0 20px #fff,
+    0 0 10px var(--gold),
+    0 0 50px var(--gold);
+}
+
+.box-shadow-danger,
+.box-shadow-danger:focus {
+  box-shadow: 0 0 10px var(--red);
+  transition: 500ms;
+}
+
+.focus-shadow:focus {
+  box-shadow: 0 0 10px var(--gold);
+  transition: 500ms;
+}
+
+.no-shadow:focus {
+  box-shadow: none;
+}
+
+/*//* AUTH PAGES --------------------------- */
+
+.auth-page {
+  height: 100vh;
+}
+
+.error-validation {
+  color: red;
+}
+
+/*//* NAVBAR ------------------------------------- */
 
 .navbar {
   animation: navbar 1s ease 0s normal;
@@ -158,7 +213,7 @@ Link {
 }
 
 .nav-link {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Cinzel", sans-serif;
 }
 
 .presto {
@@ -180,7 +235,8 @@ Link {
 }
 
 .logo {
-  animation: logo 0.5s cubic-bezier(0.7, 0, 0.84, 0) 0.4s 1 normal forwards,
+  animation:
+    logo 0.5s cubic-bezier(0.7, 0, 0.84, 0) 0.4s 1 normal forwards,
     neon 1.5s infinite alternate;
   text-shadow: 2px -2px 0px var(--gold);
   animation-fill-mode: both;
@@ -220,17 +276,17 @@ Link {
   overflow: hidden;
 }
 
-/* HEADER ------------------------------------ */
+/*//* HEADER ------------------------------------ */
 
 .header {
-  height: 800px;
+  height: 1000px;
   margin-bottom: -235px;
   padding: 0px;
   z-index: -2;
 
   position: relative;
 
-  background: url("/src/assets/assassins\ creed\ transparent.png");
+  background: url("/src/assets/roundtable-hold.png");
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -238,7 +294,8 @@ Link {
 }
 
 .header-text {
-  animation: fadeInUp 1s ease 0.6s normal both,
+  animation:
+    fadeInUp 1s ease 0.6s normal both,
     arrow 0.75s ease 0s infinite alternate forwards;
   font-size: 50px;
 }
@@ -251,7 +308,7 @@ Link {
 
 .glitch {
   font-size: 90px;
-  text-shadow: 3px -3px 0px var(--pink);
+  text-shadow: 3px -3px 0px var(--gold);
   position: relative;
 
   animation: fadeInUp 1s ease 0.3s normal both;
@@ -265,7 +322,7 @@ Link {
   background: linear-gradient(45deg, transparent 5%, rgb(12, 111, 232) 5%);
   border: 0;
   color: #fff;
-  box-shadow: 6px -6px 0px var(--pink);
+  box-shadow: 6px -6px 0px var(--gold);
   outline: transparent;
   position: relative;
 
@@ -287,9 +344,11 @@ Link {
     transparent 3%,
     var(--red) 3%,
     var(--blue) 5%,
-    var(--pink) 5%
+    var(--gold) 5%
   );
-  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px var(--blue);
+  text-shadow:
+    -3px -3px 0px #f8f005,
+    3px 3px 0px var(--blue);
   clip-path: var(--slice-0);
 
   animation: 2s glitchHeader infinite;
@@ -314,13 +373,14 @@ Link {
 }
 
 .arrow {
-  animation: fadeInUp 1s ease 0.6s normal both,
+  animation:
+    fadeInUp 1s ease 0.6s normal both,
     arrow 0.75s ease 0s infinite alternate forwards,
     neon 1.5s infinite alternate;
   font-size: 50px;
 }
 
-/* GAME LIST --------------------------------- */
+/*//* GAME LIST --------------------------------- */
 
 .game-list {
   position: relative;
@@ -346,13 +406,13 @@ Link {
   height: auto;
 }
 
-/* CARDS ------------------------------------- */
+/*//* CARDS ------------------------------------- */
 
 .game-card {
   background: linear-gradient(45deg, transparent 5%, rgb(5, 66, 139) 5%);
   border: 0;
   color: #fff;
-  box-shadow: 6px -6px 0px var(--pink);
+  box-shadow: 6px -6px 0px var(--gold);
   outline: transparent;
 }
 
@@ -366,7 +426,7 @@ Link {
 
 .profile-card {
   color: #fff;
-  box-shadow: 6px -6px 0px var(--pink);
+  box-shadow: 6px -6px 0px var(--gold);
   outline: transparent;
   width: 600px;
   height: fit-content;
@@ -387,7 +447,7 @@ Link {
   margin-left: 40px;
 }
 
-/* BUTTONS ----------------------------------- */
+/*//* BUTTONS ----------------------------------- */
 
 .cardbutton,
 .article-btn,
@@ -398,7 +458,7 @@ Link {
   background: linear-gradient(45deg, transparent 5%, rgb(12, 111, 232) 5%);
   border: 0;
   color: #fff;
-  box-shadow: 6px -6px 0px var(--pink);
+  box-shadow: 6px -6px 0px var(--gold);
   outline: transparent;
   position: relative;
 }
@@ -433,9 +493,11 @@ Link {
     transparent 3%,
     var(--red) 3%,
     var(--blue) 5%,
-    var(--pink) 5%
+    var(--gold) 5%
   );
-  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px var(--blue);
+  text-shadow:
+    -3px -3px 0px #f8f005,
+    3px 3px 0px var(--blue);
   clip-path: var(--slice-0);
 }
 
@@ -459,7 +521,24 @@ Link {
   background: linear-gradient(45deg, transparent 5%, rgb(23, 26, 33) 5%);
 }
 
-/* TRAILER ----------------------------------- */
+/*//* CARDS AND SOCIAL BUTTONS ------------------ */
+
+.game-list-button {
+  height: 45px;
+  width: 180px;
+  text-align: center;
+  background: #171515;
+  color: #666;
+  transition: 0.5s;
+}
+
+.game-list-button:hover {
+  color: #ffa502;
+  box-shadow: 0 0 15px #d35400;
+  text-shadow: 0 0 15px #d35400;
+}
+
+/*//* TRAILER ----------------------------------- */
 
 .trailer {
   background-image: url("src/assets/Hollow\ Knight\ Silksong.png");
@@ -478,7 +557,7 @@ Link {
     rgba(38, 112, 183, 0.8) 5%,
     rgba(220, 21, 44, 0.8)
   );
-  box-shadow: 6px -6px 0px var(--pink);
+  box-shadow: 6px -6px 0px var(--gold);
 }
 
 .trailer-col {
@@ -518,7 +597,7 @@ Link {
     rgb(220, 21, 44) 5%,
     rgb(38, 112, 183)
   );
-  box-shadow: 6px -6px 0px var(--pink);
+  box-shadow: 6px -6px 0px var(--gold);
 }
 
 .git {
@@ -527,11 +606,11 @@ Link {
   color: white;
 }
 
-/* ARTICLES ---------------------------------- */
+/*//* ARTICLES ---------------------------------- */
 
 .img-article,
 .img-edit {
-  box-shadow: 0 0 9px 3px var(--pink);
+  box-shadow: 0 0 9px 3px var(--gold);
 }
 
 .img-article {
@@ -552,23 +631,16 @@ Link {
   box-shadow: none;
 }
 
-/* .article-btn:hover {
-  height: 50px;
-  width: 200px;
-  animation-duration: 0.5s;
-  box-shadow: none;
-} */
-
 .article-form,
 .articles {
   animation: fadeInUp 0.6s ease 0.3s normal both;
 }
 
-/* FOOTER ------------------------------------ */
+/*//* FOOTER ------------------------------------ */
 
 .footer {
-  background: linear-gradient(120deg, var(--red), var(--blue));
-  box-shadow: 0 0 9px 3px var(--pink);
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 9px 3px var(--gold);
   position: relative;
   display: block;
   bottom: 0;
@@ -587,7 +659,7 @@ Link {
   height: 150px;
 }
 
-/* Social */
+/*//* SOCIAL ---------------------------------- */
 
 .slider-social {
   margin-bottom: 0px;
@@ -599,10 +671,9 @@ Link {
   width: 300px;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 0 0 9px 3px var(--pink);
+  box-shadow: 0 0 9px 3px var(--gold);
 
-  /* background-color: rgb(211, 211, 211); */
-  background: linear-gradient(120deg, #dc152c, #2670b7);
+  background-color: rgba(255, 140, 0, 0.1);
   overflow: hidden;
 }
 
@@ -619,8 +690,8 @@ Link {
 }
 
 .menu-slider a.item:hover {
-  color: white;
-  text-shadow: 2px -2px 0px var(--pink);
+  color: black;
+  text-shadow: 2px -2px 0px var(--gold);
   transform: scale(1.3) rotateZ(360deg);
 }
 
@@ -631,7 +702,9 @@ Link {
   height: 100%;
   width: 60px;
   z-index: 1;
-  background: linear-gradient(120deg, var(--pink), var(--blue));
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgb(255, 140, 0);
+
   border-radius: 40px;
 
   transition: 1s cubic-bezier(0.7, -0.3, 0, 1);
@@ -657,7 +730,7 @@ Link {
   left: 240px;
 }
 
-/* VIDEOGAMES -------------------------------- */
+/*//* VIDEOGAMES -------------------------------- */
 
 .card-annunci {
   background: linear-gradient(45deg, transparent 5%, white 5%);
@@ -711,7 +784,9 @@ Link {
     var(--blue) 5%,
     var(--pink) 5%
   );
-  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px var(--blue);
+  text-shadow:
+    -3px -3px 0px #f8f005,
+    3px 3px 0px var(--blue);
   clip-path: var(--slice-0);
 }
 
@@ -732,7 +807,7 @@ Link {
   height: 15.9vh;
 }
 
-/* MEDIA SCREEN ------------------------------ */
+/*//* MEDIA SCREEN ------------------------------ */
 
 @media screen and (max-width: 1200px) and (min-width: 768px) {
   .cardbutton {
@@ -841,7 +916,7 @@ Link {
   }
 }
 
-/* ANIMAZIONI -------------------------------- */
+/*//* ANIMAZIONI -------------------------------- */
 
 @keyframes fadeInUp {
   0% {
@@ -891,14 +966,26 @@ Link {
 
 @keyframes neon {
   100% {
-    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
-      0 0 40px var(--gold), 0 0 80px var(--gold), 0 0 90px var(--gold),
-      0 0 100px var(--gold), 0 0 150px var(--gold);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px var(--gold),
+      0 0 80px var(--gold),
+      0 0 90px var(--gold),
+      0 0 100px var(--gold),
+      0 0 150px var(--gold);
   }
 
   0% {
-    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px var(--gold),
-      0 0 45px var(--gold), 0 0 55px var(--gold), 0 0 70px var(--gold),
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 6px #fff,
+      0 0 10px var(--gold),
+      0 0 45px var(--gold),
+      0 0 55px var(--gold),
+      0 0 70px var(--gold),
       0 0 80px var(--gold);
   }
 }

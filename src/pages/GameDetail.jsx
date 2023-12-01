@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GameDetailLayout from "../layout/GameDetailLayout";
+import Space from "../components/Space";
 
 function GameDetail() {
   // const params = useParams();
@@ -29,11 +30,12 @@ function GameDetail() {
 
   return (
     <GameDetailLayout>
-      <div className="container my-5">
-        <div className="row my-5">
-          <div className="col-12 d-flex justify-content-center mt-5">
+      <div className="container mb-5">
+        <div className="row mb-5">
+          <Space />
+          <div className="col-12 d-flex justify-content-center ">
             <h1
-              className="pb-2 border-bottom text-center text-white shadow-pink ff-orbitron mt-none mt-5"
+              className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel mt-none mt-5"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -45,9 +47,7 @@ function GameDetail() {
             <div className="col-6">
               <img className="img-article" src={game.background_image} alt="" />
             </div>
-            <div className="col-6 text-white">
-              {game.description_raw}
-            </div>
+            <div className="col-6 text-white">{game.description_raw}</div>
           </div>
         </div>
       </div>

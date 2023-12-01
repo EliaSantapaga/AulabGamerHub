@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppContext from "./context/AppContext";
 import RoutesPage from "./routes/RoutesPage";
+import AuthContext from "./context/AuthContext";
+import useAuth from "./hooks/useAuth";
 
 function App() {
   const [admin, setAdmin] = useState(true);
@@ -57,11 +59,15 @@ function App() {
 }
 
 function Root() {
+  const data = useAuth();
+
   return (
     //* Router (o BrowserRouter) racchiude tutto il sito. Serve per poter utilizzare le rotte.
-    <Router>
-      <App />
-    </Router>
+    <AuthContext.Provider value={data}>
+      <Router>
+        <App />
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
