@@ -1,31 +1,32 @@
-import supabase from "../supabase/client";
-import { Link, useNavigate } from "react-router-dom";
-import AuthLayout from "../layout/AuthLayout";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-import Space from "../components/Space";
+import supabase from '../supabase/client';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthLayout from '../layout/AuthLayout';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import Space from '../components/Space';
+import LeafDecoration from '../components/Decorations/LeafDecoration';
 // import { useContext } from "react";
 // import AuthContext from "../context/AuthContext";
 
 //* VALIDATION FORM
 const schemaValidation = Yup.object({
-  name: Yup.string()
-    .min(2, "Too Short!")
-    .max(30, "Too Long!")
-    .required("Required"),
-  last_name: Yup.string()
-    .min(2, "Too Short!")
-    .max(30, "Too Long!")
-    .required("Required"),
+  // name: Yup.string()
+  //   .min(2, 'Too Short!')
+  //   .max(30, 'Too Long!')
+  //   .required('Required'),
+  // last_name: Yup.string()
+  //   .min(2, 'Too Short!')
+  //   .max(30, 'Too Long!')
+  //   .required('Required'),
   username: Yup.string()
-    .min(3, "Too Short!")
-    .max(30, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().min(4, "Password too short").required("Required"),
+    .min(3, 'Too Short!')
+    .max(30, 'Too Long!')
+    .required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string().min(6, 'Password too short').required('Required'),
   confirm_password: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Must match")
-    .required("Required"),
+    .oneOf([Yup.ref('password'), null], 'Must match')
+    .required('Required'),
 });
 
 function Register() {
@@ -88,21 +89,20 @@ function Register() {
 
   const handleRegisterFormik = async (values) => {
     try {
-      let { error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email: values.email,
         password: values.password,
         options: {
           data: {
-            name: values.name,
-            last_name: values.last_name,
             username: values.username,
           },
         },
       });
       if (error) {
+        // eslint-disable-next-line no-alert
         alert(error.error_description || error.message);
       } else {
-        navigate("/profile");
+        navigate('/profile');
       }
     } catch (error) {
       console.log(error);
@@ -116,7 +116,7 @@ function Register() {
         <div className="row my-md-5 my-4">
           <div className="col-12 d-flex justify-content-center">
             <h1
-              className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel"
+              className="pb-2 text-center text-white shadow-pink ff-cinzel"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -124,10 +124,11 @@ function Register() {
               Sign Up
             </h1>
           </div>
+          <LeafDecoration />
         </div>
 
         <div className="row justify-content-center">
-          <div className="col-12 col-md-5 mb-5 text-white">
+          <div className="col-12 col-md-5 mb-5 text-white" id="Register">
             {/* <form onSubmit={handleRegister}>
                 
 
@@ -203,12 +204,10 @@ function Register() {
             {/*//* VALIDATION - INITIAL VALUES  */}
             <Formik
               initialValues={{
-                name: "",
-                last_name: "",
-                username: "",
-                email: "",
-                password: "",
-                confirm_password: "",
+                username: '',
+                email: '',
+                password: '',
+                confirm_password: '',
               }}
               validationSchema={schemaValidation}
               onSubmit={(values) => {
@@ -217,18 +216,18 @@ function Register() {
             >
               {({ errors, touched }) => (
                 <Form>
-                  <div className="row">
-                    {/* //* NAME -----------------------------------*/}
-                    {errors.name && touched.name ? (
+                  {/* <div className="row"> */}
+                  {/* //* FIRST NAME -----------------------------------*/}
+                  {/* {errors.first_name && touched.first_name ? (
                       <div className="col-12 col-md-6 mb-3">
                         <label
-                          htmlFor="registerName"
+                          htmlFor="registerFirstName"
                           className="form-label text-danger"
                         >
-                          Name
+                          First Name
                         </label>
                         <Field
-                          name="name"
+                          name="first_name"
                           type="text"
                           className="form-control box-shadow-danger"
                           placeholder="Ranni"
@@ -237,20 +236,23 @@ function Register() {
                       </div>
                     ) : (
                       <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="registerName" className="form-label">
-                          Name
+                        <label
+                          htmlFor="registerFirstName"
+                          className="form-label"
+                        >
+                          First Name
                         </label>
                         <Field
-                          name="name"
+                          name="first_name"
                           type="text"
                           className="form-control focus-shadow"
                           placeholder="Ranni"
                         />
                       </div>
-                    )}
+                    )} */}
 
-                    {/* //* LAST NAME -----------------------------------*/}
-                    {errors.last_name && touched.last_name ? (
+                  {/* //* LAST NAME -----------------------------------*/}
+                  {/* {errors.last_name && touched.last_name ? (
                       <div className="col-12 col-md-6 mb-3">
                         <label
                           htmlFor="registerName"
@@ -280,8 +282,8 @@ function Register() {
                           placeholder="De Witch"
                         />
                       </div>
-                    )}
-                  </div>
+                    )} */}
+                  {/* </div> */}
 
                   {/* //* USERNAME -----------------------------------*/}
                   {errors.username && touched.username ? (
@@ -416,10 +418,7 @@ function Register() {
 
                   {/* //* BUTTON SIGN UP -----------------------------------*/}
                   <div className="center-flex">
-                    <button
-                      type="submit"
-                      className="game-list-button mt-4"
-                    >
+                    <button type="submit" className="game-list-button mt-4">
                       Sign Up
                     </button>
                   </div>

@@ -1,14 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import Space from "../components/Space";
-import AuthLayout from "../layout/AuthLayout";
-import supabase from "../supabase/client";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import { Link, useNavigate } from 'react-router-dom';
+import Space from '../components/Space';
+import AuthLayout from '../layout/AuthLayout';
+import supabase from '../supabase/client';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import LeafDecoration from '../components/Decorations/LeafDecoration';
 
 //* VALIDATION FORM -----------------------------------
 const schemaValidation = Yup.object({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().min(4, "Password too short").required("Required"),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string().min(4, 'Password too short').required('Required'),
 });
 
 function Login() {
@@ -36,14 +37,14 @@ function Login() {
 
   const handleLoginFormik = async (values) => {
     try {
-      let { error } = await supabase.auth.signIn({
+      let { error } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
       });
       if (error) {
         alert(error.error_description || error.message);
       } else {
-        navigate("/profile");
+        navigate('/profile');
       }
     } catch (error) {
       console.log(error);
@@ -53,13 +54,13 @@ function Login() {
   const handleLoginWithDiscord = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
-        provider: "discord",
+        provider: 'discord',
       });
 
       if (error) {
         alert(error.error_description || error.message);
       } else {
-        navigate("/profile");
+        navigate('/profile');
       }
     } catch (error) {
       console.log(error);
@@ -73,7 +74,7 @@ function Login() {
         <div className="row my-md-5 my-4">
           <div className="col-12 d-flex justify-content-center">
             <h1
-              className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel"
+              className="pb-2 text-center text-white shadow-pink ff-cinzel"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -81,6 +82,8 @@ function Login() {
               Login
             </h1>
           </div>
+
+          <LeafDecoration />
         </div>
         <div className="row justify-content-around">
           <div
@@ -123,8 +126,8 @@ function Login() {
             {/*//* VALIDATION - INITIAL VALUES ----------------------------------- */}
             <Formik
               initialValues={{
-                email: "",
-                password: "",
+                email: '',
+                password: '',
               }}
               validationSchema={schemaValidation}
               onSubmit={(values) => {
@@ -198,10 +201,7 @@ function Login() {
 
                   {/* //* BUTTON LOGIN ----------------------------------- */}
                   <div className="d-flex align-items-center justify-content-around">
-                    <button
-                      type="submit"
-                      className="cardbutton btn btn-prezzo ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4"
-                    >
+                    <button type="submit" className="game-list-button mt-4">
                       Login
                     </button>
                   </div>

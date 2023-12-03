@@ -1,9 +1,14 @@
-import { useContext, useEffect } from "react";
-import AppContext from "../context/AppContext";
-import PrestoCard from "../components/Card/PrestoCard";
-import PacManLoader from "../components/Loader/PacManLoader";
-import Space from "../components/Space";
-import AppLayout from "../layout/AppLayout";
+/* eslint-disable prettier/prettier */
+import { useContext, useEffect } from 'react';
+import AppContext from '../context/AppContext';
+import PrestoCard from '../components/Card/PrestoCard';
+import PacManLoader from '../components/Loader/PacManLoader';
+import Space from '../components/Space';
+import AppLayout from '../layout/AppLayout';
+// import Filter from '../components/Filter';
+import PaginationUp from '../components/PaginationUp';
+import LeafDecoration from '../components/Decorations/LeafDecoration';
+import PaginationDown from '../components/PaginationDown';
 
 function GameList() {
   const {
@@ -23,25 +28,23 @@ function GameList() {
     setSearch(event.currentTarget.value);
   };
 
-  const handlePaginationUp = () => {
-    setPagination((prevPagination) => prevPagination + 1);
-  };
+  // const handlePaginationUp = () => {
+  //   setPagination((prevPagination) => prevPagination + 1);
+  // };
 
-  const handlePaginationDown = () => {
-    if (pagination !== 1) {
-      setPagination((prevPagination) => prevPagination - 1);
-    }
-  };
+  // const handlePaginationDown = () => {
+  //   if (pagination !== 1) {
+  //     setPagination((prevPagination) => prevPagination - 1);
+  //   }
+  // };
 
   useEffect(() => {
     setGames([]);
-    setError("");
+    setError('');
     setLoading(true);
 
     const timeoutApi = setTimeout(() => {
       async function fetchData() {
-        console.log("Calling API", search);
-
         try {
           const response = await fetch(
             `${import.meta.env.VITE_BASE_URL}games?key=${
@@ -54,10 +57,11 @@ function GameList() {
 
             setGames(json.results);
           } else {
-            setError("Ops, riprova la tua chiamata API");
+            setError('Ops, riprova la tua chiamata API');
           }
+          // eslint-disable-next-line no-shadow
         } catch (error) {
-          setError("Ops, pagina non trovata", error.message);
+          setError('Ops, pagina non trovata', error.message);
         }
 
         setLoading(false);
@@ -76,12 +80,12 @@ function GameList() {
 
   return (
     <AppLayout>
-      <div className="container mb-5">
-        <div className="row mb-5">
-          <Space />
+      <div className="container px-3">
+        <Space />
+        <div className="row my-md-5 my-4">
           <div className="col-12 d-flex justify-content-center">
             <h1
-              className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel mt-none mt-4 mb-5"
+              className="pb-2 text-center text-white shadow-pink ff-cinzel"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -89,17 +93,12 @@ function GameList() {
               Game List
             </h1>
           </div>
-          <div className="col-1 col-md-3 d-flex justify-content-end">
-            <i
-              className={`fa-solid fa-chevron-left fs-1  ${
-                pagination === 1
-                  ? "cursor-default text-grey"
-                  : "cursor-pointer text-light neon"
-              }`}
-              onClick={() => handlePaginationDown(pagination)}
-            ></i>
-          </div>
+          <LeafDecoration />
+        </div>
 
+        {/* <Filter /> */}
+        <div className="row mb-3">
+          <PaginationDown />
           <div className="col-10 col-md-6">
             <div>
               <form className="d-flex" role="search">
@@ -114,17 +113,11 @@ function GameList() {
               </form>
             </div>
           </div>
-          <div className="col-1 col-md-3 d-flex justify-content-start">
-            <i
-              className="fa-solid fa-chevron-right fs-1 text-light neon cursor-pointer"
-              onClick={handlePaginationUp}
-            ></i>
-          </div>
+          <PaginationUp />
         </div>
 
-        <div className="row">
-          {/* //todo - Mostra i dati nell'interfaccia - */}
-
+        <div className="row mb-5">
+          {/* //* Mostra i dati nell'interfaccia - */}
           {error && (
             <div className="center-flex">
               <div className="col-12 col-lg-6 mb-3 center-flex text-center text-white git-sentence">

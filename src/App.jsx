@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import AppContext from "./context/AppContext";
-import RoutesPage from "./routes/RoutesPage";
-import AuthContext from "./context/AuthContext";
-import useAuth from "./hooks/useAuth";
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppContext from './context/AppContext';
+import RoutesPage from './routes/RoutesPage';
+import AuthContext from './context/AuthContext';
+import useAuth from './hooks/useAuth';
 
 function App() {
   const [admin, setAdmin] = useState(true);
   const [games, setGames] = useState([]);
   const [genres, setGenres] = useState([]);
   const [gamesSearched, setGamesSearched] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [pagination, setPagination] = useState(1);
 
   useEffect(() => {

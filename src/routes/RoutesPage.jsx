@@ -1,17 +1,18 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Login from "../pages/Login";
-import Admin from "../pages/Admin";
-import Dashboard from "../pages/Dashboard";
-import AdminRoutes from "../pages/auth/AdminRoutes";
-import RouteNotFound from "../pages/RouteNotFound";
-import GameList from "../pages/GameList";
-import Register from "../pages/Register";
-import GameDetail from "../pages/GameDetail";
-import AccountProfile from "../pages/AccountProfile";
-import LoggedUserRoutes from "../pages/auth/LoggedUserRoutes";
-import Genre from "../pages/Genre";
+import { Routes, Route } from 'react-router-dom';
+import Home from '../pages/Home';
+import About from '../pages/About';
+import Login from '../pages/Login';
+import Admin from '../pages/Admin';
+import Dashboard from '../pages/Dashboard';
+import AdminRoutes from '../pages/auth/AdminRoutes';
+import RouteNotFound from '../pages/RouteNotFound';
+import GameList from '../pages/GameList';
+import Register from '../pages/Register';
+import GameDetail from '../pages/GameDetail';
+import AccountProfile from '../pages/AccountProfile';
+import LoggedUserRoutes from '../pages/auth/LoggedUserRoutes';
+import Genre from '../pages/Genre';
+import AccountSettings from '../pages/AccountSettings';
 
 function RoutesPage() {
   return (
@@ -37,6 +38,7 @@ function RoutesPage() {
 
       <Route element={<LoggedUserRoutes />}>
         <Route path="/profile" element={<AccountProfile />} />
+        <Route path="/settings" element={<AccountSettings />} />
       </Route>
 
       {/* //* Rotta per l'errore 404 - Page not found. Se la rotta non esiste, viene visualizzata questa pagina */}

@@ -5,10 +5,11 @@
   --light-pink: #dcbeda;
   --gold: rgb(255, 140, 0);
   --indigo: #710096;
+  --grey: rgb(156, 136, 88);
 }
 
 * {
-  font-family: "Cinzel", serif;
+  font-family: 'Cinzel', serif;
   box-sizing: border-box;
 }
 
@@ -16,34 +17,46 @@ body {
   margin: 0px;
   padding: 0px;
 
-  background: url("/src/assets/black-background.jpg");
+  background: url('/src/assets/shadows-of-the-erdrtree-4k-wallpaper-16-9-21-9-v0-3vaaf7i4dwka1.webp');
 
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
 
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position: top;
 }
+
+/*//* FONTS --------------------------------- */
 
 .ff-elden-ring {
-  font-family: "MantiniaRegular";
+  font-family: 'MantiniaRegular';
   src:
-    local("MantiniaRegular"),
-    url("./fonts/MantiniaRegular.otf") format("truetype");
-}
-
-.ff-orbitron {
-  font-family: "Orbitron", sans-serif;
+    local('MantiniaRegular'),
+    url('./fonts/MantiniaRegular.otf') format('truetype');
 }
 
 .ff-cinzel {
-  font-family: "Cinzel", serif;
+  font-family: 'Cinzel', serif;
 }
 
 .ff-nova {
-  font-family: "Nova Square", sans-serif;
+  font-family: 'Nova Square', sans-serif;
 }
+
+.ff-comfortaa {
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.ff-gotu {
+  font-family: 'Gotu', sans-serif;
+}
+
+.ff-rajshani {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/*//* TEXT COLORS --------------------------  */
 
 .text-red {
   color: var(--red);
@@ -69,12 +82,20 @@ body {
   color: var(--indigo);
 }
 
+.text-grey {
+  color: var(--grey);
+}
+
 .fs-100 {
   font-size: 100px;
 }
 
-.fs-6 {
+.fs-0 {
   font-size: 50px;
+}
+
+.fs-7 {
+  font-size: 10px;
 }
 
 .text-gradient {
@@ -128,6 +149,15 @@ Link {
   font-size: 50px;
 }
 
+.shadow-dark {
+  color: white;
+  text-shadow:
+    2px 2px 1px rgba(0, 0, 0, 0.5),
+    0 0 20px #fff,
+    0 0 10px black,
+    0 0 20px black;
+}
+
 .shadow-neon {
   color: white;
   text-shadow:
@@ -135,6 +165,21 @@ Link {
     0 0 20px #fff,
     0 0 10px var(--gold),
     0 0 50px var(--gold);
+}
+
+.box-shadow-gold {
+  box-shadow: 0 0 9px 3px var(--gold);
+}
+
+.neon {
+  animation: neon 1.5s infinite alternate;
+  text-shadow: 2px -2px 0px var(--gold);
+  transition: 0.7s;
+}
+
+.neon-reverse {
+  animation: neon-reverse 0.5s;
+  transition: 0.7s;
 }
 
 .box-shadow-danger,
@@ -213,7 +258,7 @@ Link {
 }
 
 .nav-link {
-  font-family: "Cinzel", sans-serif;
+  font-family: 'Cinzel', sans-serif;
 }
 
 .presto {
@@ -286,7 +331,7 @@ Link {
 
   position: relative;
 
-  background: url("/src/assets/roundtable-hold.png");
+  background: url('/src/assets/roundtable-hold.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -298,12 +343,6 @@ Link {
     fadeInUp 1s ease 0.6s normal both,
     arrow 0.75s ease 0s infinite alternate forwards;
   font-size: 50px;
-}
-
-.neon {
-  animation: neon 1.5s infinite alternate;
-  text-shadow: 2px -2px 0px var(--gold);
-  font-size: 90px;
 }
 
 .glitch {
@@ -356,11 +395,11 @@ Link {
 }
 
 .glitch::after {
-  content: "PRESS";
+  content: 'PRESS';
 }
 
 .glitch-start::after {
-  content: "START!";
+  content: 'START!';
   animation-delay: 0.3s;
 }
 
@@ -481,7 +520,7 @@ Link {
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(80% -6px 5% 0);
 
-  content: "Acquista ora";
+  content: 'Acquista ora';
   display: block;
   position: absolute;
   top: 0;
@@ -527,13 +566,14 @@ Link {
   height: 45px;
   width: 180px;
   text-align: center;
-  background: #171515;
-  color: #666;
+  background: rgba(23, 21, 21, 0.75);
+  color: #bebebe;
   transition: 0.5s;
 }
 
 .game-list-button:hover {
   color: #ffa502;
+  background: rgba(23, 21, 21, 0.9);
   box-shadow: 0 0 15px #d35400;
   text-shadow: 0 0 15px #d35400;
 }
@@ -541,7 +581,7 @@ Link {
 /*//* TRAILER ----------------------------------- */
 
 .trailer {
-  background-image: url("src/assets/Hollow\ Knight\ Silksong.png");
+  background-image: url('src/assets/Hollow\ Knight\ Silksong.png');
   background-position: top;
   background-repeat: none;
   background-size: cover;
@@ -732,6 +772,10 @@ Link {
 
 /*//* VIDEOGAMES -------------------------------- */
 
+.game-description {
+  font-size: 17px;
+}
+
 .card-annunci {
   background: linear-gradient(45deg, transparent 5%, white 5%);
   border-radius: 5px 5px 0px 0px;
@@ -770,7 +814,7 @@ Link {
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(80% -6px 5% 0);
 
-  content: "Acquista ora";
+  content: 'Acquista ora';
   display: block;
   position: absolute;
   top: 0;
@@ -796,7 +840,7 @@ Link {
   border: 2px solid;
   /* border-image: linear-gradient(120deg, var(--red), var(--blue)) 1; */
   border-radius: 10px;
-  background-image: url("/resources/img/search.png");
+  background-image: url('/resources/img/search.png');
   background-position: right;
   background-size: 18px;
   background-repeat: no-repeat;
@@ -806,6 +850,37 @@ Link {
 #spaceWrapper {
   height: 15.9vh;
 }
+
+/*//* SCROLL BAR -----------------------------  */
+
+/* Stile generale della barra di scorrimento */
+::-webkit-scrollbar {
+  width: 10px;
+  position: absolute;
+  right: 10px;
+}
+
+/* Stile del pollice della barra di scorrimento */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: solid 4px transparent;
+}
+
+/* Stile di trascinamento del pollice della barra di scorrimento */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Stile della traccia della barra di scorrimento */
+/* ::-webkit-scrollbar-track {
+  background-color: #f1f1f1; Colore della traccia
+} */
+
+/* Stile della traccia della barra di scorrimento quando il pollice è in movimento */
+/* ::-webkit-scrollbar-track:hover {
+  background-color: #ddd; Colore della traccia al passaggio del mouse
+} */
 
 /*//* MEDIA SCREEN ------------------------------ */
 
@@ -987,6 +1062,34 @@ Link {
       0 0 55px var(--gold),
       0 0 70px var(--gold),
       0 0 80px var(--gold);
+  }
+}
+
+@keyframes neon-reverse {
+  100% {
+    color: var(--grey);
+    /* text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 6px #fff,
+      0 0 10px var(--gold),
+      0 0 45px var(--gold),
+      0 0 55px var(--gold),
+      0 0 70px var(--gold),
+      0 0 80px var(--gold); */
+  }
+
+  0% {
+    color: white;
+    /* text-shadow: 
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px var(--gold),
+      0 0 80px var(--gold),
+      0 0 90px var(--gold),
+      0 0 100px var(--gold),
+      0 0 150px var(--gold); */
   }
 }
 
