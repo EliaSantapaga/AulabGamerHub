@@ -138,6 +138,15 @@ Link {
   text-decoration: none !important;
 }
 
+.leaf-decoration {
+  width: 100%;
+  animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.page-title {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+
 /*//* SHADOWS ----------------------------- */
 
 .text-shadow {
@@ -447,6 +456,20 @@ Link {
 
 /*//* CARDS ------------------------------------- */
 
+.games-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #e3dac9;
+  animation: fadeIn 1s ease 0.6s normal;
+  transition: 0.5s;
+}
+
+.games-card:hover {
+  background: rgba(23, 21, 21, 0.9);
+  box-shadow: 0 0 15px #d35400;
+  text-shadow: 0 0 15px #d35400;
+  transform: scale(1.05);
+}
+
 .game-card {
   background: linear-gradient(45deg, transparent 5%, rgb(5, 66, 139) 5%);
   border: 0;
@@ -568,14 +591,21 @@ Link {
   text-align: center;
   background: rgba(23, 21, 21, 0.75);
   color: #bebebe;
+  animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   transition: 0.5s;
 }
 
 .game-list-button:hover {
   color: #ffa502;
   background: rgba(23, 21, 21, 0.9);
-  box-shadow: 0 0 15px #d35400;
-  text-shadow: 0 0 15px #d35400;
+  box-shadow: 0 0 15px var(--gold);
+  text-shadow: 0 0 15px var(--gold);
+}
+
+/*//* FILTER ------------------------------------ */
+
+.dropdown-menu-dark {
+  background-color: rgba(26, 26, 26, 0.9);
 }
 
 /*//* TRAILER ----------------------------------- */
@@ -1029,6 +1059,32 @@ Link {
   }
 }
 
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+    transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @keyframes arrow {
   0% {
     transform: translateY(0);
@@ -1068,28 +1124,10 @@ Link {
 @keyframes neon-reverse {
   100% {
     color: var(--grey);
-    /* text-shadow:
-      0 0 2px #fff,
-      0 0 4px #fff,
-      0 0 6px #fff,
-      0 0 10px var(--gold),
-      0 0 45px var(--gold),
-      0 0 55px var(--gold),
-      0 0 70px var(--gold),
-      0 0 80px var(--gold); */
   }
 
   0% {
     color: white;
-    /* text-shadow: 
-      0 0 4px #fff,
-      0 0 11px #fff,
-      0 0 19px #fff,
-      0 0 40px var(--gold),
-      0 0 80px var(--gold),
-      0 0 90px var(--gold),
-      0 0 100px var(--gold),
-      0 0 150px var(--gold); */
   }
 }
 

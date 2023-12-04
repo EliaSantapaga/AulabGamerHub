@@ -9,8 +9,6 @@ import useProfile from '../hooks/useProfile';
 import '../components/LiveChat/Messages.css';
 
 function GameDetail() {
-  // const params = useParams();
-  // console.log(params);
   const { profile } = useProfile();
   const [game, setGame] = useState([]);
 
@@ -40,6 +38,8 @@ function GameDetail() {
       }
     }
   };
+
+  console.log(profile);
 
   useEffect(() => {
     async function getSingleGame() {

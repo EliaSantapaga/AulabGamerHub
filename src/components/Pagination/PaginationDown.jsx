@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { useContext } from 'react';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 function PaginationDown() {
   const { pagination, setPagination } = useContext(AppContext);

@@ -14,8 +14,8 @@ function useProfile() {
           .from('profiles')
           .select('*')
           //* Mi prendo user da session, quindi session.user.id
-          .eq('id', session.user.id)
-          .eq('username', session.user.username)
+          .eq('id', session.user.id, 'username', session.user.name)
+          // .eq('username', session.user.username)
           .single();
         if (error) {
           console.warn(error);
@@ -32,6 +32,7 @@ function useProfile() {
   }, [session]);
 
   console.log(profile);
+
   return {
     profile,
     loading,

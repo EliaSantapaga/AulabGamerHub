@@ -1,10 +1,10 @@
-import supabase from '../supabase/client';
+import supabase from '../../supabase/client';
 import { Link, useNavigate } from 'react-router-dom';
-import AuthLayout from '../layout/AuthLayout';
+import AuthLayout from '../../layout/AuthLayout';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import Space from '../components/Space';
-import LeafDecoration from '../components/Decorations/LeafDecoration';
+import Space from '../../components/Space';
+import LeafDecoration from '../../components/Decorations/LeafDecoration';
 // import { useContext } from "react";
 // import AuthContext from "../context/AuthContext";
 

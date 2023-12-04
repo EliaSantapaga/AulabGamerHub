@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import supabase from '../supabase/client';
-import PacManLoader from '../components/Loader/PacManLoader';
+import supabase from '../../supabase/client';
+import PacManLoader from '../../components/Loader/PacManLoader';
 
 export default function AccountSettings({ session }) {
   const [loading, setLoading] = useState(true);

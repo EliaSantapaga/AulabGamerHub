@@ -1,5 +1,5 @@
-import Space from "../components/Space";
-import AppLayout from "../layout/AppLayout";
+import Space from "../../components/Space";
+import AppLayout from "../../layout/AppLayout";
 
 function AccountProfile() {
   return (

@@ -1,10 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import Space from '../components/Space';
-import AuthLayout from '../layout/AuthLayout';
-import supabase from '../supabase/client';
+import Space from '../../components/Space';
+import AuthLayout from '../../layout/AuthLayout';
+import supabase from '../../supabase/client';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import LeafDecoration from '../components/Decorations/LeafDecoration';
+import LeafDecoration from '../../components/Decorations/LeafDecoration';
 
 //* VALIDATION FORM -----------------------------------
 const schemaValidation = Yup.object({
