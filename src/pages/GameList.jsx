@@ -74,7 +74,7 @@ function GameList() {
       <div className="container">
         <Space />
         <div className="row">
-          <div className="col-12 d-flex justify-content-center pt-5 overflow-hidden">
+          <div className="col-12 d-flex justify-content-center pt-5 pb-2 overflow-hidden">
             <h1
               className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel page-title"
               data-aos="fade-up"

@@ -34,12 +34,9 @@ function GameDetail() {
         alert(error.message);
       } else {
         inputForm.reset();
-        console.log(data);
       }
     }
   };
-
-  console.log(profile);
 
   useEffect(() => {
     async function getSingleGame() {
@@ -89,7 +86,7 @@ function GameDetail() {
               <h2 className="shadow-neon text-center fs-1 mb-3">Live Chat</h2>
 
               <div className="chat-container text-light box-shadow-gold">
-                <Messages profile={profile} game={game} />
+                {profile && <Messages profile={profile} game={game} />}
                 <form
                   className="message-form mx-3 pb-3 "
                   onSubmit={handleMessageSubmit}

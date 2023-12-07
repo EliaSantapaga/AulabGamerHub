@@ -1,18 +1,51 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import AppContext from "../context/AppContext";
-import supabase from "../supabase/client";
-import AuthContext from "../context/AuthContext";
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import AppContext from '../context/AppContext';
+import supabase from '../supabase/client';
+import AuthContext from '../context/AuthContext';
 
 function AppNavbar() {
   //* Questa costante è un oggetto destrutturato con le proprietà contenute all'interno di AppContext
-  const {
-    // admin,
-    // setAdmin,
-    setGames,
-  } = useContext(AppContext);
+  const { setGames } = useContext(AppContext);
   const { session } = useContext(AuthContext);
   const navigate = useNavigate();
+  // const location = useLocation();
+  // const [profile, setProfile] = useState(null);
+  // const [loading, setLoading] = useState(true);
+
+  // const updateUser = location.state?.updateProfile || {};
+
+  // console.log(updateUser);
+
+  // useEffect(() => {
+  //   let ignore = false;
+  //   async function getProfile() {
+  //     setLoading(true);
+  //     const { user } = session;
+
+  //     const { data, error } = await supabase
+  //       .from('profiles')
+  //       .select('*')
+  //       .eq('id', user.id)
+  //       .single();
+
+  //     if (!ignore) {
+  //       if (error) {
+  //         console.warn(error);
+  //       } else if (data) {
+  //         setProfile(data);
+  //       }
+  //     }
+
+  //     setLoading(false);
+  //   }
+
+  //   getProfile();
+
+  //   return () => {
+  //     ignore = true;
+  //   };
+  // }, [session]);
 
   const gameHandler = (event) => {
     setGames(event.currentTarget.value);
@@ -20,7 +53,7 @@ function AppNavbar() {
 
   const searchHandler = (event) => {
     event.preventDefault();
-    console.log("form submitted");
+    console.log('form submitted');
   };
 
   //* Le due funzioni che gestiscono il controllo su Admin
@@ -29,7 +62,7 @@ function AppNavbar() {
     try {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
-      navigate("/");
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -103,35 +136,15 @@ function AppNavbar() {
                 </a>
               </li>
 
-              {/* <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="http://www.gamesintime.altervista.org/chi-siamo"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Chi siamo
-                </a>
-              </li>
-
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="http://www.gamesintime.altervista.org/contatti"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Contatti
-                </a>
-              </li> */}
-
               {session ? (
                 <ul className="navbar-nav">
-                  <li
-                    className="nav-item text-decoration-none nav-link"
-                    onClick={handleSignOut}
-                  >
-                    Logout
+                  <li className="nav-item">
+                    <Link
+                      className="text-decoration-none nav-link"
+                      to="/settings"
+                    >
+                      Settings
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <Link
@@ -141,6 +154,12 @@ function AppNavbar() {
                       {session.user.user_metadata.username ||
                         session.user.email}
                     </Link>
+                  </li>
+                  <li
+                    className="nav-item text-decoration-none nav-link "
+                    onClick={handleSignOut}
+                  >
+                    Logout
                   </li>
                 </ul>
               ) : (
@@ -163,57 +182,10 @@ function AppNavbar() {
                 onChange={gameHandler}
               />
             </form>
-
-            {/*
-          //* Una volta importato come prop setAdmin, posso fare un controllo su admin per capire se è true o false e cambiarlo di conseguenza per eseguire il login o il logout.
-
-          //* Per entrambi i casi viene chiamata la funzione setAdmin per cambiare a true una volta eseguito il login e a false quando si slogga.
-          */}
-
-            {/* //* {se non-admin (!admin) è true (?) allora mostra login, altrimenti (:) mostra logout}  */}
-            {/* {!admin ? (
-              <button
-                onClick={handleSignIn}
-                className="btn btn-outline-warning rounded-pill mx-3"
-              >
-                Login
-              </button>
-            ) : (
-              <button
-                onClick={handleSignOut}
-                className="btn btn-outline-danger rounded-pill mx-3"
-              >
-                Logout
-              </button>
-            )} */}
           </div>
         </div>
       </div>
     </nav>
-
-    // * Una volta importato come prop setAdmin, posso fare un controllo su admin per capire se è true o false e cambiarlo di conseguenza per eseguire il login o il logout.
-
-    // * Per entrambi i casi viene chiamata la funzione setAdmin per cambiare a true una volta eseguito il login e a false quando si slogga.
-
-    //       {/* //* {se non-admin (!admin) è true (?) allora mostra login, altrimenti (:) mostra logout}  */}
-    //       {!admin ? (
-    //         <button
-    //           onClick={handleSignIn}
-    //           className="btn btn-outline-warning mx-3"
-    //         >
-    //           Login
-    //         </button>
-    //       ) : (
-    //         <button
-    //           onClick={handleSignOut}
-    //           className="btn btn-outline-danger mx-3"
-    //         >
-    //           Logout
-    //         </button>
-    //       )}
-    //     </div>
-    //   </div>
-    // </nav>
   );
 }
 

@@ -5,8 +5,6 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Space from '../../components/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
-// import { useContext } from "react";
-// import AuthContext from "../context/AuthContext";
 
 //* VALIDATION FORM
 const schemaValidation = Yup.object({
@@ -216,80 +214,11 @@ function Register() {
             >
               {({ errors, touched }) => (
                 <Form>
-                  {/* <div className="row"> */}
-                  {/* //* FIRST NAME -----------------------------------*/}
-                  {/* {errors.first_name && touched.first_name ? (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label
-                          htmlFor="registerFirstName"
-                          className="form-label text-danger"
-                        >
-                          First Name
-                        </label>
-                        <Field
-                          name="first_name"
-                          type="text"
-                          className="form-control box-shadow-danger"
-                          placeholder="Ranni"
-                        />
-                        <div className="text-danger mt-2">{errors.name}</div>
-                      </div>
-                    ) : (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label
-                          htmlFor="registerFirstName"
-                          className="form-label"
-                        >
-                          First Name
-                        </label>
-                        <Field
-                          name="first_name"
-                          type="text"
-                          className="form-control focus-shadow"
-                          placeholder="Ranni"
-                        />
-                      </div>
-                    )} */}
-
-                  {/* //* LAST NAME -----------------------------------*/}
-                  {/* {errors.last_name && touched.last_name ? (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label
-                          htmlFor="registerName"
-                          className="form-label text-danger"
-                        >
-                          Last Name
-                        </label>
-                        <Field
-                          name="last_name"
-                          type="text"
-                          className="form-control box-shadow-danger"
-                          placeholder="De Witch"
-                        />
-                        <div className="text-danger mt-2">
-                          {errors.last_name}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="registerName" className="form-label">
-                          Last Name
-                        </label>
-                        <Field
-                          name="last_name"
-                          type="text"
-                          className="form-control focus-shadow"
-                          placeholder="De Witch"
-                        />
-                      </div>
-                    )} */}
-                  {/* </div> */}
-
                   {/* //* USERNAME -----------------------------------*/}
                   {errors.username && touched.username ? (
                     <div className="mb-3">
                       <label
-                        htmlFor="registerName"
+                        htmlFor="username"
                         className="form-label text-danger"
                       >
                         Username
@@ -304,7 +233,7 @@ function Register() {
                     </div>
                   ) : (
                     <div className="mb-3">
-                      <label htmlFor="registerName" className="form-label">
+                      <label htmlFor="username" className="form-label">
                         Username
                       </label>
                       <Field
@@ -319,10 +248,7 @@ function Register() {
                   {/* //* E-MAIL -----------------------------------*/}
                   {errors.email && touched.email ? (
                     <div className="mb-3">
-                      <label
-                        htmlFor="registerName"
-                        className="form-label text-danger"
-                      >
+                      <label htmlFor="email" className="form-label text-danger">
                         E-mail
                       </label>
                       <Field
@@ -335,7 +261,7 @@ function Register() {
                     </div>
                   ) : (
                     <div className="mb-3">
-                      <label htmlFor="registerName" className="form-label">
+                      <label htmlFor="email" className="form-label">
                         E-mail
                       </label>
                       <Field
@@ -352,7 +278,7 @@ function Register() {
                     {errors.password && touched.password ? (
                       <div className="col-12 col-md-6 mb-3">
                         <label
-                          htmlFor="registerName"
+                          htmlFor="password"
                           className="form-label text-danger"
                         >
                           Password
@@ -370,7 +296,7 @@ function Register() {
                       </div>
                     ) : (
                       <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="registerName" className="form-label">
+                        <label htmlFor="password" className="form-label">
                           Password
                         </label>
                         <Field
@@ -386,7 +312,7 @@ function Register() {
                     {errors.confirm_password && touched.confirm_password ? (
                       <div className="col-12 col-md-6 mb-3">
                         <label
-                          htmlFor="registerName"
+                          htmlFor="confirm_password"
                           className="form-label text-danger"
                         >
                           Confirm Password
@@ -403,7 +329,10 @@ function Register() {
                       </div>
                     ) : (
                       <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="registerName" className="form-label">
+                        <label
+                          htmlFor="confirm_password"
+                          className="form-label"
+                        >
                           Confirm Password
                         </label>
                         <Field

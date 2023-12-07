@@ -74,7 +74,7 @@ function Login() {
         <div className="row my-md-5 my-4">
           <div className="col-12 d-flex justify-content-center">
             <h1
-              className="pb-2 text-center text-white shadow-pink ff-cinzel"
+              className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -90,6 +90,9 @@ function Login() {
             id="LoginEmail"
             className="col-12 col-md-5 align-items-center justify-content-center text-white"
           >
+            <h3 className="text-center text-white shadow-neon ff-cinzel fs-2 mt-3 mt-md-none">
+              Sign in here
+            </h3>
             {/* <form onSubmit={handleLogin}>
               <div className="mb-3">
                 <label htmlFor="registerEmail" className="form-label">
@@ -218,31 +221,31 @@ function Login() {
 
           <div
             id="LoginSocial"
-            className="col-12 col-md-5 center-flex text-white"
+            className="col-12 col-md-5 d-flex align-items-center flex-column text-white"
           >
-            <h3 className="text-center text-white shadow-pink ff-cinzel fs-2 mt-3 mt-md-none">
+            <h3 className="text-center text-white shadow-neon ff-cinzel fs-2 mt-3 mt-md-none">
               Or
             </h3>
             <button
               type="submit"
-              className="cardbutton btn ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-social-google"
+              className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-github"
             >
-              <i className="fa-brands fa-google me-3"></i>Login with Google
+              <i className="fa-brands fa-github me-3"></i> Login with Github
             </button>
 
             <button
               type="submit"
-              className="cardbutton btn ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-social-discord"
+              className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-discord"
               onClick={handleLoginWithDiscord}
             >
               <i className="fa-brands fa-discord me-3"></i>Login with Discord
             </button>
-
+            
             <button
               type="submit"
-              className="cardbutton btn ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-social-steam"
+              className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-google"
             >
-              <i className="fa-brands fa-steam me-3"></i> Login with Steam
+              <i className="fa-brands fa-google me-3"></i>Login with Google
             </button>
           </div>
         </div>

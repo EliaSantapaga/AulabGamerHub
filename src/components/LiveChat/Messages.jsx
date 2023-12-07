@@ -1,15 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import supabase from '../../supabase/client';
 import './Messages.css';
+import AuthContext from '../../context/AuthContext';
 
-function Messages({ profile, game }) {
+function Messages({ game }) {
+  const { session } = useContext(AuthContext);
   const [chat, setChat] = useState([]);
   const chatRef = useRef(null);
+
+  console.log(chat);
 
   const getMessages = async () => {
     const { data, error } = await supabase
       .from('messages')
-      .select('*')
+      .select('*,  profile: profiles(*)')
       .eq('game_slug', game.slug);
     if (error) {
       alert(error.message);
@@ -60,14 +64,14 @@ function Messages({ profile, game }) {
           <div
             key={message.id}
             className={`col-12 ${
-              profile.id == message.profile_id
+              session.user.id == message.profile_id
                 ? 'd-flex justify-content-end'
                 : ''
             }`}
           >
             <div className="col-9">
               <div className="chat-message py-2 px-3 my-2">
-                <p className="shadow-neon my-1">{message.profile_username}</p>
+                <p className="shadow-neon my-1">{message.profile.username}</p>
 
                 <span className="ff-gotu">{message.content}</span>
                 <span className="fs-7 d-flex align-items-end justify-content-end mt-2">

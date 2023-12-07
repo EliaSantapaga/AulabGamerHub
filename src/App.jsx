@@ -23,7 +23,6 @@ function App() {
         }&page=1`
       );
       const parsedResponse = await response.json();
-      console.log(parsedResponse.results);
       setGamesSearched(parsedResponse);
     }
 

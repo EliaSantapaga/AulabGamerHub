@@ -1,11 +1,10 @@
 :root {
-  --red: #dc152c;
-  --blue: #2670b7;
-  --pink: #ff3cf2;
   --light-pink: #dcbeda;
-  --gold: rgb(255, 140, 0);
-  --indigo: #710096;
-  --grey: rgb(156, 136, 88);
+  --gold: #ff8c00;
+  --grey: #9c8858;
+  --github: #4078c0;
+  --discord: #7289da;
+  --google: #4285f4;
 }
 
 * {
@@ -29,46 +28,15 @@ body {
 
 /*//* FONTS --------------------------------- */
 
-.ff-elden-ring {
-  font-family: 'MantiniaRegular';
-  src:
-    local('MantiniaRegular'),
-    url('./fonts/MantiniaRegular.otf') format('truetype');
-}
-
 .ff-cinzel {
   font-family: 'Cinzel', serif;
-}
-
-.ff-nova {
-  font-family: 'Nova Square', sans-serif;
-}
-
-.ff-comfortaa {
-  font-family: 'Comfortaa', sans-serif;
 }
 
 .ff-gotu {
   font-family: 'Gotu', sans-serif;
 }
 
-.ff-rajshani {
-  font-family: 'Rajdhani', sans-serif;
-}
-
 /*//* TEXT COLORS --------------------------  */
-
-.text-red {
-  color: var(--red);
-}
-
-.text-blue {
-  color: var(--blue);
-}
-
-.text-pink {
-  color: var(--pink);
-}
 
 .text-light-pink {
   color: var(--light-pink);
@@ -76,10 +44,6 @@ body {
 
 .text-gold {
   color: var(--gold);
-}
-
-.text-indigo {
-  color: var(--indigo);
 }
 
 .text-grey {
@@ -96,14 +60,6 @@ body {
 
 .fs-7 {
   font-size: 10px;
-}
-
-.text-gradient {
-  font-size: 45px;
-  background: -webkit-linear-gradient(180deg, var(--red), var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(2px 2px 0px white);
 }
 
 .cursor-pointer {
@@ -154,7 +110,7 @@ Link {
 }
 
 .shadow-pink {
-  text-shadow: 2px -2px 0px var(--gold);
+  text-shadow: 2px -2px 0px var(--pink);
   font-size: 50px;
 }
 
@@ -259,7 +215,6 @@ Link {
 }
 
 .nav-container {
-  /* background: linear-gradient(120deg, var(--red), var(--blue)); */
   background-color: #1818188e;
   overflow-x: hidden;
   box-shadow: 0 0 9px 3px var(--gold);
@@ -354,72 +309,6 @@ Link {
   font-size: 50px;
 }
 
-.glitch {
-  font-size: 90px;
-  text-shadow: 3px -3px 0px var(--gold);
-  position: relative;
-
-  animation: fadeInUp 1s ease 0.3s normal both;
-}
-
-.glitch::after,
-.glitch-start::after {
-  width: 370px;
-  height: 90px;
-  font-size: 90px;
-  background: linear-gradient(45deg, transparent 5%, rgb(12, 111, 232) 5%);
-  border: 0;
-  color: #fff;
-  box-shadow: 6px -6px 0px var(--gold);
-  outline: transparent;
-  position: relative;
-
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
-
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 3%,
-    var(--red) 3%,
-    var(--blue) 5%,
-    var(--gold) 5%
-  );
-  text-shadow:
-    -3px -3px 0px #f8f005,
-    3px 3px 0px var(--blue);
-  clip-path: var(--slice-0);
-
-  animation: 2s glitchHeader infinite;
-  animation-timing-function: steps(2, end);
-}
-
-.glitch::after {
-  content: 'PRESS';
-}
-
-.glitch-start::after {
-  content: 'START!';
-  animation-delay: 0.3s;
-}
-
-.glitch-start {
-  margin-top: -20px;
-}
-
-.glitch-start::after {
-  margin-top: -5px;
-}
-
 .arrow {
   animation:
     fadeInUp 1s ease 0.6s normal both,
@@ -509,6 +398,11 @@ Link {
   margin-left: 40px;
 }
 
+.img-avatar {
+  height: 250px;
+  width: 250px;
+}
+
 /*//* BUTTONS ----------------------------------- */
 
 .cardbutton,
@@ -568,36 +462,73 @@ Link {
   animation-timing-function: steps(2, end);
 }
 
-.btn-social-google {
-  width: 300px !important;
-  background: linear-gradient(45deg, transparent 5%, rgb(66, 133, 244) 5%);
-}
-
-.btn-social-discord {
-  width: 300px !important;
-  background: linear-gradient(45deg, transparent 5%, rgb(114, 137, 218) 5%);
-}
-
-.btn-social-steam {
-  width: 300px !important;
-  background: linear-gradient(45deg, transparent 5%, rgb(23, 26, 33) 5%);
-}
-
 /*//* CARDS AND SOCIAL BUTTONS ------------------ */
 
-.game-list-button {
-  height: 45px;
-  width: 180px;
-  text-align: center;
-  background: rgba(23, 21, 21, 0.75);
-  color: #bebebe;
-  animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  transition: 0.5s;
+.btn-github {
+  width: 300px;
+  background-color: rgba(64, 120, 192, 0.8);
+  animation: fadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
 }
 
-.game-list-button:hover {
-  color: #ffa502;
+.btn-github:hover {
+  color: var(--gold);
+  box-shadow: 0 0 15px var(--github);
+  text-shadow: 0 0 15px var(--github);
+}
+
+.btn-discord {
+  width: 300px;
+  background-color: rgba(114, 137, 218, 0.8);
+  animation: fadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
+
+.btn-discord:hover {
+  color: var(--gold);
+  box-shadow: 0 0 15px var(--discord);
+  text-shadow: 0 0 15px var(--discord);
+}
+
+.btn-google {
+  width: 300px;
+  background: rgba(66, 133, 244, 0.8);
+  animation: fadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s both;
+}
+
+.btn-google:hover {
+  color: var(--gold);
+  box-shadow: 0 0 15px var(--google);
+  text-shadow: 0 0 15px var(--google);
+}
+
+.game-list-button,
+.btn-google,
+.btn-discord,
+.btn-github,
+input[type='file']::-webkit-file-upload-button {
+  text-align: center;
+  color: #bebebe;
+  transition: 0.5s;
+  height: 45px;
+}
+
+.game-list-button,
+input[type='file']::-webkit-file-upload-button {
+  width: 180px;
+  background: rgba(23, 21, 21, 0.75);
+  animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.game-list-button:hover,
+.btn-google:hover,
+.btn-discord:hover,
+.btn-github:hover,
+input[type='file']::-webkit-file-upload-button:hover {
   background: rgba(23, 21, 21, 0.9);
+}
+
+.game-list-button:hover,
+input[type='file']::-webkit-file-upload-button:hover {
+  color: var(--gold);
   box-shadow: 0 0 15px var(--gold);
   text-shadow: 0 0 15px var(--gold);
 }
@@ -685,25 +616,6 @@ Link {
 
 .img-article {
   width: 100%;
-}
-
-.bg-light-trans {
-  background: linear-gradient(
-    45deg,
-    transparent 5%,
-    rgba(255, 255, 255, 0.7) 5%
-  );
-}
-
-.article-btn {
-  height: 40px;
-  width: 170px;
-  box-shadow: none;
-}
-
-.article-form,
-.articles {
-  animation: fadeInUp 0.6s ease 0.3s normal both;
 }
 
 /*//* FOOTER ------------------------------------ */
@@ -802,10 +714,6 @@ Link {
 
 /*//* VIDEOGAMES -------------------------------- */
 
-.game-description {
-  font-size: 17px;
-}
-
 .card-annunci {
   background: linear-gradient(45deg, transparent 5%, white 5%);
   border-radius: 5px 5px 0px 0px;
@@ -818,57 +726,10 @@ Link {
   border-radius: 5px 5px 0px 0px;
 }
 
-.btn-prezzo {
-  background: linear-gradient(
-    45deg,
-    transparent 5%,
-    rgb(220, 21, 44) 5%,
-    rgb(38, 112, 183)
-  );
-
-  width: 200px;
-  height: 45px;
-  font-size: 19px;
-  border-radius: 0px;
-}
-
-.btn-prezzo::after {
-  width: 200px;
-  height: 45px;
-  color: #fff;
-
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
-
-  content: 'Acquista ora';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 3%,
-    var(--red) 3%,
-    var(--blue) 5%,
-    var(--pink) 5%
-  );
-  text-shadow:
-    -3px -3px 0px #f8f005,
-    3px 3px 0px var(--blue);
-  clip-path: var(--slice-0);
-}
-
 .word-input {
   width: 100%;
   text-align: center;
   border: 2px solid;
-  /* border-image: linear-gradient(120deg, var(--red), var(--blue)) 1; */
   border-radius: 10px;
   background-image: url('/resources/img/search.png');
   background-position: right;
@@ -901,16 +762,6 @@ Link {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
-
-/* Stile della traccia della barra di scorrimento */
-/* ::-webkit-scrollbar-track {
-  background-color: #f1f1f1; Colore della traccia
-} */
-
-/* Stile della traccia della barra di scorrimento quando il pollice è in movimento */
-/* ::-webkit-scrollbar-track:hover {
-  background-color: #ddd; Colore della traccia al passaggio del mouse
-} */
 
 /*//* MEDIA SCREEN ------------------------------ */
 
@@ -1128,114 +979,5 @@ Link {
 
   0% {
     color: white;
-  }
-}
-
-@keyframes glitchHeader {
-  55% {
-    clip-path: var(--slice-3);
-    transform: translate(10px, 10px);
-  }
-
-  60% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 10px);
-  }
-
-  65% {
-    clip-path: var(--slice-3);
-    transform: translate(0px, 5px);
-  }
-
-  70% {
-    clip-path: var(--slice-2);
-    transform: translate(-5px, 0px);
-  }
-
-  75% {
-    clip-path: var(--slice-3);
-    transform: translate(5px, 0px);
-  }
-
-  80% {
-    clip-path: var(--slice-4);
-    transform: translate(5px, 10px);
-  }
-
-  85% {
-    clip-path: var(--slice-2);
-    transform: translate(-10px, 10px);
-  }
-
-  90% {
-    clip-path: var(--slice-5);
-    transform: translate(20px, -10px);
-  }
-
-  95% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 0px);
-  }
-
-  100% {
-    clip-path: var(--slice-1);
-    transform: translate(0);
-  }
-}
-
-@keyframes glitch {
-  0% {
-    clip-path: var(--slice-1);
-    transform: translate(10px, -10px);
-  }
-
-  10% {
-    clip-path: var(--slice-3);
-    transform: translate(10px, 10px);
-  }
-
-  20% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 10px);
-  }
-
-  30% {
-    clip-path: var(--slice-3);
-    transform: translate(0px, 5px);
-  }
-
-  40% {
-    clip-path: var(--slice-2);
-    transform: translate(-5px, 0px);
-  }
-
-  50% {
-    clip-path: var(--slice-3);
-    transform: translate(5px, 0px);
-  }
-
-  60% {
-    clip-path: var(--slice-4);
-    transform: translate(5px, 10px);
-  }
-
-  70% {
-    clip-path: var(--slice-2);
-    transform: translate(-10px, 10px);
-  }
-
-  80% {
-    clip-path: var(--slice-5);
-    transform: translate(20px, -10px);
-  }
-
-  90% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 0px);
-  }
-
-  100% {
-    clip-path: var(--slice-1);
-    transform: translate(0);
   }
 }

@@ -15,7 +15,6 @@ function useProfile() {
           .select('*')
           //* Mi prendo user da session, quindi session.user.id
           .eq('id', session.user.id, 'username', session.user.name)
-          // .eq('username', session.user.username)
           .single();
         if (error) {
           console.warn(error);
