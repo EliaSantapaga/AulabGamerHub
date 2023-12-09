@@ -12,7 +12,7 @@ function PaginationUp() {
   return (
     <div className="col-1 col-md-3 d-flex justify-content-start">
       <i
-        className="fa-solid fa-chevron-right fs-1 text-light neon cursor-pointer"
+        className="fa-solid fa-chevron-right pagination-up fs-1 text-light neon cursor-pointer"
         onClick={handlePaginationUp}
       />
     </div>

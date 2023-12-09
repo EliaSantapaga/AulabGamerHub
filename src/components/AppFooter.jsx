@@ -1,6 +1,7 @@
 // import { Link } from "react-router-dom";
-import logoImage from "../assets/Logo-nuovo-nuovo-nuovo-1-768x281.png";
-import {  } from "@fortawesome/react-fontawesome";
+import logoImage from '../assets/Logo-nuovo-nuovo-nuovo-1-768x281.png';
+import {} from '@fortawesome/react-fontawesome';
+import LeafDecoration from './Decorations/LeafDecoration';
 
 function AppFooter() {
   return (
@@ -26,21 +27,23 @@ function AppFooter() {
           </div>
 
           <div className="col-12 col-lg-6 mb-3 center-flex text-center text-white git-sentence ">
-            <p className="shadow-pink ff-cinzel fs-4 px-3">
-              Visita il nostro blog{" "}
+            <p className="ff-cinzel fs-4 px-3">
+              Visita il nostro blog{' '}
               <a
                 href="https://gamesintime.altervista.org"
                 target="_blank"
                 className="git"
                 rel="noreferrer"
               >
-                <span className="neon ff-cinzel git">Games In Time!</span>
+                <span className="neon ff-cinzel fs-4 ms-1">Games In Time!</span>
               </a>
               <br /> Le notizie di cui hai bisogno a portata di click!
             </p>
           </div>
 
-          <div className="col-12 border-top center-flex overflow-hidden slider-social">
+          <LeafDecoration />
+
+          <div className="col-12 center-flex overflow-hidden slider-social">
             <div
               className="menu-slider mt-4 mb-4"
               data-aos="fade-down"
@@ -88,6 +91,8 @@ function AppFooter() {
               </a>
               <div className="slider"></div>
             </div>
+
+            <p className='text-white shadow-neon border-top pt-2'>All rights reserved - Aulab Gamer Hub 2023 - Elia Santapaga</p>
           </div>
         </div>
       </div>

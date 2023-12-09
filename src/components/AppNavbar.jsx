@@ -3,12 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import supabase from '../supabase/client';
 import AuthContext from '../context/AuthContext';
+import useProfile from '../hooks/useProfile';
+import getProfileImg from '../utils/getProfileImg';
 
 function AppNavbar() {
   //* Questa costante è un oggetto destrutturato con le proprietà contenute all'interno di AppContext
   const { setGames } = useContext(AppContext);
   const { session } = useContext(AuthContext);
+  const { profile } = useProfile();
   const navigate = useNavigate();
+
+  console.log(profile);
+
   // const location = useLocation();
   // const [profile, setProfile] = useState(null);
   // const [loading, setLoading] = useState(true);
@@ -75,13 +81,13 @@ function AppNavbar() {
     >
       <div className="container nav-container rounded-pill" id="nav-container">
         <a className="navbar-brand mx-3 presto" href="./index.html">
-          <span className="ff-cinzel text-white fs-4 fs-md-2 neon">
+          <span className="ff-cinzel text-white fs-5 fs-md-2 neon">
             Aulab Gamer Hub
           </span>
         </a>
 
         <button
-          className="navbar-toggler mx-3"
+          className="navbar-toggler me-3"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#navbar"
@@ -146,6 +152,12 @@ function AppNavbar() {
                       Settings
                     </Link>
                   </li>
+                  <li
+                    className="nav-item text-decoration-none nav-link cursor-pointer"
+                    onClick={handleSignOut}
+                  >
+                    Logout
+                  </li>
                   <li className="nav-item">
                     <Link
                       className="text-decoration-none nav-link"
@@ -155,12 +167,19 @@ function AppNavbar() {
                         session.user.email}
                     </Link>
                   </li>
-                  <li
-                    className="nav-item text-decoration-none nav-link "
-                    onClick={handleSignOut}
-                  >
-                    Logout
-                  </li>
+
+                  <div className="nav-item avatar-nav-box rounded-pill overflow-hidden center-flex ms-1">
+                    <Link
+                      className="text-decoration-none nav-link"
+                      to="/profile"
+                    >
+                      <img
+                        src={profile && getProfileImg(profile.avatar_url)}
+                        alt="profile"
+                        className="img-avatar-nav"
+                      />
+                    </Link>
+                  </div>
                 </ul>
               ) : (
                 <li className="nav-item">
@@ -171,7 +190,7 @@ function AppNavbar() {
               )}
             </ul>
 
-            <form className="d-flex" role="search" onSubmit={searchHandler}>
+            {/* <form className="d-flex" role="search" onSubmit={searchHandler}>
               <input
                 className="form-control no-shadow me-2 rounded-pill ff-cinzel text-center mt-3 mt-md-0"
                 type="search"
@@ -181,7 +200,7 @@ function AppNavbar() {
                 // value={games}
                 onChange={gameHandler}
               />
-            </form>
+            </form> */}
           </div>
         </div>
       </div>

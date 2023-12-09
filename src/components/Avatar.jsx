@@ -59,17 +59,17 @@ export default function Avatar({ url, size, onUpload }) {
   return (
     <div className="center-flex col-12 col-md-6">
       {avatarUrl ? (
-        <img
-          src={avatarUrl}
-          alt="Avatar"
-          className="img-avatar image rounded-pill box-shadow-gold"
-        />
+        <div className="avatar-box rounded-pill overflow-hidden box-shadow-gold">
+          <img src={avatarUrl} alt="Avatar" className="img-avatar" />
+        </div>
       ) : (
-        <div className="img-avatar no-image" />
+        <div className="avatar-box rounded-pill overflow-hidden box-shadow-gold center-flex">
+          <i class="fa-solid fa-circle-user"></i>
+        </div>
       )}
       <div className="my-4 center-flex">
         <input
-          className=" text-white"
+          className="text-white"
           type="file"
           id="single"
           accept="image/*"

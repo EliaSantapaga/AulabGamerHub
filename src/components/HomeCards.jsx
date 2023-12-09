@@ -1,18 +1,22 @@
-import PlayStation from "../assets/PlayStation-Plus.png";
-import Xbox from "../assets/Xbox Game Pass.png";
-import Nintendo from "../assets/Nintendo Switch Online.png";
+import PlayStation from '../assets/PlayStation-Plus.png';
+import Xbox from '../assets/Xbox Game Pass.png';
+import Nintendo from '../assets/Nintendo Switch Online.png';
+import LeafDecoration from './Decorations/LeafDecoration';
 
 function HomeCards() {
   return (
     <section className="container px-4 py-5" id="featured-3">
       <h2
-        className="pb-2 border-bottom text-center text-white shadow-pink ff-cinzel"
+        className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel"
         data-aos="fade-up"
         data-aos-delay="300"
         data-aos-anchor-placement="center-bottom"
       >
-        Servizi per ogni console!
+        Services for every console!
       </h2>
+
+      <LeafDecoration />
+
 
       <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
         <div className="col-12 col-lg-4 cardContainer">
@@ -69,7 +73,7 @@ function HomeCards() {
             <p className="text-white text-center px-4">
               Gioca ai nuovi titoli il giorno del lancio. In più, gioca con gli
               amici a centinaia di titoli di grande qualità su console, PC o
-              cloud.{" "}
+              cloud.{' '}
             </p>
 
             <a

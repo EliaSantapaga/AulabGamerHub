@@ -240,7 +240,7 @@ function Login() {
             >
               <i className="fa-brands fa-discord me-3"></i>Login with Discord
             </button>
-            
+
             <button
               type="submit"
               className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-google"

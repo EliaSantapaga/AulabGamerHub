@@ -30,6 +30,23 @@ function useProfile() {
     getProfile();
   }, [session]);
 
+  // useEffect(() => {
+  //   const getFav = async () => {
+  //     const { data, error } = await supabase
+  //       .from('profile')
+  //       .select('*, favorites: favorites(*)')
+  //       .eq('id', profile.id)
+  //       .single();
+
+  //     if (error) {
+  //       alert(error.message);
+  //     } else {
+  //       console.log(data);
+  //     }
+  //   };
+  //   getFav();
+  // }, []);
+
   console.log(profile);
 
   return {

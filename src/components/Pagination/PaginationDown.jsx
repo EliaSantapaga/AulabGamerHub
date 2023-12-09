@@ -17,7 +17,7 @@ function PaginationDown() {
         className={`fa-solid fa-chevron-left fs-1  ${
           pagination === 1
             ? 'cursor-default text-grey neon-reverse'
-            : 'cursor-pointer text-light neon'
+            : 'cursor-pointer text-light pagination-down neon'
         }`}
         onClick={() => handlePaginationDown(pagination)}
       />

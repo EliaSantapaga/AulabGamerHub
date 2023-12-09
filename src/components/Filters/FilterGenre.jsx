@@ -21,16 +21,16 @@ function FilterGenre() {
 
   return (
     <div className="col-6 col-md-2 d-flex justify-content-center">
-      <div class="dropdown">
+      <div className="dropdown">
         <button
-          class="game-list-button dropdown-toggle "
+          className="game-list-button dropdown-toggle "
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Genres
         </button>
-        <ul class="dropdown-menu dropdown-menu-dark ">
+        <ul className="dropdown-menu dropdown-menu-dark ">
           {genreGames.map((genre) => (
             <li key={genre.id} value={genre.id}>
               <Link className="dropdown-item" to={`/games/${genre.slug}`}>

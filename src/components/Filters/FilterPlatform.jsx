@@ -20,16 +20,16 @@ function FilterPlatform() {
 
   return (
     <div className="col-6 col-md-2 d-flex justify-content-center">
-      <div class="dropdown">
+      <div className="dropdown">
         <button
-          class="game-list-button dropdown-toggle "
+          className="game-list-button dropdown-toggle "
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Platforms
         </button>
-        <ul class="dropdown-menu dropdown-menu-dark ">
+        <ul className="dropdown-menu dropdown-menu-dark ">
           {platformGames.map((platform) => (
             <li key={platform.id} value={platform.id}>
               <Link className="dropdown-item" to={`/games/${platform.slug}`}>

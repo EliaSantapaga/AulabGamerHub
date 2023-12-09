@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 //* Il contesto contiene un oggetto
 
@@ -13,12 +13,14 @@ const AppContext = createContext({
   setGamesSearched: (games) => games,
   loading: true,
   setLoading: () => {},
-  error: "",
+  error: '',
   setError: () => {},
-  search: "",
+  search: '',
   setSearch: () => {},
   pagination: 1,
   setPagination: () => {},
+  game: [],
+  setGame: () => {},
 });
 
 export default AppContext;

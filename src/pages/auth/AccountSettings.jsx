@@ -17,7 +17,7 @@ export default function Settings() {
   const [last_name, setLastName] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
 
-  //* VALIDATION FORM
+  //* VALIDATION FORM --------------------------------------------
   const schemaValidation = Yup.object({
     first_name: Yup.string().min(2, 'Too Short!').max(30, 'Too Long!'),
     last_name: Yup.string().min(2, 'Too Short!').max(30, 'Too Long!'),
@@ -114,7 +114,7 @@ export default function Settings() {
         >
           {({ errors, touched }) => (
             <Form onSubmit={updateProfile}>
-              <div className="row">
+              <div className="row d-flex align-items-center">
                 <div className="col-12 col-md-6 center-flex">
                   {/*//* PROFILE PIC ---------------------------------  */}
                   <Avatar
@@ -126,7 +126,7 @@ export default function Settings() {
                   />
                 </div>
 
-                <div className="col-6">
+                <div className="col-12 col-md-6 mt-4 mt-md-0">
                   <div className="row text-white">
                     {/* //* FIRST NAME -----------------------------------*/}
                     {errors.first_name && touched.first_name ? (
@@ -143,7 +143,9 @@ export default function Settings() {
                           className="form-control box-shadow-danger"
                           placeholder="Ranni"
                         />
-                        <div className="text-danger mt-2">{errors.name}</div>
+                        <div className="text-danger mt-2">
+                          {errors.first_name}
+                        </div>
                       </div>
                     ) : (
                       <div className="col-12 col-md-6 mb-3">

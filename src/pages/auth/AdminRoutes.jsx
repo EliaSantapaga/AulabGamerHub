@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { Outlet, Navigate } from "react-router-dom";
-import AppContext from "../../context/AppContext";
+import { useContext } from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
 
 function AdminRoutes() {
   const { admin } = useContext(AppContext);

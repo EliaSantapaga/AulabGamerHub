@@ -1,14 +1,18 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import supabase from '../../supabase/client';
-import './Messages.css';
 import AuthContext from '../../context/AuthContext';
+import useProfile from '../../hooks/useProfile';
+import getProfileImg from '../../utils/getProfileImg';
+import formatMessageDate from '../../utils/formatMessageDate';
 
 function Messages({ game }) {
   const { session } = useContext(AuthContext);
+  const { profile } = useProfile();
   const [chat, setChat] = useState([]);
+  const [avatars, setAvatars] = useState();
   const chatRef = useRef(null);
 
-  console.log(chat);
+  console.log(avatars);
 
   const getMessages = async () => {
     const { data, error } = await supabase
@@ -16,29 +20,52 @@ function Messages({ game }) {
       .select('*,  profile: profiles(*)')
       .eq('game_slug', game.slug);
     if (error) {
-      alert(error.message);
+      console.error('Errore durante il recupero dei messaggi:', error.message);
     } else {
+      console.log(data);
       setChat(data);
     }
   };
 
-  useEffect(() => {
-    getMessages();
-    const subscription = supabase
-      .channel('messages')
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-        },
-        () => getMessages()
-      )
-      .subscribe();
+  //* USERS' AVATAR ------------------------------------------
+  const getAvatar = async () => {
+    let { profiles, error } = await supabase
+      .from('profiles')
+      .select('avatar_url');
 
-    return () => {
-      subscription.unsubscribe();
+    if (error) {
+      console.error('Errore durante il recupero dei messaggi:', error.message);
+    } else {
+      console.log(profiles);
+      setAvatars(profiles);
+    }
+  };
+
+  getAvatar();
+
+  console.log(avatars);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log('Fetching data...');
+      await getMessages();
+      const subscription = supabase
+        .channel('messages')
+        .on(
+          'postgres_changes',
+          {
+            event: '*',
+            schema: 'public',
+          },
+          () => getMessages()
+        )
+        .subscribe();
+      return () => {
+        subscription.unsubscribe();
+      };
     };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -47,39 +74,73 @@ function Messages({ game }) {
     }
   }, [chat]);
 
-  const formatMessageDate = (createdAt) => {
-    const dateTime = new Date(createdAt);
-    const formattedDate = dateTime.toLocaleDateString();
-    const formattedTime = dateTime.toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-    return `${formattedDate} - ${formattedTime}`;
-  };
-
   return (
-    <div className="col-12 p-3 messages" ref={chatRef}>
+    <div className="messages" ref={chatRef}>
       {chat &&
         chat.map((message) => (
           <div
             key={message.id}
-            className={`col-12 ${
+            className={`row my-3 ${
               session.user.id == message.profile_id
                 ? 'd-flex justify-content-end'
                 : ''
             }`}
           >
-            <div className="col-9">
-              <div className="chat-message py-2 px-3 my-2">
-                <p className="shadow-neon my-1">{message.profile.username}</p>
+            <div className="col-9 mx-2 ms-md-2">
+              {session.user.id == message.profile_id ? (
+                <div className="row m-0">
+                  {/*//* SESSION USER MESSAGES ---------------------------- */}
+                  <div className="col-10 p-0 ">
+                    <div className="py-2 px-3 session-user-message">
+                      <p className="shadow-neon my-1">
+                        {message.profile.username}
+                      </p>
 
-                <span className="ff-gotu">{message.content}</span>
-                <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
-                  <span>{formatMessageDate(message.created_at)}</span>
-                </span>
+                      <span className="ff-gotu">{message.content}</span>
+                      <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
+                        <span>{formatMessageDate(message.created_at)}</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="col-2 d-flex align-items-end justify-content-end p-0 pe-0 pe-md-2">
+                    <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-1">
+                      <img
+                        // src={message.profile.avatar_url}
+                        src={profile && getProfileImg(profile.avatar_url)}
+                        alt="profile"
+                        className="img-avatar-chat"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="row m-0">
+                  {/*//* OTHER USERS MESSAGES ---------------------------- */}
+                  <div className="col-2 d-flex align-items-end justify-content-start p-0 pe-0">
+                    <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-2">
+                      <img
+                        src={
+                          profile && getProfileImg(message.profile.avatar_url)
+                        }
+                        alt="profile"
+                        className="img-avatar-chat"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-10 p-0 ps-1">
+                    <div className="py-2 px-3 other-user-message">
+                      <p className="shadow-neon my-1">
+                        {message.profile.username}
+                      </p>
 
-                <div></div>
-              </div>
+                      <span className="ff-gotu">{message.content}</span>
+                      <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
+                        <span>{formatMessageDate(message.created_at)}</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}

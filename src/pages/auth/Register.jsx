@@ -114,7 +114,7 @@ function Register() {
         <div className="row my-md-5 my-4">
           <div className="col-12 d-flex justify-content-center">
             <h1
-              className="pb-2 text-center text-white shadow-pink ff-cinzel"
+              className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"

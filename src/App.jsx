@@ -14,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [pagination, setPagination] = useState(1);
+  const [game, setGame] = useState([]);
 
   useEffect(() => {
     async function getGames() {
@@ -48,6 +49,8 @@ function App() {
         setSearch,
         pagination,
         setPagination,
+        game,
+        setGame,
       }}
     >
       {/* //* Il layout copre tutto il sito. Per aggiungere un elemento presente ovunque, inserirlo qui. */}
