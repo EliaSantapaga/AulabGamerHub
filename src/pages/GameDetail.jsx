@@ -132,7 +132,14 @@ function GameDetail() {
 
           <div className="row my-5 m-0">
             <div className="col-12 col-md-6">
-              <img className="img-article" src={game.background_image} alt="" />
+              <h2 className="shadow-neon text-center fs-1 mb-3 mt-5 mt-lg-0">
+                Game Details
+              </h2>
+              <img
+                className="img-article rounded"
+                src={game.background_image}
+                alt=""
+              />
               {/* {profile.favorites.find((el) => el.game_id === game.id) ? (
                 <button className="game-list-button" onClick={addToFavorites}>
                   Add to Preferits
@@ -145,44 +152,46 @@ function GameDetail() {
                   Remove from Preferits
                 </button>
               )} */}
+
+              {/* //* GAME DETAILS ------------------------ */}
+              <div className="game-description text-white shadow-dark mt-4 mt-0 ff-gotu">
+                {game.description_raw}
+              </div>
+
+              {/* //* COMMENTS ---------------------------- */}
+              <CarouselTest />
             </div>
 
             {/* //* LIVE CHAT ---------------------------- */}
             {profile && (
-              <div className="col-12 col-lg-6">
-                <h2 className="shadow-neon text-center fs-1 mb-3 mt-5">Live Chat</h2>
+              <div className="col-12 col-md-6 px-0 px-lg-5 ">
+                <div className="sticky-top">
+                  <h2 className="shadow-neon text-center fs-1 mb-3 mt-5 mt-lg-0">
+                    Live Chat
+                  </h2>
 
-                <div className="chat-container text-light box-shadow-gold">
-                  <Messages profile={profile} game={game} />
+                  <div className="chat-container rounded-25 text-light box-shadow-gold ">
+                    <Messages profile={profile} game={game} />
 
-                  <form
-                    className="message-form mx-3 pb-3 "
-                    onSubmit={handleMessageSubmit}
-                  >
-                    <input
-                      className="chat-input me-2 rounded-pill px-2 ff-gotu"
-                      type="text"
-                      name="message"
-                      placeholder="Type your message..."
-                    />
+                    <form
+                      className="message-form mx-3 pb-3 "
+                      onSubmit={handleMessageSubmit}
+                    >
+                      <input
+                        className="chat-input me-2 rounded-pill px-2 ff-gotu"
+                        type="text"
+                        name="message"
+                        placeholder="Type your message..."
+                      />
 
-                    <button type="submit" className="button-chat center-flex">
-                      <i className="fa-solid fa-circle-chevron-right send-button fs-3" />
-                    </button>
-                  </form>
+                      <button type="submit" className="button-chat center-flex">
+                        <i className="fa-solid fa-circle-chevron-right send-button fs-3" />
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             )}
-          </div>
-
-          {/* //* GAME DETAILS ------------------------ */}
-          <div className="row m-0">
-            <div className="game-description col-12 col-md-6 text-white shadow-dark mt-4 mt-md-0 ff-gotu">
-              {game.description_raw}
-            </div>
-
-            {/* //* COMMENTS ----------------------------- */}
-            <CarouselTest />
           </div>
         </div>
       </div>

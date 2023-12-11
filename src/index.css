@@ -387,6 +387,7 @@ Link {
   color: #fff;
   box-shadow: 6px -6px 0px var(--gold);
   outline: transparent;
+  height: max-content;
 }
 
 .xbox-game-card {
@@ -728,7 +729,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 }
 
 .messages {
-  height: 450px;
+  height: 80vh;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -811,13 +812,8 @@ figure.snip1390 figcaption {
   width: 100%;
 }
 
-ul::marker {
-  unicode-bidi: inherit !important;
-  font-variant-numeric: normal !important;
-  text-transform: none !important;
-  text-indent: 0 !important;
-  text-align: inherit !important;
-  text-align-last: inherit !important;
+li {
+  list-style: none;
 }
 
 .blockquote {
@@ -1021,10 +1017,6 @@ ul::marker {
 }
 
 @media screen and (min-width: 992px) {
-  .game-card {
-    height: 575px;
-  }
-
   .cardbutton {
     justify-self: end;
   }

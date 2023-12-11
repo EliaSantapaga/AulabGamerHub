@@ -32,7 +32,7 @@ const CarouselTest = () => {
     useSnapCarousel();
 
   return (
-    <div className="col-12 col-lg-6 mt-5">
+    <div className="mt-5">
       <h2 className="shadow-neon text-center fs-1 mb-3">User Reviews</h2>
       <div className="col-12 center-flex overflow-hidden">
         <ul
