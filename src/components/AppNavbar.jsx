@@ -13,46 +13,6 @@ function AppNavbar() {
   const { profile } = useProfile();
   const navigate = useNavigate();
 
-  console.log(profile);
-
-  // const location = useLocation();
-  // const [profile, setProfile] = useState(null);
-  // const [loading, setLoading] = useState(true);
-
-  // const updateUser = location.state?.updateProfile || {};
-
-  // console.log(updateUser);
-
-  // useEffect(() => {
-  //   let ignore = false;
-  //   async function getProfile() {
-  //     setLoading(true);
-  //     const { user } = session;
-
-  //     const { data, error } = await supabase
-  //       .from('profiles')
-  //       .select('*')
-  //       .eq('id', user.id)
-  //       .single();
-
-  //     if (!ignore) {
-  //       if (error) {
-  //         console.warn(error);
-  //       } else if (data) {
-  //         setProfile(data);
-  //       }
-  //     }
-
-  //     setLoading(false);
-  //   }
-
-  //   getProfile();
-
-  //   return () => {
-  //     ignore = true;
-  //   };
-  // }, [session]);
-
   const gameHandler = (event) => {
     setGames(event.currentTarget.value);
   };
@@ -61,8 +21,6 @@ function AppNavbar() {
     event.preventDefault();
     console.log('form submitted');
   };
-
-  //* Le due funzioni che gestiscono il controllo su Admin
 
   const handleSignOut = async () => {
     try {
@@ -81,7 +39,7 @@ function AppNavbar() {
     >
       <div className="container nav-container rounded-pill" id="nav-container">
         <a className="navbar-brand mx-3 presto" href="./index.html">
-          <span className="ff-cinzel text-white fs-5 fs-md-2 neon">
+          <span className="ff-cinzel text-white fs-5 fs-md-2 shadow-neon">
             Aulab Gamer Hub
           </span>
         </a>
@@ -189,18 +147,6 @@ function AppNavbar() {
                 </li>
               )}
             </ul>
-
-            {/* <form className="d-flex" role="search" onSubmit={searchHandler}>
-              <input
-                className="form-control no-shadow me-2 rounded-pill ff-cinzel text-center mt-3 mt-md-0"
-                type="search"
-                id="search"
-                placeholder="Search"
-                aria-label="Search"
-                // value={games}
-                onChange={gameHandler}
-              />
-            </form> */}
           </div>
         </div>
       </div>

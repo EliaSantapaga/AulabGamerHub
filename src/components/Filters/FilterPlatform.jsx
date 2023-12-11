@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 function FilterPlatform() {
-  const { platform } = useParams();
   const [platformGames, setPlatformGames] = useState([]);
 
   useEffect(() => {
@@ -32,7 +31,10 @@ function FilterPlatform() {
         <ul className="dropdown-menu dropdown-menu-dark ">
           {platformGames.map((platform) => (
             <li key={platform.id} value={platform.id}>
-              <Link className="dropdown-item" to={`/games/platforms/${platform.slug}`}>
+              <Link
+                className="dropdown-item"
+                to={`/games/platforms/${platform.slug}/${platform.id}`}
+              >
                 {platform.name}
               </Link>
             </li>

@@ -11,7 +11,7 @@ import SelectYourGame from '../../components/Pagination/SelectYourGame';
 function Platform() {
   const { games, error, setError, loading, setLoading, pagination } =
     useContext(AppContext);
-  const { platform } = useParams();
+  const { platform, platform_id } = useParams();
   const [platformGames, setPlatformGames] = useState([]);
 
   console.log(platform);
@@ -25,7 +25,7 @@ function Platform() {
         const response = await fetch(
           `${import.meta.env.VITE_BASE_URL}games?key=${
             import.meta.env.VITE_API_KEY
-          }&page=${pagination}&platforms=${platform}`
+          }&page=${pagination}&platforms=${platform_id}`
         );
 
         console.log(response);

@@ -11,7 +11,7 @@ import SelectYourGame from '../../components/Pagination/SelectYourGame';
 function Store() {
   const { games, error, setError, loading, setLoading, pagination } =
     useContext(AppContext);
-  const { store } = useParams();
+  const { store, store_id } = useParams();
   const [storeGames, setStoreGames] = useState([]);
 
   console.log(store);
@@ -25,7 +25,7 @@ function Store() {
         const response = await fetch(
           `${import.meta.env.VITE_BASE_URL}games?key=${
             import.meta.env.VITE_API_KEY
-          }&page=${pagination}&stores=${store}`
+          }&page=${pagination}&stores=${store_id}`
         );
 
         if (response.ok) {

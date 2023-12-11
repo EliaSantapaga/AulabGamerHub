@@ -48,7 +48,7 @@ const CarouselTest = () => {
                 <figure class="snip1390 mx-5 mt-2 center-flex">
                   <div className="avatar-review-box rounded-pill overflow-hidden center-flex ms-2">
                     <img
-                      src={profile && getProfileImg(comment.profile.avatar_url)}
+                      src={getProfileImg(comment.profile.avatar_url)}
                       alt="profile"
                       className="img-avatar-review"
                     />
@@ -73,9 +73,9 @@ const CarouselTest = () => {
             className={`fa-solid fa-chevron-left fs-1 cursor-pointer text-light pagination-down neon`}
             onClick={() => prev()}
           />
-          <div className="text-white shadow-neon mx-4 fs-5">
+          {/* <div className="text-white shadow-neon mx-4 fs-5">
             {activePageIndex + 1} / {pages.length}
-          </div>
+          </div> */}
           <i
             className="fa-solid fa-chevron-right pagination-up fs-1 text-light neon cursor-pointer"
             onClick={() => next()}
@@ -83,7 +83,7 @@ const CarouselTest = () => {
         </div>
       </div>
       <div className="col-12 center-flex">
-        <Link to={`/game/${game.slug}/review`}>
+        <Link to={profile ? `/game/${game.slug}/review` : '/login'}>
           <button type="button" className="game-list-button">
             Write review
           </button>

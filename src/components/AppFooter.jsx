@@ -92,7 +92,9 @@ function AppFooter() {
               <div className="slider"></div>
             </div>
 
-            <p className='text-white shadow-neon border-top pt-2'>All rights reserved - Aulab Gamer Hub 2023 - Elia Santapaga</p>
+            <p className="text-white shadow-neon border-top pt-2 text-center">
+              All rights reserved - Aulab Gamer Hub 2023 - Elia Santapaga
+            </p>
           </div>
         </div>
       </div>

@@ -116,7 +116,7 @@ export default function Settings() {
             <Form onSubmit={updateProfile}>
               <div className="row d-flex align-items-center">
                 <div className="col-12 col-md-6 center-flex">
-                  {/*//* PROFILE PIC ---------------------------------  */}
+                  {/*//* PROFILE PIC ----------------------------------- */}
                   <Avatar
                     url={avatar_url}
                     size={150}
@@ -128,7 +128,7 @@ export default function Settings() {
 
                 <div className="col-12 col-md-6 mt-4 mt-md-0">
                   <div className="row text-white">
-                    {/* //* FIRST NAME -----------------------------------*/}
+                    {/*//* FIRST NAME -----------------------------------*/}
                     {errors.first_name && touched.first_name ? (
                       <div className="col-12 col-md-6 mb-3">
                         <label

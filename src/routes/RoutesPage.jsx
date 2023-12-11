@@ -26,10 +26,13 @@ function RoutesPage() {
         lazy="/game/genres/:genre"
         element={<Genre />}
       />
-      <Route path="/games/platforms/:platform" element={<Platform />} />
+      <Route
+        path="/games/platforms/:platform/:platform_id"
+        element={<Platform />}
+      />
       <Route path="/games/developers/:developer" element={<Developer />} />
       <Route path="/games/publishers/:publisher" element={<Publisher />} />
-      <Route path="/games/stores/:store" element={<Store />} />
+      <Route path="/games/stores/:store/:store_id" element={<Store />} />
       <Route
         path="/game/:game_slug"
         lazy="/game/:game_slug"
