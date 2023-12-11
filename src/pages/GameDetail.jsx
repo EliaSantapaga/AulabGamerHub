@@ -130,7 +130,6 @@ function GameDetail() {
             <LeafDecoration />
           </div>
 
-          {/* //* GAME DETAILS ------------------------ */}
           <div className="row my-5 m-0">
             <div className="col-12 col-md-6">
               <img className="img-article" src={game.background_image} alt="" />
@@ -147,9 +146,11 @@ function GameDetail() {
                 </button>
               )} */}
             </div>
+
+            {/* //* LIVE CHAT ---------------------------- */}
             {profile && (
               <div className="col-12 col-lg-6">
-                <h2 className="shadow-neon text-center fs-1 mb-3">Live Chat</h2>
+                <h2 className="shadow-neon text-center fs-1 mb-3 mt-5">Live Chat</h2>
 
                 <div className="chat-container text-light box-shadow-gold">
                   <Messages profile={profile} game={game} />
@@ -174,7 +175,7 @@ function GameDetail() {
             )}
           </div>
 
-          {/* //* LIVE CHAT ---------------------------- */}
+          {/* //* GAME DETAILS ------------------------ */}
           <div className="row m-0">
             <div className="game-description col-12 col-md-6 text-white shadow-dark mt-4 mt-md-0 ff-gotu">
               {game.description_raw}

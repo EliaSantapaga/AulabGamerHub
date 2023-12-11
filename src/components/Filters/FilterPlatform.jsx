@@ -32,7 +32,7 @@ function FilterPlatform() {
         <ul className="dropdown-menu dropdown-menu-dark ">
           {platformGames.map((platform) => (
             <li key={platform.id} value={platform.id}>
-              <Link className="dropdown-item" to={`/games/${platform.slug}`}>
+              <Link className="dropdown-item" to={`/games/platforms/${platform.slug}`}>
                 {platform.name}
               </Link>
             </li>

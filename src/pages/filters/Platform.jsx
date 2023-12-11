@@ -5,32 +5,36 @@ import PacManLoader from '../../components/Loader/PacManLoader';
 import PrestoCard from '../../components/Card/GameCard';
 import AppLayout from '../../layout/AppLayout';
 import Space from '../../components/Space';
-import PaginationUp from '../../components/Pagination/PaginationUp';
-import PaginationDown from '../../components/Pagination/PaginationDown';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import SelectYourGame from '../../components/Pagination/SelectYourGame';
 
-function Genre() {
+function Platform() {
   const { games, error, setError, loading, setLoading, pagination } =
     useContext(AppContext);
-  const { genre } = useParams();
-  const [genreGames, setGenreGames] = useState([]);
+  const { platform } = useParams();
+  const [platformGames, setPlatformGames] = useState([]);
+
+  console.log(platform);
 
   useEffect(() => {
-    // setError("");
+    setError('');
     setLoading(true);
 
-    async function getGenre() {
+    async function getPlatform() {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BASE_URL}games?key=${
             import.meta.env.VITE_API_KEY
-          }&page=${pagination}&genres=${genre}`
+          }&page=${pagination}&platforms=${platform}`
         );
+
+        console.log(response);
 
         if (response.ok) {
           const json = await response.json();
-          setGenreGames(json.results);
+          setPlatformGames(json.results);
+
+          console.log(json);
         } else {
           setError('Ops, riprova la tua chiamata API');
         }
@@ -40,8 +44,8 @@ function Genre() {
         setError('Ops, pagina non trovata', error.message);
       }
     }
-    getGenre();
-  }, [genre]);
+    getPlatform();
+  }, [platform, pagination]);
 
   return (
     <AppLayout>
@@ -55,7 +59,7 @@ function Genre() {
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
             >
-              {genre} Games
+              {platform} Games
             </h1>
           </div>
           <LeafDecoration />
@@ -73,12 +77,14 @@ function Genre() {
           )}
           {loading && <PacManLoader />}
 
-          {genreGames &&
-            genreGames.map((game) => <PrestoCard game={game} key={game.id} />)}
+          {platformGames &&
+            platformGames.map((game) => (
+              <PrestoCard game={game} key={game.id} />
+            ))}
         </div>
       </div>
     </AppLayout>
   );
 }
 
-export default Genre;
+export default Platform;

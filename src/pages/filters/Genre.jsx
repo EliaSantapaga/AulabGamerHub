@@ -5,8 +5,6 @@ import PacManLoader from '../../components/Loader/PacManLoader';
 import PrestoCard from '../../components/Card/GameCard';
 import AppLayout from '../../layout/AppLayout';
 import Space from '../../components/Space';
-import PaginationUp from '../../components/Pagination/PaginationUp';
-import PaginationDown from '../../components/Pagination/PaginationDown';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import SelectYourGame from '../../components/Pagination/SelectYourGame';
 
@@ -17,7 +15,6 @@ function Genre() {
   const [genreGames, setGenreGames] = useState([]);
 
   useEffect(() => {
-    setGames([]);
     setError('');
     setLoading(true);
 
@@ -42,7 +39,7 @@ function Genre() {
       }
     }
     getGenre();
-  }, [genre]);
+  }, [genre, pagination]);
 
   console.log(pagination);
 

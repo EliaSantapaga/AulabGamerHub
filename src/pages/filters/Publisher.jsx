@@ -5,32 +5,30 @@ import PacManLoader from '../../components/Loader/PacManLoader';
 import PrestoCard from '../../components/Card/GameCard';
 import AppLayout from '../../layout/AppLayout';
 import Space from '../../components/Space';
-import PaginationUp from '../../components/Pagination/PaginationUp';
-import PaginationDown from '../../components/PaginationDown';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import SelectYourGame from '../../components/Pagination/SelectYourGame';
 
-function Genre() {
+function Publisher() {
   const { games, error, setError, loading, setLoading, pagination } =
     useContext(AppContext);
-  const { genre } = useParams();
-  const [genreGames, setGenreGames] = useState([]);
+  const { publisher } = useParams();
+  const [publisherGames, setPublisherGames] = useState([]);
 
   useEffect(() => {
-    // setError("");
+    setError('');
     setLoading(true);
 
-    async function getGenre() {
+    async function getPublisher() {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BASE_URL}games?key=${
             import.meta.env.VITE_API_KEY
-          }&page=${pagination}&genres=${genre}`
+          }&page=${pagination}&publishers=${publisher}`
         );
 
         if (response.ok) {
           const json = await response.json();
-          setGenreGames(json.results);
+          setPublisherGames(json.results);
         } else {
           setError('Ops, riprova la tua chiamata API');
         }
@@ -40,8 +38,8 @@ function Genre() {
         setError('Ops, pagina non trovata', error.message);
       }
     }
-    getGenre();
-  }, [genre]);
+    getPublisher();
+  }, [publisher, pagination]);
 
   console.log(pagination);
 
@@ -57,7 +55,7 @@ function Genre() {
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
             >
-              {genre} Games
+              {publisher} Games
             </h1>
           </div>
           <LeafDecoration />
@@ -75,12 +73,14 @@ function Genre() {
           )}
           {loading && <PacManLoader />}
 
-          {genreGames &&
-            genreGames.map((game) => <PrestoCard game={game} key={game.id} />)}
+          {publisherGames &&
+            publisherGames.map((game) => (
+              <PrestoCard game={game} key={game.id} />
+            ))}
         </div>
       </div>
     </AppLayout>
   );
 }
 
-export default Genre;
+export default Publisher;

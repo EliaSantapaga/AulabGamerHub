@@ -10,7 +10,9 @@ import LoggedUserRoutes from '../pages/auth/LoggedUserRoutes';
 import AccountSettings from '../pages/auth/AccountSettings';
 import Genre from '../pages/filters/Genre';
 import Developer from '../pages/filters/Developer';
-// import Platform from '../pages/filters/Platform';
+import Publisher from '../pages/filters/Publisher';
+import Platform from '../pages/filters/Platform';
+import Store from '../pages/filters/Store';
 import CommentPage from '../pages/CommentPage';
 
 function RoutesPage() {
@@ -19,11 +21,15 @@ function RoutesPage() {
       {/* //* Ogni rotta corrisponde a una pagina creata nella cartella pages e importata */}
       <Route path="/" element={<Home />} />
       <Route path="/games" element={<GameList />} />
-      <Route path="/games/:genre" lazy="/game/:genre" element={<Genre />} />
-      {/* <Route path="/games/:platform" element={<Platform />} /> */}
-      <Route path="/games/:developer" element={<Developer />} />
-      {/* <Route path="/games/:publisher" element={<Publisher />} /> */}
-      {/* <Route path="/games/:store" element={<Store />} /> */}
+      <Route
+        path="/games/genres/:genre"
+        lazy="/game/genres/:genre"
+        element={<Genre />}
+      />
+      <Route path="/games/platforms/:platform" element={<Platform />} />
+      <Route path="/games/developers/:developer" element={<Developer />} />
+      <Route path="/games/publishers/:publisher" element={<Publisher />} />
+      <Route path="/games/stores/:store" element={<Store />} />
       <Route
         path="/game/:game_slug"
         lazy="/game/:game_slug"
@@ -31,11 +37,7 @@ function RoutesPage() {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route
-        path="/game/:slug/review"
-        // loader={getSingleGame}
-        element={<CommentPage />}
-      />
+      <Route path="/game/:slug/review" element={<CommentPage />} />
 
       {/* //* Per creare delle rotte parametriche devo inserire nell'URL "/:nomeparametro" */}
       {/* //* La proprietà lazy="" permette di rallentare il caricamento della rotta chiamata */}

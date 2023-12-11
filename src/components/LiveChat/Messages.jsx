@@ -105,7 +105,6 @@ function Messages({ game }) {
                   <div className="col-2 d-flex align-items-end justify-content-end p-0 pe-0 pe-md-2">
                     <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-1">
                       <img
-                        // src={message.profile.avatar_url}
                         src={profile && getProfileImg(profile.avatar_url)}
                         alt="profile"
                         className="img-avatar-chat"

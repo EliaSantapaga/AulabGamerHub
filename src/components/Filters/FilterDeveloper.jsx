@@ -32,7 +32,7 @@ function FilterDeveloper() {
         <ul className="dropdown-menu dropdown-menu-dark ">
           {developerGames.map((developer) => (
             <li key={developer.id} value={developer.id}>
-              <Link className="dropdown-item" to={`/games/${developer.slug}`}>
+              <Link className="dropdown-item" to={`/games/developers/${developer.slug}`}>
                 {developer.name}
               </Link>
             </li>

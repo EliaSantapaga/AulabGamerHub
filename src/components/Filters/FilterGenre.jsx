@@ -33,7 +33,7 @@ function FilterGenre() {
         <ul className="dropdown-menu dropdown-menu-dark ">
           {genreGames.map((genre) => (
             <li key={genre.id} value={genre.id}>
-              <Link className="dropdown-item" to={`/games/${genre.slug}`}>
+              <Link className="dropdown-item" to={`/games/genres/${genre.slug}`}>
                 {genre.name}
               </Link>
             </li>
