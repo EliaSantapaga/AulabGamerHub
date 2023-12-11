@@ -6,13 +6,11 @@ import AuthLayout from '../layout/AuthLayout';
 import Space from '../components/Space';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 import AuthContext from '../context/AuthContext';
-import useProfile from '../hooks/useProfile';
 
 function CommentPage() {
   const { game } = useContext(AppContext);
   const [success, setSuccess] = useState(false);
   const { session } = useContext(AuthContext);
-  const { profile } = useProfile();
   const navigate = useNavigate();
 
   console.log(game);
@@ -22,12 +20,12 @@ function CommentPage() {
     const commentForm = event.currentTarget;
     const { content } = Object.fromEntries(new FormData(commentForm));
     if (typeof content === 'string' && content.trim().length !== 0) {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('comments')
         .insert([
           {
             profile_id: session.user.id,
-            game_slug: game.slug,
+            game_id: game.id,
             game_name: game.name,
             review_content: content,
           },

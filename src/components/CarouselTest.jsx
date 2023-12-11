@@ -18,7 +18,7 @@ const CarouselTest = () => {
       const { data, error } = await supabase
         .from('comments')
         .select('*, profile: profiles(*)')
-        .eq('game_slug', game.slug);
+        .eq('game_id', game.id);
       if (error) {
         alert(error.message);
       } else {
