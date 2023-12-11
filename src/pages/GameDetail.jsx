@@ -40,7 +40,7 @@ function GameDetail() {
         .insert([
           {
             profile_id: profile.id,
-            game_slug: game.slug,
+            game_id: game.id,
             content: message,
           },
         ])

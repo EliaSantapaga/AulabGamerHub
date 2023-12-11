@@ -12,13 +12,11 @@ function Messages({ game }) {
   const [avatars, setAvatars] = useState();
   const chatRef = useRef(null);
 
-  console.log(avatars);
-
   const getMessages = async () => {
     const { data, error } = await supabase
       .from('messages')
       .select('*,  profile: profiles(*)')
-      .eq('game_slug', game.slug);
+      .eq('game_id', game.id);
     if (error) {
       console.error('Errore durante il recupero dei messaggi:', error.message);
     } else {
