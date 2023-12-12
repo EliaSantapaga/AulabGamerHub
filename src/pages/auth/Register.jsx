@@ -8,14 +8,6 @@ import LeafDecoration from '../../components/Decorations/LeafDecoration';
 
 //* VALIDATION FORM
 const schemaValidation = Yup.object({
-  // name: Yup.string()
-  //   .min(2, 'Too Short!')
-  //   .max(30, 'Too Long!')
-  //   .required('Required'),
-  // last_name: Yup.string()
-  //   .min(2, 'Too Short!')
-  //   .max(30, 'Too Long!')
-  //   .required('Required'),
   username: Yup.string()
     .min(3, 'Too Short!')
     .max(30, 'Too Long!')
@@ -28,68 +20,13 @@ const schemaValidation = Yup.object({
 });
 
 function Register() {
-  // const { signUp } = useContext(AuthContext);
   const navigate = useNavigate();
-  // const [username, setUsername] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const handleRegister = async (event) => {
-  //   event.preventDefault();
-
-  //   const { username, email, password } = Object.fromEntries(
-  //     new FormData(event.currentTarget)
-  //   );
-
-  //   let { error } = await signUp({
-  //     email, //* Valore che arriva dal campo email del form
-  //     password, //* Valore che arriva dal campo password del form
-  //     options: {
-  //       data: {
-  //         username,
-  //       },
-  //     },
-  //   });
-
-  //   if (error) {
-  //     alert(error.error_description || error.message);
-  //   } else {
-  //     navigate("./profile");
-  //   }
-  // };
-
-  // const handleRegister = async (event) => {
-  //   event.preventDefault();
-  //   const registerForm = event.currentTarget;
-  //   const { username, email, password } = Object.fromEntries(
-  //     new FormData(registerForm)
-  //   );
-  //   try {
-  //     let { error } = await supabase.auth.signUp({
-  //       email,
-  //       password,
-  //       options: {
-  //         data: {
-  //           username,
-  //         },
-  //       },
-  //     });
-  //     if (error) {
-  //       alert(error.error_description || error.message);
-  //     } else {
-  //       registerForm.reset();
-  //       navigate("/profile");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const handleRegisterFormik = async (values) => {
     try {
       const { error } = await supabase.auth.signUp({
-        email: values.email,
-        password: values.password,
+        email: values.email, //* Valore che arriva dal campo email del form
+        password: values.password, //* Valore che arriva dal campo password del form
         options: {
           data: {
             username: values.username,
@@ -97,7 +34,6 @@ function Register() {
         },
       });
       if (error) {
-        // eslint-disable-next-line no-alert
         alert(error.error_description || error.message);
       } else {
         navigate('/profile');
@@ -127,78 +63,6 @@ function Register() {
 
         <div className="row justify-content-center">
           <div className="col-12 col-md-5 mb-5 text-white" id="Register">
-            {/* <form onSubmit={handleRegister}>
-                
-
-                <div className="mb-3">
-                  <label htmlFor="registerName" className="form-label">
-                    Username
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="username"
-                    id="username"
-                    placeholder="TarnishedSamurai69"
-                    // onChange={(event) => setUsername(event.target.value)}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="registerEmail" className="form-label">
-                    E-mail
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    id="email"
-                    className="form-control"
-                    placeholder="nome.cognome@example.com"
-                    // onChange={(event) => setEmail(event.target.value)}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="registerPassword" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    name="password"
-                    type="password"
-                    id="password"
-                    className="form-control"
-                    placeholder="Scrivi una password sicura"
-                    // onChange={(event) => setPassword(event.target.value)}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="PasswordConfirm" className="form-label">
-                    Confirm Password
-                  </label>
-                  <input
-                    name="password_confirm"
-                    type="password"
-                    id="password_confirm"
-                    className="form-control"
-                    placeholder="Riscrivi la tua password"
-                  />
-                </div>
-
-                <div className="center-flex">
-                  <button
-                    type="submit"
-                    className="cardbutton btn btn-prezzo ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4"
-                  >
-                    Sign Up
-                  </button>
-
-                  <Link className="text-white ff-cinzel mt-3" to="/login">
-                    If you already have an account, click here to log in
-                  </Link>
-                </div>
-              </form> */}
-
             {/*//* VALIDATION - INITIAL VALUES  */}
             <Formik
               initialValues={{

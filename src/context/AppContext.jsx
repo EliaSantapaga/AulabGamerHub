@@ -21,6 +21,8 @@ const AppContext = createContext({
   setPagination: () => {},
   game: [],
   setGame: () => {},
+  fav: [],
+  setFav: () => {},
 });
 
 export default AppContext;

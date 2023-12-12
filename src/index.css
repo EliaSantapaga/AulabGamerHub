@@ -20,13 +20,14 @@ body {
   padding: 0px;
 
   background: url('/src/assets/shadows-of-the-erdrtree-4k-wallpaper-16-9-21-9-v0-3vaaf7i4dwka1.webp');
-
-  backdrop-filter: blur(0px);
-
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
+
+  backdrop-filter: blur(0px);
+
+  overflow-x: hidden !important;
 }
 
 /*//* FONTS --------------------------------- */
@@ -613,6 +614,23 @@ input[type='file']::-webkit-file-upload-button:hover {
     neon 1.5s infinite alternate;
 }
 
+/*//* FAVOURITES ------------------------------------ */
+
+.fav-games-list {
+  height: 50px;
+}
+
+.fav-icon {
+  width: max-content;
+  height: max-content;
+  transition: color 0.3s ease-in-out;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+}
+
 /*//* FILTER ------------------------------------ */
 
 .dropdown-menu-dark {
@@ -719,6 +737,14 @@ input[type='file']::-webkit-file-upload-button:hover {
 
 .gamesintime-logo {
   height: 150px;
+}
+
+/*//* ACCOUNT --------------------------------- */
+
+.info-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 25px;
 }
 
 /*//* LIVE CHAT ------------------------------- */
@@ -1293,8 +1319,4 @@ li {
   0% {
     color: white;
   }
-}
-
-body {
-  overflow-x: hidden !important;
 }
