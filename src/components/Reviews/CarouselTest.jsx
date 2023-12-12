@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
-import AppContext from '../context/AppContext';
-import useProfile from '../hooks/useProfile';
-import supabase from '../supabase/client';
-import formatMessageDate from '../utils/formatMessageDate';
-import getProfileImg from '../utils/getProfileImg';
+import AppContext from '../../context/AppContext';
+import useProfile from '../../hooks/useProfile';
+import supabase from '../../supabase/client';
+import formatMessageDate from '../../utils/formatMessageDate';
+import getProfileImg from '../../utils/getProfileImg';
 import { useSnapCarousel } from 'react-snap-carousel';
 
 const CarouselTest = () => {

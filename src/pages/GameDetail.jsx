@@ -6,9 +6,9 @@ import Messages from '../components/LiveChat/Messages';
 import supabase from '../supabase/client';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 import useProfile from '../hooks/useProfile';
-import CarouselTest from '../components/CarouselTest';
 import AppContext from '../context/AppContext';
 import FavouriteButton from '../components/FavouriteButton';
+import ReviewSwiper from '../components/ReviewSwiper';
 
 export async function getSingleGame({ params }) {
   const response = await fetch(
@@ -91,14 +91,17 @@ function GameDetail() {
               <h2 className="shadow-neon text-center fs-1 mb-3 mt-5 mt-lg-0">
                 Game Details
               </h2>
+
+              {/*//* FAVOURITES BUTTON ----------------- */}
+              <div className="fav-container p-2">
+                <FavouriteButton game={game} />
+              </div>
+
               <img
                 className="img-article rounded"
                 src={game.background_image}
                 alt=""
               />
-
-              {/*//* FAVOURITES BUTTON ----------------- */}
-              <FavouriteButton game={game} />
 
               {/* //* GAME DETAILS ------------------------ */}
               <div className="game-description text-white shadow-dark mt-4 mt-0 ff-gotu">
@@ -106,7 +109,7 @@ function GameDetail() {
               </div>
 
               {/* //* COMMENTS ---------------------------- */}
-              <CarouselTest />
+              <ReviewSwiper />
             </div>
 
             {/* //* LIVE CHAT ---------------------------- */}

@@ -8,14 +8,45 @@ import Space from '../../components/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import formatMessageDate from '../../utils/formatMessageDate';
-import FavouriteButton from '../../components/FavouriteButton';
+// import FavouriteButton from '../../components/FavouriteButton';
+import AppContext from '../../context/AppContext';
 
 function AccountProfile() {
   const { profile, loading } = useProfile();
-  const [fav, setFav] = useState([]);
   const { session } = useContext(AuthContext);
-  const [hovered, setHovered] = useState(false);
+  const { game } = useContext(AppContext);
 
+  const [fav, setFav] = useState([]);
+  const [comments, setComments] = useState([]);
+  // const [hovered, setHovered] = useState(false);
+
+  //* REVIEWS ----------------------------
+  const getComments = async () => {
+    const { data, error } = await supabase
+      .from('comments')
+      .select('*, profile: profiles(*)')
+      .eq('game_id', game.id);
+    if (error) {
+      alert(error.message);
+    } else {
+      setComments(data);
+    }
+  };
+
+  useEffect(() => {
+    getComments();
+  }, []);
+
+  const removeReview = async (id) => {
+    const { error } = await supabase.from('comments').delete().eq('id', id);
+    if (error) {
+      alert(error.message);
+    } else {
+      getComments();
+    }
+  };
+
+  //* FAVORITES ------------------------
   const getFavGame = async () => {
     const { data, error } = await supabase
       .from('favorites')
@@ -33,19 +64,6 @@ function AccountProfile() {
       getFavGame();
     }
   }, []);
-
-  const removeFromFavorites = async () => {
-    const { error } = await supabase
-      .from('favorites')
-      .delete()
-      .eq('game_id', game.id)
-      .eq('profile_id', session.user.id);
-    if (error) {
-      alert(error.message);
-    } else {
-      getFavGame();
-    }
-  };
 
   console.log(session);
   console.log(profile);
@@ -120,7 +138,7 @@ function AccountProfile() {
 
             <div className="row mt-3 border-bottom">
               <div className="col-5 mb-0 d-flex align-items-end">
-                <p className="fs-6 mb-0">Last login:</p>
+                <p className="fs-6 mb-0">Last Login:</p>
               </div>
               <div className="col-7 text-center mb-0 d-flex justify-content-end">
                 <p className="mb-0">
@@ -138,7 +156,17 @@ function AccountProfile() {
                   <h4 className="text-center shadow-neon mb-3">
                     Le tue Reviews
                   </h4>
-                  <p>…</p>
+                  {comments.map((comment) => (
+                    <div key={comment.id}>
+                      {/* {JSON.stringify(comment, null, 2)} */}
+                      <p>{comment.review_content}</p>
+                      <div>
+                        <p>{formatMessageDate(comment.created_at)}</p>
+                      </div>
+
+                      <button onClick={removeReview(comment.id)}>Remove</button>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -154,7 +182,7 @@ function AccountProfile() {
                         key={favGame.id}
                       >
                         <li>{favGame.game_name}</li>
-                        <button
+                        {/* <button
                           className="icon d-flex justify-content-center align-items-center border rounded-pill"
                           type="button"
                           onClick={removeFromFavorites}
@@ -166,7 +194,7 @@ function AccountProfile() {
                             onMouseEnter={() => setHovered(true)}
                             onMouseLeave={() => setHovered(false)}
                           />
-                        </button>
+                        </button> */}
                       </div>
                     ))}
                 </div>

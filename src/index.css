@@ -340,32 +340,6 @@ Link {
   font-size: 50px;
 }
 
-/*//* GAME LIST --------------------------------- */
-
-.game-list {
-  position: relative;
-  animation: fadeInUp 1s ease 0.9s normal both;
-}
-
-.swiper {
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 500px;
-  box-shadow: 6px 3px 6px rgb(38, 38, 38);
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /*//* CARDS ------------------------------------- */
 
 .games-card {
@@ -615,6 +589,9 @@ input[type='file']::-webkit-file-upload-button:hover {
 }
 
 /*//* FAVOURITES ------------------------------------ */
+.fav-container {
+  position: absolute;
+}
 
 .fav-games-list {
   height: 50px;
@@ -806,16 +783,11 @@ input[type='file']::-webkit-file-upload-button:hover {
 }
 
 /*//* REVIEWS ------------------------------- */
-.review-container {
-  width: 90% !important;
-}
 
-figure.snip1390 {
-  position: relative;
-  overflow: hidden;
+div.snip1390 {
   min-width: 230px;
   max-width: 315px;
-  width: 90%;
+  width: 100%;
   text-align: center;
   font-size: 16px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -823,23 +795,20 @@ figure.snip1390 {
   border-radius: 10px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-figure.snip1390 *,
-figure.snip1390 *:before,
-figure.snip1390 *:after {
+div.snip1390 *,
+div.snip1390 *:before,
+div.snip1390 *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
-figure.snip1390 figcaption {
+div.snip1390 figcaption {
   width: 100%;
-}
-
-li {
-  list-style: none;
 }
 
 .blockquote {
@@ -860,6 +829,20 @@ li {
 
 .review-carousel {
   width: 100%;
+}
+
+/*//? Swiper Slider  */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
 }
 
 /*//* BUTTON -------------------------------- */
