@@ -639,7 +639,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 /*//* TRAILER ----------------------------------- */
 
 .trailer {
-  background-image: url('src/assets/Elden-Ring-background-Erdtree-transparent.png');
+  background-image: url('./assets/Elden-Ring-background-Erdtree-transparent.png');
   background-position: top;
   background-repeat: none;
   background-size: cover;
