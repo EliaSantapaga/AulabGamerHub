@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
+import Root from "../pages/Root";
 //* GAMES ROUTES -----------------------
 import GameList from '../pages/GameList';
 import GameDetail, { getSingleGame } from '../pages/GameDetail';
@@ -24,22 +25,19 @@ const router = createBrowserRouter([
   //* Ogni rotta corrisponde a una pagina creata nella cartella pages e importata
   {
     path: '/',
-    element: <Home />,
+    element: <Root />,
     children: [
       {
         path: '/',
         element: <Home />,
-        // loader: preLoadFilters,
       },
-
       //* GAMES ROUTES -----------------------
       {
         path: '/games',
         element: <GameList />,
-        loader: getSingleGame,
       },
       {
-        path: '/game/:game_slug',
+        path: '/game/:id',
         element: <GameDetail />,
         loader: getSingleGame,
       },
@@ -97,7 +95,7 @@ const router = createBrowserRouter([
       //* REVIEW ROUTE ----------------------
       //* Rotta per l'errore 404 - Page not found. Se la rotta non esiste, viene visualizzata questa pagina
       {
-        path: '/game/:slug/review',
+        path: '/game/:id/review',
         element: <CommentPage />,
         loader: getSingleGame,
       },

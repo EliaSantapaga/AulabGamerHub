@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import GameDetailLayout from '../layout/GameDetailLayout';
 import Space from '../components/Space';
 import Messages from '../components/LiveChat/Messages';
@@ -12,7 +12,7 @@ import ReviewSwiper from '../components/ReviewSwiper';
 
 export async function getSingleGame({ params }) {
   const response = await fetch(
-    `${import.meta.env.VITE_BASE_URL}games/${params.slug}?key=${
+    `${import.meta.env.VITE_BASE_URL}games/${params.id}?key=${
       import.meta.env.VITE_API_KEY
     }`
   );
@@ -22,10 +22,7 @@ export async function getSingleGame({ params }) {
 
 function GameDetail() {
   const { profile } = useProfile();
-  const { game, setGame } = useContext(AppContext);
-
-  //* Il params presente qui sopra è possibile destrutturarlo con ciò che ci serve, ovvero il game_slug
-  const { game_slug } = useParams();
+  const game = useLoaderData();
 
   //* MESSAGES -------------------------------------
   const handleMessageSubmit = async (event) => {
@@ -50,20 +47,6 @@ function GameDetail() {
       }
     }
   };
-
-  //* GET GAMES ------------------------------------
-  useEffect(() => {
-    async function getSingleGame() {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}games/${game_slug}?key=${
-          import.meta.env.VITE_API_KEY
-        }&page=1`
-      );
-      const json = await response.json();
-      setGame(json);
-    }
-    getSingleGame();
-  }, []);
 
   return (
     <GameDetailLayout>
@@ -107,7 +90,7 @@ function GameDetail() {
               </div>
 
               {/* //* COMMENTS ---------------------------- */}
-              <ReviewSwiper />
+              <ReviewSwiper game={game} />
             </div>
 
             {/* //* LIVE CHAT ---------------------------- */}

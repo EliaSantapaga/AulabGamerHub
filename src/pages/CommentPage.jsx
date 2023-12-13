@@ -1,19 +1,14 @@
 import supabase from '../supabase/client';
-import { useContext, useState } from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
-import AppContext from '../context/AppContext';
+import { useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import AuthLayout from '../layout/AuthLayout';
 import Space from '../components/Space';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
-import AuthContext from '../context/AuthContext';
 
 function CommentPage() {
-  const { game } = useContext(AppContext);
-  const [success, setSuccess] = useState(false);
-  const { session } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  console.log(game);
+  const game = useLoaderData();
+  const [success, setSuccess] = useState(false);
 
   const handleCommentSubmit = async (event) => {
     event.preventDefault();
@@ -24,7 +19,7 @@ function CommentPage() {
         .from('comments')
         .insert([
           {
-            profile_id: session.user.id,
+            // profile_id: session.user.id, 
             game_id: game.id,
             game_name: game.name,
             review_content: content,

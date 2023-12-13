@@ -1,25 +1,21 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
+import AppContext from '../context/AppContext';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import useProfile from '../hooks/useProfile';
-import AppContext from '../context/AppContext';
-import { Link } from 'react-router-dom';
 import supabase from '../supabase/client';
-import getProfileImg from '../utils/getProfileImg';
+import useProfile from '../hooks/useProfile';
 import formatMessageDate from '../utils/formatMessageDate';
-// import AuthContext from '../context/AuthContext';
+import getProfileImg from '../utils/getProfileImg';
 
-export default function ReviewSwiper() {
-  const [comments, setComments] = useState([]);
-  const { game } = useContext(AppContext);
+export default function ReviewSwiper({ game }) {
+  const [ comments, setComments ] = useState([]);
   const { profile } = useProfile();
-
-  console.log(game);
 
   const getComments = async () => {
     const { data, error } = await supabase
@@ -30,12 +26,6 @@ export default function ReviewSwiper() {
       alert(error.message);
     } else {
       setComments(data);
-
-      // const filtered = data
-      //   // .filter((data) => data.profile_id == user.id)
-      //   .filter((data) => data.game_id == game.id);
-      // console.log(data);
-      // console.log(filtered);
     }
   };
 
@@ -93,7 +83,7 @@ export default function ReviewSwiper() {
           )}
         </Swiper>
         <div className="col-12 center-flex">
-          <Link to={profile ? `/game/${game.slug}/review` : '/login'}>
+          <Link to={profile ? `/game/${game.id}/review` : '/login'}>
             <button type="button" className="game-list-button">
               Write review
             </button>

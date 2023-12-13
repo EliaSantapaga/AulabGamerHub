@@ -15,18 +15,15 @@ import formatMessageDate from '../../utils/formatMessageDate';
 function AccountProfile() {
   const { profile, loading } = useProfile();
   const { session } = useContext(AuthContext);
-  // const { game } = useContext(AppContext);
-
   const [fav, setFav] = useState([]);
   const [comments, setComments] = useState([]);
-  // const [hovered, setHovered] = useState(false);
 
   //* REVIEWS ----------------------------
   const getComments = async () => {
     const { data, error } = await supabase
       .from('comments')
-      .select('*, profile: profiles(*)');
-    // .eq('game_id', game.id);
+      .select('*, profile: profiles(*)')
+      .eq('profile_id', session.user.id)
     if (error) {
       alert(error.message);
     } else {
@@ -66,9 +63,6 @@ function AccountProfile() {
     }
   }, []);
 
-  console.log(session);
-  console.log(profile);
-  console.log(fav);
 
   return (
     <AppLayout>
@@ -160,11 +154,12 @@ function AccountProfile() {
                   {comments.map((comment) => (
                     <div key={comment.id}>
                       <p>{comment.review_content}</p>
+                      <p>{comment.profile.username}</p>
                       <div>
                         <p>{formatMessageDate(comment.created_at)}</p>
                       </div>
 
-                      <button onClick={removeReview(comment.id)}>Remove</button>
+                      <button onClick={() => removeReview(comment.id)}>Remove</button>
                     </div>
                   ))}
                 </div>
