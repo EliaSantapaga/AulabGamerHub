@@ -1,21 +1,24 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import AppContext from '../context/AppContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import supabase from '../supabase/client';
 import useProfile from '../hooks/useProfile';
-import formatMessageDate from '../utils/formatMessageDate';
+import AppContext from '../context/AppContext';
+import { Link } from 'react-router-dom';
+import supabase from '../supabase/client';
 import getProfileImg from '../utils/getProfileImg';
+import formatMessageDate from '../utils/formatMessageDate';
+// import AuthContext from '../context/AuthContext';
 
 export default function ReviewSwiper({ game }) {
   const [comments, setComments] = useState([]);
   const { profile } = useProfile();
+
+  console.log(game);
 
   const getComments = async () => {
     const { data, error } = await supabase
@@ -26,6 +29,12 @@ export default function ReviewSwiper({ game }) {
       alert(error.message);
     } else {
       setComments(data);
+
+      // const filtered = data
+      //   // .filter((data) => data.profile_id == user.id)
+      //   .filter((data) => data.game_id == game.id);
+      // console.log(data);
+      // console.log(filtered);
     }
   };
 
