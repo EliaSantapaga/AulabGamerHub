@@ -17,7 +17,6 @@ function HomeCards() {
 
       <LeafDecoration />
 
-
       <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
         <div className="col-12 col-lg-4 cardContainer">
           <div
@@ -32,12 +31,12 @@ function HomeCards() {
               className="img-fluid img-card"
             />
 
-            <h3 className="text-white text-center px-4">
+            <h4 className="text-white text-center px-4">
               Ecco il nuovo PlayStation®Plus
-            </h3>
+            </h4>
 
-            <p className="text-white text-center px-4">
-              Libera il potere di PlayStation e scopri il tuo nuovo gioco
+            <p className="text-white text-center px-4 mt-3">
+              Libera il pieno potere di PlayStation e scopri il tuo nuovo gioco
               preferito con una nuova selezione di piani di abbonamento.
             </p>
 
@@ -66,11 +65,11 @@ function HomeCards() {
               className="img-fluid img-card"
             />
 
-            <h3 className="text-white text-center px-4">
+            <h4 className="text-white text-center px-4">
               Ecco il nuovo <br /> Xbox Game Pass
-            </h3>
+            </h4>
 
-            <p className="text-white text-center px-4">
+            <p className="text-white text-center px-4 mt-3">
               Gioca ai nuovi titoli il giorno del lancio. In più, gioca con gli
               amici a centinaia di titoli di grande qualità su console, PC o
               cloud.{' '}
@@ -101,13 +100,13 @@ function HomeCards() {
               className="img-fluid img-card"
             />
 
-            <h3 className="text-white text-center px-4">
+            <h4 className="text-white text-center px-4">
               Ecco il nuovo <br /> Nintendo Switch Online
-            </h3>
+            </h4>
 
-            <p className="text-white text-center px-4">
+            <p className="text-white text-center px-4 mt-3">
               Goditi la tua esperienza su Nintendo Switch con il gioco online,
-              il cloud, un catalogo di giochi classNameici e altro ancora!
+              il cloud, un catalogo di giochi classici e altro ancora!
             </p>
 
             <a
