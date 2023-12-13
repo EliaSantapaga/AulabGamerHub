@@ -1,6 +1,6 @@
-import PlayStation from '../assets/PlayStation-Plus.png';
-import Xbox from '../assets/Xbox Game Pass.png';
-import Nintendo from '../assets/Nintendo Switch Online.png';
+import PlayStation from '../assets/PlayStation-Plus - Trasparente.png';
+import Xbox from '../assets/Xbox Game Pass - Trasparente.png';
+import Nintendo from '../assets/Nintendo Switch Online - Trasparente.png';
 import LeafDecoration from './Decorations/LeafDecoration';
 
 function HomeCards() {
@@ -18,9 +18,9 @@ function HomeCards() {
       <LeafDecoration />
 
       <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div className="col-12 col-lg-4 cardContainer">
+        <div className="col-12 col-lg-4 home-card-container">
           <div
-            className="feature game-card d-flex align-items-center justify-content-between flex-column"
+            className="feature box-shadow-playstation rounded game-card playstation-game-card d-flex align-items-center justify-content-between flex-column"
             data-aos="flip-left"
             data-aos-delay="100"
             data-aos-duration="1100"
@@ -31,13 +31,13 @@ function HomeCards() {
               className="img-fluid img-card"
             />
 
-            <h4 className="text-white text-center px-4">
+            <h4 className="text-white text-center px-4 ">
               Ecco il nuovo PlayStation®Plus
             </h4>
 
             <p className="text-white text-center px-4 mt-3">
-              Libera il pieno potere di PlayStation e scopri il tuo nuovo gioco
-              preferito con una nuova selezione di piani di abbonamento.
+              Libera il massimo potenziale di PlayStation e scopri il tuo nuovo
+              gioco preferito con una nuova selezione di piani di abbonamento.
             </p>
 
             <a
@@ -45,8 +45,8 @@ function HomeCards() {
               href="https://www.playstation.com/it-it/ps-plus/?emcid=pa-co-445764&gclid=Cj0KCQjwr4eYBhDrARIsANPywChaApCAlP8rNuTVhVlIf9HmA9VHdn6S9SFKNvwhaBRsZy1kOmjexNUaAhjdEALw_wcB&gclsrc=aw.ds"
               rel="noreferrer"
             >
-              <button className="ff-cinzel text-uppercase cardbutton playstationbutton my-4 mx-1">
-                Vai al sito
+              <button className="ff-cinzel game-list-button playstationbutton my-4 mx-1">
+                Visit website
               </button>
             </a>
           </div>
@@ -54,7 +54,7 @@ function HomeCards() {
 
         <div className="col-12 col-lg-4">
           <div
-            className="feature game-card d-flex align-items-center justify-content-between flex-column xbox-game-card"
+            className="feature box-shadow-xbox rounded game-card xbox-game-card d-flex align-items-center justify-content-between flex-column"
             data-aos="flip-left"
             data-aos-delay="200"
             data-aos-duration="1100"
@@ -80,8 +80,8 @@ function HomeCards() {
               href="https://www.xbox.com/it-IT/xbox-game-pass"
               rel="noreferrer"
             >
-              <button className="ff-cinzel text-uppercase cardbutton xboxbutton my-4">
-                Vai al sito
+              <button className="ff-cinzel game-list-button playstationbutton my-4 mx-1">
+                Visit website
               </button>
             </a>
           </div>
@@ -89,7 +89,7 @@ function HomeCards() {
 
         <div className="col-12 col-lg-4">
           <div
-            className="feature game-card switch-game-card d-flex align-items-center justify-content-between flex-column"
+            className="feature box-shadow-nintendo rounded game-card nintendo-game-card d-flex align-items-center justify-content-between flex-column"
             data-aos="flip-left"
             data-aos-delay="300"
             data-aos-duration="1100"
@@ -106,7 +106,7 @@ function HomeCards() {
 
             <p className="text-white text-center px-4 mt-3">
               Goditi la tua esperienza su Nintendo Switch con il gioco online,
-              il cloud, un catalogo di giochi classici e altro ancora!
+              il cloud, un catalogo di giochi classNameici e altro ancora!
             </p>
 
             <a
@@ -114,8 +114,8 @@ function HomeCards() {
               href="https://www.nintendo.it/Nintendo-Switch-Online/Nintendo-Switch-Online-1183143.html"
               rel="noreferrer"
             >
-              <button className="ff-cinzel text-uppercase cardbutton switchbutton my-4">
-                Vai al sito
+              <button className="ff-cinzel game-list-button playstationbutton my-4 mx-1">
+                Visit website
               </button>
             </a>
           </div>

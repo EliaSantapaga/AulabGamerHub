@@ -15,26 +15,6 @@ const schemaValidation = Yup.object({
 function Login() {
   const navigate = useNavigate();
 
-  // const handleLogin = async (event) => {
-  //   event.preventDefault();
-  //   const loginForm = event.currentTarget;
-  //   const { email, password } = Object.fromEntries(new FormData(loginForm));
-  //   try {
-  //     let { error } = await supabase.auth.signInWithPassword({
-  //       email,
-  //       password,
-  //     });
-  //     if (error) {
-  //       alert(error.error_description || error.message);
-  //     } else {
-  //       loginForm.reset();
-  //       navigate("/profile");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const handleLoginFormik = async (values) => {
     try {
       let { error } = await supabase.auth.signInWithPassword({
@@ -69,12 +49,12 @@ function Login() {
 
   return (
     <AuthLayout>
-      <div className="auth-page container px-3">
+      <div className="container">
         <Space />
-        <div className="row my-md-5 my-4">
-          <div className="col-12 d-flex justify-content-center">
+        <div className="row">
+          <div className="col-12 d-flex justify-content-center pt-5 pb-2 overflow-hidden">
             <h1
-              className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel"
+              className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel page-title"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
@@ -82,10 +62,10 @@ function Login() {
               Login
             </h1>
           </div>
-
           <LeafDecoration />
         </div>
-        <div className="row justify-content-around">
+
+        <div className="row justify-content-around mt-4 mb-5">
           <div
             id="LoginEmail"
             className="col-12 col-md-5 align-items-center justify-content-center text-white"

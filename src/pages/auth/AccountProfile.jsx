@@ -8,25 +8,22 @@ import Space from '../../components/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import formatMessageDate from '../../utils/formatMessageDate';
+import { Link } from 'react-router-dom';
 // import FavouriteButton from '../../components/FavouriteButton';
 // import AppContext from '../../context/AppContext';
-// import { Link } from '@mui/material';
 
 function AccountProfile() {
   const { profile, loading } = useProfile();
   const { session } = useContext(AuthContext);
-  // const { game } = useContext(AppContext);
-
   const [fav, setFav] = useState([]);
   const [comments, setComments] = useState([]);
-  // const [hovered, setHovered] = useState(false);
 
   //* REVIEWS ----------------------------
   const getComments = async () => {
     const { data, error } = await supabase
       .from('comments')
-      .select('*, profile: profiles(*)');
-    // .eq('game_id', game.id);
+      .select('*, profile: profiles(*)')
+      .eq('profile_id', session.user.id);
     if (error) {
       alert(error.message);
     } else {
@@ -66,19 +63,15 @@ function AccountProfile() {
     }
   }, []);
 
-  console.log(session);
-  console.log(profile);
-  console.log(fav);
-
   return (
     <AppLayout>
-      <div className="container px-3">
+      <div className="container">
         <Space />
-        <div className="row my-md-5 my-4">
-          <div className="col-12 d-flex justify-content-center">
+        <div className="row mb-5">
+          <div className="col-12 d-flex justify-content-center pt-5 pb-2 overflow-hidden">
             {profile && (
               <h1
-                className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel"
+                className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel page-title"
                 data-aos="fade-up"
                 data-aos-delay="100"
                 data-aos-anchor-placement="center-bottom"
@@ -93,7 +86,7 @@ function AccountProfile() {
       <div className="container">
         {loading && <PacManLoader />}
 
-        <div className="row">
+        <div className="row fade-in-up">
           <div className="col-12 col-md-6 col-lg-4 p-3 p-md-0">
             <div className="info-box box-shadow-gold p-4 mb-2 mb-md-5">
               {/*//* PROFILE PIC ----------------------------------- */}
@@ -149,31 +142,44 @@ function AccountProfile() {
             </div>
           </div>
 
-          {/*//* REVIEWS AND FAVORITES ---------------------- */}
           <div className="col-12 col-md-6 col-lg-8">
             <div className="row">
-              <div className="col-12 col-lg-6 ps-md-4 pe-md-2 mb-3">
-                <div className="info-box p-3">
-                  <h4 className="text-center shadow-neon mb-3">
-                    Le tue Reviews
-                  </h4>
+              {/*//* REVIEWS ------------------------------- */}
+              <div className="col-12 col-lg-6 ps-md-4 pe-md-2 mb-5">
+                <div className="info-box p-3 px-4">
+                  <h4 className="text-center shadow-neon mb-3">Your Reviews</h4>
                   {comments.map((comment) => (
                     <div key={comment.id}>
-                      <p>{comment.review_content}</p>
-                      <div>
-                        <p>{formatMessageDate(comment.created_at)}</p>
-                      </div>
+                      <div className="row px-2 border-top pt-3">
+                        <h6 className="text-center mb-2">
+                          {comment.game_name}
+                        </h6>
+                        <div className="col-11">
+                          <p className="ff-gotu">{comment.review_content}</p>
+                        </div>
 
-                      <button onClick={removeReview(comment.id)}>Remove</button>
+                        <div className="col-1">
+                          <i
+                            className="fa-solid fa-xmark text-danger cursor-pointer"
+                            onClick={() => removeReview(comment.id)}
+                          ></i>
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-end">
+                        <p className="fs-7">
+                          {formatMessageDate(comment.created_at)}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="col-12 col-lg-6 ps-md-4 pe-md-2 mb-5">
+              {/*//* FAVORITES ----------------------------- */}
+              <div className="col-12 col-lg-6 ps-md-3 pe-md-4 mb-5">
                 <div className="info-box p-3">
                   <h4 className="text-center shadow-neon mb-3">
-                    I tuoi Preferiti
+                    Your Favorites
                   </h4>
                   {fav &&
                     fav.map((favGame) => (
@@ -181,7 +187,7 @@ function AccountProfile() {
                         className="fav-games-list border-top d-flex align-items-center justify-content-center"
                         key={favGame.id}
                       >
-                        {/* <Link to="/game/:game_id"> */}
+                        {/* <Link to=`/game/:${favGame.game_slug}`> */}
                         <p className="mt-3">{favGame.game_name}</p>
                         {/* </Link> */}
                       </div>

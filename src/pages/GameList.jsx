@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useContext, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import PrestoCard from '../components/Card/GameCard';
@@ -96,7 +95,7 @@ function GameList() {
           <Filterstore />
         </div>
 
-        <div className="row mb-3">
+        <div className="row mb-3 fade-in-up">
           <PaginationDown />
           <div className="col-10 col-md-6">
             <div>

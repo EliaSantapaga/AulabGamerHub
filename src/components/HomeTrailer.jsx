@@ -1,5 +1,5 @@
-import { Link } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function HomeTrailer() {
   const [count, setCount] = useState(300);
@@ -62,7 +62,10 @@ function HomeTrailer() {
             </div>
 
             <button className="ff-cinzel game-list-button my-4">
-              <Link className="text-decoration-none nav-link text-white" to="/games">
+              <Link
+                className="text-decoration-none nav-link text-white"
+                to="/games"
+              >
                 Show more
               </Link>
             </button>

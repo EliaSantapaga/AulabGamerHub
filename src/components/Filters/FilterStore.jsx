@@ -32,7 +32,10 @@ function FilterStore() {
         <ul className="dropdown-menu dropdown-menu-dark ">
           {storeGames.map((store) => (
             <li key={store.id} value={store.id}>
-              <Link className="dropdown-item" to={`/games/stores/${store.slug}/${store.id}`}>
+              <Link
+                className="dropdown-item"
+                to={`/games/stores/${store.slug}/${store.id}`}
+              >
                 {store.name}
               </Link>
             </li>

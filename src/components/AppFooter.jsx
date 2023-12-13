@@ -6,7 +6,7 @@ import LeafDecoration from './Decorations/LeafDecoration';
 function AppFooter() {
   return (
     <footer
-      className="container-fluid footer"
+      className="container-fluid footer fade-in-up"
       data-aos="fade-up"
       data-aos-anchor-placement="top"
     >
@@ -35,7 +35,9 @@ function AppFooter() {
                 className="git"
                 rel="noreferrer"
               >
-                <span className="neon ff-cinzel fs-4 ms-1">Games In Time!</span>
+                <span className="shadow-neon ff-cinzel fs-4 ms-1">
+                  Games In Time!
+                </span>
               </a>
               <br /> Le notizie di cui hai bisogno a portata di click!
             </p>

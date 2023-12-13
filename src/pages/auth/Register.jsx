@@ -45,23 +45,23 @@ function Register() {
 
   return (
     <AuthLayout>
-      <div className="auth-page container px-3">
+      <div className="container">
         <Space />
-        <div className="row my-md-5 my-4">
-          <div className="col-12 d-flex justify-content-center">
+        <div className="row">
+          <div className="col-12 d-flex justify-content-center pt-5 pb-2 overflow-hidden">
             <h1
-              className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel"
+              className="pb-2 text-center text-white shadow-neon fs-0 ff-cinzel page-title"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
             >
-              Sign Up
+              Register
             </h1>
           </div>
           <LeafDecoration />
         </div>
 
-        <div className="row justify-content-center">
+        <div className="row justify-content-center mt-4 mt-lg-5">
           <div className="col-12 col-md-5 mb-5 text-white" id="Register">
             {/*//* VALIDATION - INITIAL VALUES  */}
             <Formik
