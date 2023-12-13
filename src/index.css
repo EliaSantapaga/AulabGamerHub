@@ -749,6 +749,16 @@ input[type='file']::-webkit-file-upload-button:hover {
   border-radius: 15px;
 }
 
+.chat-container-no-user {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  min-height: 200px;
+}
+
+.chat-msg-no-user {
+  height: 200px;
+}
+
 .messages {
   height: 80vh;
   width: 100%;
@@ -801,6 +811,10 @@ input[type='file']::-webkit-file-upload-button:hover {
 }
 
 /*//* REVIEWS ------------------------------- */
+
+.swiper-wrapper {
+  max-height: fit-content !important;
+}
 
 .mySwiper {
   height: 430px;
@@ -873,7 +887,7 @@ input[type='file']::-webkit-file-upload-button:hover {
   background: white;
   border-radius: 50%;
   font-size: 30px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.7) !important;
   transition: 0.5s;
 }
 

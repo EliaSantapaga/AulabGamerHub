@@ -46,7 +46,6 @@ function GameList() {
 
           if (response.ok) {
             const json = await response.json();
-
             setGames(json.results);
           } else {
             setError('Ops, riprova la tua chiamata API');
@@ -67,6 +66,10 @@ function GameList() {
 
     //! SEARCH è UNA PROPRIETA' DELLO STATO: SE CAMBIA SEARCH, RILANCIA LA FUNZIONE DENTRO useEffect!!!
   }, [search, pagination]);
+
+  useEffect(() => {
+    return setSearch('');
+  }, []);
 
   return (
     <AppLayout>

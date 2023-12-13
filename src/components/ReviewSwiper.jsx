@@ -31,7 +31,7 @@ export default function ReviewSwiper({ game }) {
       setComments(data);
 
       // const filtered = data
-      //   // .filter((data) => data.profile_id == user.id)
+      //   .filter((data) => data.profile_id == user.id)
       //   .filter((data) => data.game_id == game.id);
       // console.log(data);
       // console.log(filtered);
@@ -43,9 +43,17 @@ export default function ReviewSwiper({ game }) {
   }, []);
 
   return (
-    <div>
+    <div className="mt-4">
       <div>
         <h2 className="shadow-neon text-center fs-1 my-0">User Reviews</h2>
+
+        <div className="col-12 center-flex mt-3">
+          <Link to={profile ? `/game/${game.id}/review` : '/login'}>
+            <button type="button" className="game-list-button">
+              Write review
+            </button>
+          </Link>
+        </div>
 
         {comments.length !== 0 ? (
           <Swiper
@@ -60,7 +68,6 @@ export default function ReviewSwiper({ game }) {
               modifier: 1,
               slideShadows: true,
             }}
-            pagination={true}
             modules={[EffectCoverflow, Pagination]}
             className="mySwiper"
           >
@@ -92,13 +99,6 @@ export default function ReviewSwiper({ game }) {
         ) : (
           <h3 className="text-center text-light my-4">No reviews yet!</h3>
         )}
-        <div className="col-12 center-flex mt-3">
-          <Link to={profile ? `/game/${game.id}/review` : '/login'}>
-            <button type="button" className="game-list-button">
-              Write review
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import GameDetailLayout from '../layout/GameDetailLayout';
 import Space from '../components/Space';
 import Messages from '../components/LiveChat/Messages';
@@ -60,14 +60,14 @@ function GameDetail() {
               data-aos-delay="100"
               data-aos-anchor-placement="center-bottom"
             >
-              Game List
+              {game.name}
             </h1>
           </div>
           <LeafDecoration />
         </div>
 
         <div className="row my-5 m-0">
-          <div className="col-12 col-md-6 mb-4">
+          <div className="col-12 col-md-6">
             <h2 className="shadow-neon text-center fs-1 mb-3 mt-md-55 mt-lg-0">
               Game Details
             </h2>
@@ -87,15 +87,16 @@ function GameDetail() {
             <div className="game-description text-white shadow-dark mt-4 mt-0 ff-gotu">
               {game.description_raw}
             </div>
+
+            {/* //* COMMENTS ---------------------------- */}
+            <ReviewSwiper game={game} />
           </div>
 
           {/* //* LIVE CHAT ---------------------------- */}
-          {profile && (
+          {profile ? (
             <div className="col-12 col-md-6 px-0 px-lg-5">
               <div className="sticky-top">
-                <h2 className="shadow-neon text-center fs-1 mb-3 mt-5 mt-lg-0">
-                  Live Chat
-                </h2>
+                <h2 className="shadow-neon text-center fs-1 mb-3">Live Chat</h2>
 
                 <div className="chat-container rounded-25 text-light box-shadow-gold ">
                   <Messages profile={profile} game={game} />
@@ -118,12 +119,38 @@ function GameDetail() {
                 </div>
               </div>
             </div>
-          )}
+          ) : (
+            <div className="col-12 col-md-6 px-lg-5">
+              <div className="sticky-top">
+                <h2 className="shadow-neon text-center fs-1 mb-3">Live Chat</h2>
 
-          <div className="col-12 col-md-6 px-0 px-lg-5">
-            {/* //* COMMENTS ---------------------------- */}
-            <ReviewSwiper game={game} />
-          </div>
+                <div className="chat-container-no-user rounded-25 text-light box-shadow-gold">
+                  <div className="chat-msg-no-user center-flex">
+                    <h3 className="text-center shadow-neon">
+                      Login to interact <br /> with the Live Chat
+                    </h3>
+                  </div>
+                  <form
+                    className="message-form mx-3 pb-3 "
+                    onSubmit={handleMessageSubmit}
+                  >
+                    <input
+                      className="chat-input me-2 rounded-pill px-2 ff-gotu"
+                      type="text"
+                      name="message"
+                      placeholder="Type your message..."
+                    />
+
+                    <Link to="/login" className="text-decoration-none">
+                      <button className="button-chat center-flex">
+                        <i className="fa-solid fa-circle-chevron-right fs-3" />
+                      </button>
+                    </Link>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </GameDetailLayout>

@@ -9,8 +9,6 @@ import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import formatMessageDate from '../../utils/formatMessageDate';
 import { Link } from 'react-router-dom';
-// import FavouriteButton from '../../components/FavouriteButton';
-// import AppContext from '../../context/AppContext';
 
 function AccountProfile() {
   const { profile, loading } = useProfile();
@@ -177,18 +175,18 @@ function AccountProfile() {
 
               {/*//* FAVORITES ----------------------------- */}
               <div className="col-12 col-lg-6 ps-md-3 pe-md-4 mb-5">
-                <div className="info-box p-3">
+                <div className="info-box p-3 pb-5">
                   <h4 className="text-center shadow-neon mb-3">
                     Your Favorites
                   </h4>
                   {fav &&
                     fav.map((favGame) => (
                       <div
-                        className="fav-games-list border-top d-flex align-items-center justify-content-center"
+                        className="fav-games-list border-top d-flex align-items-center justify-content-center mt-4"
                         key={favGame.id}
                       >
                         {/* <Link to=`/game/:${favGame.game_slug}`> */}
-                        <p className="mt-3">{favGame.game_name}</p>
+                        <p className="mt-5 text-center">{favGame.game_name}</p>
                         {/* </Link> */}
                       </div>
                     ))}
