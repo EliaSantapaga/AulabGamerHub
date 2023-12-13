@@ -24,8 +24,6 @@ function GameDetail() {
   const { profile } = useProfile();
   const { game, setGame } = useContext(AppContext);
 
-  console.log(profile);
-
   //* Il params presente qui sopra è possibile destrutturarlo con ciò che ci serve, ovvero il game_slug
   const { game_slug } = useParams();
 

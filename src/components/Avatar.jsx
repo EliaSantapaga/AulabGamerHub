@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import supabase from '../supabase/client';
 
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
 
   // Funzione che carica l'immagine nello storage...
   async function downloadImage(path) {
@@ -27,7 +28,15 @@ export default function Avatar({ url, size, onUpload }) {
   }, [url]);
 
   // Funzione che controlla il path dell'immagine da inserire...
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
   async function uploadAvatar(event) {
+    const selectedFile = event.target.files[0];
+    console.log('File selezionato:', selectedFile.name);
+
     try {
       setUploading(true);
 
@@ -68,17 +77,32 @@ export default function Avatar({ url, size, onUpload }) {
         </div>
       )}
       <div className="my-4 center-flex">
-        <input
-          className="text-white"
+        {/* <input
+          className="text-white center-flex"
           type="file"
           id="single"
           accept="image/*"
           onChange={uploadAvatar}
           disabled={uploading}
-        />
-        <button type="button" className="game-list-button mt-3">
-          {uploading ? 'Uploading...' : 'Upload'}
+        /> */}
+        <button
+          type="button"
+          className="game-list-button mt-3"
+          onClick={handleButtonClick}
+        >
+          Select File
         </button>
+        <input
+          id="single"
+          style={{ visibility: 'hidden' }}
+          className="text-white center-flex"
+          type="file"
+          accept="image/*"
+          onChange={uploadAvatar}
+          disabled={uploading}
+          ref={fileInputRef}
+          // onChange={handleFileChange}
+        />
       </div>
     </div>
   );

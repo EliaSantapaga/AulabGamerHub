@@ -1,4 +1,27 @@
+import { Link } from '@mui/material';
+import { useEffect, useState } from 'react';
+
 function HomeTrailer() {
+  const [count, setCount] = useState(300);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCount((prevCount) => {
+        const newCount = prevCount + 1;
+
+        // Se raggiunge 800, interrompi l'auto-incremento
+        if (newCount === 800) {
+          clearInterval(intervalId);
+        }
+
+        return newCount;
+      });
+    }, 5); // Intervallo in millisecondi, puoi regolarlo a tuo piacimento
+
+    // Pulisci l'intervallo quando il componente viene smontato o quando count raggiunge 800
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <section
       className="container-fluid trailer"
@@ -9,7 +32,7 @@ function HomeTrailer() {
       <div className="row">
         <div className="col-12 col-lg-7 trailer-col d-flex align-items-end justify-content-center p-3">
           <div
-            className="feature game-card trailer-card d-flex align-items-center justify-content-between flex-column"
+            className="feature text-light  trailer-card box-shadow-gold rounded d-flex align-items-center justify-content-between flex-column"
             data-aos="fade-up"
             data-aos-delay="100"
             data-aos-anchor-placement="top-bottom"
@@ -20,28 +43,29 @@ function HomeTrailer() {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-              ></iframe>
+                className="rounded"
+              />
             </div>
 
-            <div className="space-trailer"></div>
+            <div>
+              <h4 className="text-center px-2 ff-cinzel text-trailer fs-3">
+                More than
+                <span className="ff-cinzel neon mx-3" id="games-number">
+                  {count}k
+                </span>
+                videogames available...
+              </h4>
 
-            <h3 className="text-center px-2 ff-cinzel shadow-pink text-trailer">
-              Oltre
-              <span className="ff-cinzel neon mx-3" id="games-number">
-                200
-              </span>
-              videogiochi <br /> disponibili...
-            </h3>
+              <h4 className="text-center px-4 ff-cinzel text-trailer fs-3">
+                ...and many others <br /> coming soon!
+              </h4>
+            </div>
 
-            <h3 className="text-center px-4 ff-cinzel shadow-pink  text-trailer">
-              ...e moltissimi altri in arrivo!
-            </h3>
-
-            <a href="./Annunci.html">
-              <button className="ff-cinzel text-uppercase cardbutton trailer-button my-4">
-                Scopri di più
-              </button>
-            </a>
+            <button className="ff-cinzel game-list-button my-4">
+              <Link className="text-decoration-none nav-link text-white" to="/games">
+                Show more
+              </Link>
+            </button>
           </div>
         </div>
       </div>

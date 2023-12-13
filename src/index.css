@@ -321,6 +321,7 @@ Link {
   background: url('/src/assets/roundtable-hold.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 
   animation: fadeIn 1s ease 0s normal both;
 }
@@ -330,6 +331,10 @@ Link {
     fadeInUp 1s ease 0.6s normal both,
     arrow 0.75s ease 0s infinite alternate forwards;
   font-size: 50px;
+}
+
+.header-title {
+  font-size: 100px;
 }
 
 .arrow {
@@ -617,7 +622,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 /*//* TRAILER ----------------------------------- */
 
 .trailer {
-  background-image: url('src/assets/Hollow\ Knight\ Silksong.png');
+  background-image: url('src/assets/Elden-Ring-background-Erdtree.webp');
   background-position: top;
   background-repeat: none;
   background-size: cover;
@@ -627,13 +632,6 @@ input[type='file']::-webkit-file-upload-button:hover {
 .trailer-card {
   width: 550px;
   background: rgba(0, 0, 0, 0.7);
-  background: linear-gradient(
-    45deg,
-    transparent 5%,
-    rgba(38, 112, 183, 0.8) 5%,
-    rgba(220, 21, 44, 0.8)
-  );
-  box-shadow: 6px -6px 0px var(--gold);
 }
 
 .trailer-col {
@@ -1090,6 +1088,10 @@ div.snip1390 figcaption {
 
   .trailer {
     margin-top: -200px;
+  }
+
+  .header-title {
+    font-size: 70px;
   }
 }
 

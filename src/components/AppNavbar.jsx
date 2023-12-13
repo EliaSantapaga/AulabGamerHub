@@ -38,11 +38,11 @@ function AppNavbar() {
       aria-label="Offcanvas navbar large"
     >
       <div className="container nav-container rounded-pill" id="nav-container">
-        <a className="navbar-brand mx-3 presto" href="./index.html">
+        <Link className="navbar-brand mx-3 presto" to="/">
           <span className="ff-cinzel text-white fs-5 fs-md-2 shadow-neon">
             Aulab Gamer Hub
           </span>
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler me-3"
@@ -61,11 +61,11 @@ function AppNavbar() {
           aria-labelledby="navbarLabel"
         >
           <div className="offcanvas-header">
-            <a className="navbar-brand mx-3 presto" href="./index.html">
+            <Link className="navbar-brand mx-3 presto" to="/">
               <span className="ff-cinzel text-white fs-2 neon">
                 Aulab Gamer Hub
               </span>
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -121,8 +121,7 @@ function AppNavbar() {
                       className="text-decoration-none nav-link"
                       to="/profile"
                     >
-                      {session.user.user_metadata.username ||
-                        session.user.email}
+                      {(profile && profile.username) || session.user.email}
                     </Link>
                   </li>
 

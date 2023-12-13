@@ -12,11 +12,14 @@ import { Link } from 'react-router-dom';
 import supabase from '../supabase/client';
 import getProfileImg from '../utils/getProfileImg';
 import formatMessageDate from '../utils/formatMessageDate';
+// import AuthContext from '../context/AuthContext';
 
-export default function App() {
+export default function ReviewSwiper() {
   const [comments, setComments] = useState([]);
   const { game } = useContext(AppContext);
   const { profile } = useProfile();
+
+  console.log(game);
 
   const getComments = async () => {
     const { data, error } = await supabase
@@ -27,6 +30,12 @@ export default function App() {
       alert(error.message);
     } else {
       setComments(data);
+
+      // const filtered = data
+      //   // .filter((data) => data.profile_id == user.id)
+      //   .filter((data) => data.game_id == game.id);
+      // console.log(data);
+      // console.log(filtered);
     }
   };
 
@@ -54,7 +63,7 @@ export default function App() {
           modules={[EffectCoverflow, Pagination]}
           className="mySwiper"
         >
-          {comments.length != 0 ? (
+          {comments.length !== 0 ? (
             comments.map((comment) => (
               <SwiperSlide key={comment.id}>
                 <div class="snip1390 center-flex">

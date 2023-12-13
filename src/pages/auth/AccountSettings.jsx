@@ -8,6 +8,7 @@ import supabase from '../../supabase/client';
 import AuthLayout from '../../layout/AuthLayout';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import Avatar from '../../components/Avatar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Settings() {
   const { session } = useContext(AuthContext);
@@ -16,6 +17,9 @@ export default function Settings() {
   const [first_name, setfirstName] = useState(null);
   const [last_name, setLastName] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
+  const navigate = useNavigate();
+
+  console.log(username);
 
   //* VALIDATION FORM --------------------------------------------
   const schemaValidation = Yup.object({

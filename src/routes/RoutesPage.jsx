@@ -1,61 +1,114 @@
-import { Routes, Route } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
-import Login from '../pages/auth/Login';
-import RouteNotFound from '../pages/RouteNotFound';
+//* GAMES ROUTES -----------------------
 import GameList from '../pages/GameList';
-import Register from '../pages/auth/Register';
-import GameDetail from '../pages/GameDetail';
-import AccountProfile from '../pages/auth/AccountProfile';
+import GameDetail, { getSingleGame } from '../pages/GameDetail';
+//* AUTH ROUTES ------------------------
 import LoggedUserRoutes from '../pages/auth/LoggedUserRoutes';
+import Login from '../pages/auth/Login';
+import Register from '../pages/auth/Register';
+import AccountProfile from '../pages/auth/AccountProfile';
 import AccountSettings from '../pages/auth/AccountSettings';
+//* FILTER ROUTES ----------------------
 import Genre from '../pages/filters/Genre';
 import Developer from '../pages/filters/Developer';
 import Publisher from '../pages/filters/Publisher';
 import Platform from '../pages/filters/Platform';
 import Store from '../pages/filters/Store';
+//* REVIEW ROUTE -----------------------
 import CommentPage from '../pages/CommentPage';
+//* 404 ROUTE --------------------------
+import RouteNotFound from '../pages/RouteNotFound';
 
-function RoutesPage() {
-  return (
-    <Routes>
-      {/* //* Ogni rotta corrisponde a una pagina creata nella cartella pages e importata */}
-      <Route path="/" element={<Home />} />
-      <Route path="/games" element={<GameList />} />
-      <Route
-        path="/games/genres/:genre"
-        lazy="/game/genres/:genre"
-        element={<Genre />}
-      />
-      <Route
-        path="/games/platforms/:platform/:platform_id"
-        element={<Platform />}
-      />
-      <Route path="/games/developers/:developer" element={<Developer />} />
-      <Route path="/games/publishers/:publisher" element={<Publisher />} />
-      <Route path="/games/stores/:store/:store_id" element={<Store />} />
-      <Route
-        path="/game/:game_slug"
-        lazy="/game/:game_slug"
-        element={<GameDetail />}
-      />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/game/:slug/review" element={<CommentPage />} />
+const router = createBrowserRouter([
+  //* Ogni rotta corrisponde a una pagina creata nella cartella pages e importata
+  {
+    path: '/',
+    element: <Home />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+        // loader: preLoadFilters,
+      },
 
-      {/* //* Per creare delle rotte parametriche devo inserire nell'URL "/:nomeparametro" */}
-      {/* //* La proprietà lazy="" permette di rallentare il caricamento della rotta chiamata */}
-      {/* //todo <Route path="/game/:id" lazy="/game/:id" element={<DetailGame />} /> */}
+      //* GAMES ROUTES -----------------------
+      {
+        path: '/games',
+        element: <GameList />,
+        loader: getSingleGame,
+      },
+      {
+        path: '/game/:game_slug',
+        element: <GameDetail />,
+        loader: getSingleGame,
+      },
 
-      {/* //* Questa rotta conterrà tutte le rotte protette (accessibili se l'utente è loggato) */}
-      <Route element={<LoggedUserRoutes />}>
-        <Route path="/profile" element={<AccountProfile />} />
-        <Route path="/settings" element={<AccountSettings />} />
-      </Route>
+      //* AUTH ROUTES ------------------------
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/register',
+        element: <Register />,
+      },
 
-      {/* //* Rotta per l'errore 404 - Page not found. Se la rotta non esiste, viene visualizzata questa pagina */}
-      <Route path="*" element={<RouteNotFound />} />
-    </Routes>
-  );
-}
+      //* Questa rotta conterrà tutte le rotte protette (accessibili se l'utente è loggato)
+      {
+        path: '/',
+        element: <LoggedUserRoutes />,
+        children: [
+          {
+            path: '/profile',
+            element: <AccountProfile />,
+          },
+          {
+            path: '/settings',
+            element: <AccountSettings />,
+          },
+        ],
+      },
 
-export default RoutesPage;
+      //* FILTER ROUTES ----------------------
+      //* Per creare delle rotte parametriche bisogna inserire nell'URL "/:nomeparametro"
+      {
+        path: '/games/genres/:genre',
+        element: <Genre />,
+        // loader: preLoadFilters,
+      },
+      {
+        path: '/games/platforms/:platform',
+        element: <Platform />,
+      },
+      {
+        path: '/games/developers/:developer',
+        element: <Developer />,
+      },
+      {
+        path: '/games/publishers/:publisher',
+        element: <Publisher />,
+      },
+      {
+        path: '/games/stores/:store',
+        element: <Store />,
+      },
+
+      //* REVIEW ROUTE ----------------------
+      //* Rotta per l'errore 404 - Page not found. Se la rotta non esiste, viene visualizzata questa pagina
+      {
+        path: '/game/:slug/review',
+        element: <CommentPage />,
+        loader: getSingleGame,
+      },
+
+      //* 404 ROUTE -------------------------
+      {
+        path: '*',
+        element: <RouteNotFound />,
+      },
+    ],
+  },
+]);
+
+export default router;

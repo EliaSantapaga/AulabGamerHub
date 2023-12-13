@@ -16,19 +16,23 @@ Aulab Gamer Hub è una web app che permette di cercare, filtrare ed esplorare ol
 
 - Rawg.io: https://rawg.io/apidocs:
 
-  - [ ] Supporta CORS
+  - [x] Supporta CORS
   - [x] Richiede una chiave API
-  - [x] Richiede OAuth
+  - [ ] Richiede OAuth
 
 ## Styling Solution o Component Library
 
 - Bootstrap: https://getbootstrap.com
+- Font Awesome:
+- Swiper:
+- Google Font:
+-
 
 ## Pages
 
 - Sostituisci questo elenco con le pagine che avrai nella tua app.
 
-1. Home - 
+1. Home -
 2. Game List - Lista dei videogiochi, barra di ricerca, filtri e pagination
 3. Game Detail - Dettagli del videogioco scelto (che si può aggiungere o rimuovere dai preferiti), live chat e recensioni
 4. Login - Form per il login, autenticazione con Discord, Github e Google (Supabase)
@@ -42,11 +46,13 @@ Aulab Gamer Hub è una web app che permette di cercare, filtrare ed esplorare ol
   - Immagine di copertina
   - Nome
   - Generi
-- (Game list) Possibilità di filtrare i giochi per nome, genere, piattaforma, store online, sviluppoatore o publisher
+- (Game list) Possibilità di filtrare i giochi per nome, genere, piattaforma, store online, sviluppatore o publisher
 - (Game List) Possibilità di navigare liberamente tra le pagine sia dei giochi che dei filtri grazie alla pagination
 - (Game Detail) Visualizzazione dei seguenti dettagli del gioco:
-   - Immagine di copertina
-   - Descrizione del gioco
+  - Immagine di copertina
+  - Descrizione del gioco
+- (Login) Login con Supabase
+- (Logout) Logout con Supabase
 
 ## Context API
 

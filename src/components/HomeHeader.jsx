@@ -5,11 +5,8 @@ function HomeHeader() {
     <header className="container-fluid">
       <div className="row">
         <div className="col-12 d-flex align-items-center justify-content-center header text-center p-5 flex-column">
-          <h2 className="ff-cinzel text-white text-uppercase shadow-neon fs-100">
-            Aulab
-          </h2>
-
-          <h2 className="ff-cinzel text-white text-uppercase shadow-neon fs-100">
+          <h2 className="ff-cinzel text-white text-uppercase shadow-neon header-title">
+            Aulab <br />
             Gamer Hub
           </h2>
 
