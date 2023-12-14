@@ -73,74 +73,76 @@ function Messages({ game }) {
   }, [chat]);
 
   return (
-    <div className="messages" ref={chatRef}>
-      {chat &&
-        chat.map((message) => (
-          <div
-            key={message.id}
-            className={`row my-3 ${
-              session.user.id == message.profile_id
-                ? 'd-flex justify-content-end'
-                : ''
-            }`}
-          >
-            <div className="col-9 mx-2 ms-md-2">
-              {session.user.id == message.profile_id ? (
-                <div className="row m-0">
-                  {/*//* SESSION USER MESSAGES ---------------------------- */}
-                  <div className="col-10 p-0 ">
-                    <div className="py-2 px-3 session-user-message">
-                      <p className="shadow-neon my-1">
-                        {message.profile.username}
-                      </p>
+    <div>
+      <div className="messages" ref={chatRef}>
+        {chat &&
+          chat.map((message) => (
+            <div
+              key={message.id}
+              className={`row my-3 ${
+                session.user.id == message.profile_id
+                  ? 'd-flex justify-content-end'
+                  : ''
+              }`}
+            >
+              <div className="col-11 col-md-9 mx-2 ms-md-2">
+                {session.user.id == message.profile_id ? (
+                  //* SESSION USER MESSAGES ----------------------------
+                  <div className="row m-0">
+                    <div className="col-10 p-0 ">
+                      <div className="py-2 px-3 session-user-message">
+                        <p className="shadow-neon my-1">
+                          {message.profile.username}
+                        </p>
 
-                      <span className="ff-gotu">{message.content}</span>
-                      <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
-                        <span>{formatMessageDate(message.created_at)}</span>
-                      </span>
+                        <span className="ff-gotu">{message.content}</span>
+                        <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
+                          <span>{formatMessageDate(message.created_at)}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div className="col-2 d-flex align-items-end justify-content-end p-0 pe-0 pe-md-2">
+                      <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-1">
+                        <img
+                          src={profile && getProfileImg(profile.avatar_url)}
+                          alt="profile"
+                          className="img-avatar-chat"
+                        />
+                      </div>
                     </div>
                   </div>
-                  <div className="col-2 d-flex align-items-end justify-content-end p-0 pe-0 pe-md-2">
-                    <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-1">
-                      <img
-                        src={profile && getProfileImg(profile.avatar_url)}
-                        alt="profile"
-                        className="img-avatar-chat"
-                      />
+                ) : (
+                  //* OTHER USERS MESSAGES ---------------------------- *
+                  <div className="row m-0">
+                    <div className="col-2 p-0 pe-0">
+                      <div className="avatar-chat-box rounded-pill overflow-hidden center-flex">
+                        <img
+                          src={
+                            profile && getProfileImg(message.profile.avatar_url)
+                          }
+                          alt="profile"
+                          className="img-avatar-chat"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="row m-0">
-                  {/*//* OTHER USERS MESSAGES ---------------------------- */}
-                  <div className="col-2 d-flex align-items-end justify-content-start p-0 pe-0">
-                    <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-2">
-                      <img
-                        src={
-                          profile && getProfileImg(message.profile.avatar_url)
-                        }
-                        alt="profile"
-                        className="img-avatar-chat"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-10 p-0 ps-1">
-                    <div className="py-2 px-3 other-user-message">
-                      <p className="shadow-neon my-1">
-                        {message.profile.username}
-                      </p>
+                    <div className="col-10 p-0 ">
+                      <div className="py-2 px-3 other-user-message">
+                        <p className="shadow-neon my-1">
+                          {message.profile.username}
+                        </p>
 
-                      <span className="ff-gotu">{message.content}</span>
-                      <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
-                        <span>{formatMessageDate(message.created_at)}</span>
-                      </span>
+                        <span className="ff-gotu">{message.content}</span>
+                        <span className="fs-7 d-flex align-items-end justify-content-end mt-2">
+                          <span>{formatMessageDate(message.created_at)}</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }

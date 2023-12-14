@@ -81,13 +81,14 @@ function AccountProfile() {
           <LeafDecoration />
         </div>
       </div>
+
       <div className="container">
         {loading && <PacManLoader />}
 
         <div className="row fade-in-up">
-          <div className="col-12 col-md-6 col-lg-4 p-3 p-md-0">
+          {/*//* PROFILE DETAILS ------------------------------- */}
+          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-5">
             <div className="info-box box-shadow-gold p-4 mb-2 mb-md-5">
-              {/*//* PROFILE PIC ----------------------------------- */}
               <div className="col-12 center-flex">
                 <div className="avatar-box rounded-pill overflow-hidden center-flex box-shadow-gold mb-4">
                   <img
@@ -140,57 +141,57 @@ function AccountProfile() {
             </div>
           </div>
 
-          <div className="col-12 col-md-6 col-lg-8">
-            <div className="row">
-              {/*//* REVIEWS ------------------------------- */}
-              <div className="col-12 col-lg-6 ps-md-4 pe-md-2 mb-5">
-                <div className="info-box p-3 px-4">
-                  <h4 className="text-center shadow-neon mb-3">Your Reviews</h4>
-                  {comments.map((comment) => (
-                    <div key={comment.id}>
-                      <div className="row px-2 border-top pt-3">
-                        <h6 className="text-center mb-2">
-                          {comment.game_name}
-                        </h6>
-                        <div className="col-11">
-                          <p className="ff-gotu">{comment.review_content}</p>
-                        </div>
-
-                        <div className="col-1">
-                          <i
-                            className="fa-solid fa-xmark text-danger cursor-pointer"
-                            onClick={() => removeReview(comment.id)}
-                          ></i>
-                        </div>
+          {/*//* REVIEWS ------------------------------- */}
+          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-5">
+            <div className="info-box p-3 px-2">
+              <h4 className="text-center shadow-neon mb-3 mt-1">
+                Your Reviews
+              </h4>
+              <div className="user-review-box  px-4">
+                {comments.map((comment) => (
+                  <div key={comment.id}>
+                    <div className="row px-2 border-top pt-3">
+                      <h6 className="text-center mb-2">{comment.game_name}</h6>
+                      <div className="col-11">
+                        <p className="ff-gotu">{comment.review_content}</p>
                       </div>
-                      <div className="d-flex justify-content-end">
-                        <p className="fs-7">
-                          {formatMessageDate(comment.created_at)}
-                        </p>
+
+                      <div className="col-1">
+                        <i
+                          className="fa-solid fa-xmark text-danger cursor-pointer"
+                          onClick={() => removeReview(comment.id)}
+                        ></i>
                       </div>
                     </div>
-                  ))}
-                </div>
+                    <div className="d-flex justify-content-end">
+                      <p className="fs-7">
+                        {formatMessageDate(comment.created_at)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
+            </div>
+          </div>
 
-              {/*//* FAVORITES ----------------------------- */}
-              <div className="col-12 col-lg-6 ps-md-3 pe-md-4 mb-5">
-                <div className="info-box p-3 pb-5">
-                  <h4 className="text-center shadow-neon mb-3">
-                    Your Favorites
-                  </h4>
-                  {fav &&
-                    fav.map((favGame) => (
-                      <div
-                        className="fav-games-list border-top d-flex align-items-center justify-content-center mt-4"
-                        key={favGame.id}
-                      >
-                        {/* <Link to=`/game/:${favGame.game_slug}`> */}
-                        <p className="mt-5 text-center">{favGame.game_name}</p>
-                        {/* </Link> */}
-                      </div>
-                    ))}
-                </div>
+          {/*//* FAVORITES ----------------------------- */}
+          <div className="col-12 col-lg-4 ps-md-3 pe-md-4 mb-5">
+            <div className="info-box p-3 px-2">
+              <h4 className="text-center shadow-neon mb-3 mt-1">
+                Your Favorites
+              </h4>
+              <div className="user-review-box  px-3">
+                {fav &&
+                  fav.map((favGame) => (
+                    <div
+                      className="border-top d-flex align-items-center justify-content-center my-1"
+                      key={favGame.id}
+                    >
+                      {/* <Link to=`/game/:${favGame.game_slug}`> */}
+                      <p className="my-3 text-center">{favGame.game_name}</p>
+                      {/* </Link> */}
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

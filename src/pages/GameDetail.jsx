@@ -66,26 +66,52 @@ function GameDetail() {
           <LeafDecoration />
         </div>
 
-        <div className="row my-5 m-0">
-          <div className="col-12 col-md-6">
-            <h2 className="shadow-neon text-center fs-1 mb-3 mt-md-55 mt-lg-0">
-              Game Details
-            </h2>
+        <div className="row mb-5 m-0">
+          <div className="col-12 col-md-6 mt-3">
+            <div className="space-20"></div>
 
-            {/*//* FAVOURITES BUTTON ----------------- */}
-            <div className="fav-container p-2">
-              <FavouriteButton game={game} />
-            </div>
+            <div className="game-details ">
+              {/*//* FAVOURITES BUTTON ----------------- */}
+              <div className="fav-container p-2">
+                <FavouriteButton game={game} />
+              </div>
 
-            <img
-              className="img-article rounded"
-              src={game.background_image}
-              alt=""
-            />
+              <img
+                className="img-article"
+                src={game.background_image}
+                alt={game.name}
+              />
 
-            {/* //* GAME DETAILS ------------------------ */}
-            <div className="game-description text-white shadow-dark mt-4 mt-0 ff-gotu">
-              {game.description_raw}
+              {/* //* GAME DETAILS ------------------------ */}
+              <div className="p-4">
+                <div
+                  className="accordion accordion-flush"
+                  id="accordionFlushExample"
+                >
+                  <div className="accordion-item rounded">
+                    <button
+                      className="accordion-button collapsed btn-game-descriprion text-white center-flex"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Game Description
+                    </button>
+
+                    <div
+                      id="flush-collapseOne"
+                      className="accordion-collapse collapse"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body  game-description text-white ff-gotu text-justified">
+                        {game.description_raw}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* //* COMMENTS ---------------------------- */}
@@ -95,14 +121,16 @@ function GameDetail() {
           {/* //* LIVE CHAT ---------------------------- */}
           {profile ? (
             <div className="col-12 col-md-6 px-0 px-lg-5">
-              <div className="sticky-top">
-                <h2 className="shadow-neon text-center fs-1 mb-3">Live Chat</h2>
-
-                <div className="chat-container rounded-25 text-light box-shadow-gold ">
+              <div className="sticky-top mt-0 mt-lg-3">
+                <div className="space-20"></div>
+                <div className="chat-container rounded-25 text-light p-3">
+                  <h2 className="shadow-neon text-center border-bottom fs-1 mb-3 pb-2">
+                    Live Chat
+                  </h2>
                   <Messages profile={profile} game={game} />
 
                   <form
-                    className="message-form mx-3 pb-3 "
+                    className="message-form mt-2"
                     onSubmit={handleMessageSubmit}
                   >
                     <input
@@ -121,17 +149,19 @@ function GameDetail() {
             </div>
           ) : (
             <div className="col-12 col-md-6 px-lg-5">
-              <div className="sticky-top">
-                <h2 className="shadow-neon text-center fs-1 mb-3">Live Chat</h2>
-
-                <div className="chat-container-no-user rounded-25 text-light box-shadow-gold">
+              <div className="sticky-top mt-3">
+                <div className="space-20"></div>
+                <div className="chat-container rounded-25 text-light box-shadow-gold p-3">
+                  <h2 className="shadow-neon text-center border-bottom fs-1 mb-3 pb-2">
+                    Live Chat
+                  </h2>
                   <div className="chat-msg-no-user center-flex">
                     <h3 className="text-center shadow-neon">
                       Login to interact <br /> with the Live Chat
                     </h3>
                   </div>
                   <form
-                    className="message-form mx-3 pb-3 "
+                    className="message-form mx-3 pb-3"
                     onSubmit={handleMessageSubmit}
                   >
                     <input
