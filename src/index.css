@@ -368,7 +368,6 @@ Link {
 .games-card {
   background-color: rgba(0, 0, 0, 0.7);
   color: #e3dac9;
-  animation: fadeIn 1s ease 0.6s normal;
   transition: 0.5s;
 }
 
@@ -716,8 +715,12 @@ input[type='file']::-webkit-file-upload-button:hover {
   border-radius: 20px;
 }
 
-.btn-game-descriprion {
-  background-color: transparent;
+.collapsed {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.accordion-button {
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 ::after {

@@ -1,4 +1,3 @@
-import { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import GameDetailLayout from '../layout/GameDetailLayout';
 import Space from '../components/Space';
@@ -6,7 +5,6 @@ import Messages from '../components/LiveChat/Messages';
 import supabase from '../supabase/client';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 import useProfile from '../hooks/useProfile';
-import AppContext from '../context/AppContext';
 import FavouriteButton from '../components/FavouriteButton';
 import ReviewSwiper from '../components/ReviewSwiper';
 
@@ -90,7 +88,7 @@ function GameDetail() {
                 >
                   <div className="accordion-item rounded">
                     <button
-                      className="accordion-button collapsed btn-game-descriprion text-white center-flex"
+                      className="accordion-button collapsed text-white center-flex"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#flush-collapseOne"
@@ -105,7 +103,7 @@ function GameDetail() {
                       className="accordion-collapse collapse"
                       data-bs-parent="#accordionFlushExample"
                     >
-                      <div className="accordion-body  game-description text-white ff-gotu text-justified">
+                      <div className="accordion-body game-description text-white ff-gotu text-justified">
                         {game.description_raw}
                       </div>
                     </div>

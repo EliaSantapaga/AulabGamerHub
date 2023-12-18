@@ -90,13 +90,22 @@ function AccountProfile() {
           <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-5">
             <div className="info-box box-shadow-gold p-4 mb-2 mb-md-5">
               <div className="col-12 center-flex">
-                <div className="avatar-box rounded-pill overflow-hidden center-flex box-shadow-gold mb-4">
-                  <img
+                <div
+                  className="avatar-box rounded-pill overflow-hidden center-flex box-shadow-gold mb-4"
+                  style={{
+                    backgroundImage: `url('${
+                      profile && getProfileImg(profile.avatar_url)
+                    }')`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                  }}
+                />
+                {/* <img
                     src={profile && getProfileImg(profile.avatar_url)}
                     alt="profile"
                     className="img-avatar"
-                  />
-                </div>
+                  /> */}
+                {/* </div> */}
               </div>
 
               <div className="row mt-3 border-bottom">

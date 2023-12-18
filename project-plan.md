@@ -23,21 +23,19 @@ Aulab Gamer Hub è una web app che permette di cercare, filtrare ed esplorare ol
 ## Styling Solution o Component Library
 
 - Bootstrap: https://getbootstrap.com
-- Font Awesome:
-- Swiper:
-- Google Font:
--
+- Font Awesome: https://fontawesome.com
+- Swiper: https://swiperjs.com
+- Google Font: https://swiperjs.com
+- Material UI: https://mui.com
 
 ## Pages
 
-- Sostituisci questo elenco con le pagine che avrai nella tua app.
-
-1. Home -
+1. Home - Header, dettagli dei servizi, trailer
 2. Game List - Lista dei videogiochi, barra di ricerca, filtri e pagination
 3. Game Detail - Dettagli del videogioco scelto (che si può aggiungere o rimuovere dai preferiti), live chat e recensioni
 4. Login - Form per il login, autenticazione con Discord, Github e Google (Supabase)
 5. Register - Form per la registrazione degli account (Supabase)
-6. Account - Dettagli dell'utente loggato, giochi preferiti e commenti
+6. Account - Dettagli dell'utente loggato, giochi preferiti e recensioni
 7. Settings - Form di modifica dei dati e dell'avatar dell'utente
 
 ## API + User Interaction
@@ -51,13 +49,28 @@ Aulab Gamer Hub è una web app che permette di cercare, filtrare ed esplorare ol
 - (Game Detail) Visualizzazione dei seguenti dettagli del gioco:
   - Immagine di copertina
   - Descrizione del gioco
-- (Login) Login con Supabase
+  - Recensioni
+  - Live chat
+- (Login) Login con Supabase: email e Discord
 - (Logout) Logout con Supabase
+- (Account Profile) Visualizzazione dei dettagli dell'account, dei preferiti e delle recensioni lasciate su ogni gioco
+- (Account Settings) Modifica dei dati dell'account
 
 ## Context API
 
-- Sostituiscilo con un elenco dei dati che verranno condivisi nell'applicazione utilizzando l'API Context.
+- Games
+- Genres
+- GamesSearched
+- Loading
+- Error
+- Search
+- Pagination
+- Game
+- Session
+- SignIn
+- SignUp
+- SignOut
 
 ## Deployment
 
-- Sostituiscilo con un collegamento a dove distribuirai l'app
+- Vercel: https://aulab-gamer-hub.vercel.app

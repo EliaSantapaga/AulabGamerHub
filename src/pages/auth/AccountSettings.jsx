@@ -122,6 +122,11 @@ export default function Settings() {
                 <div className="col-12 col-md-6 center-flex">
                   {/*//* PROFILE PIC ----------------------------------- */}
                   <Avatar
+                    // style={{
+                    //   backgroundImage: `url('${avatar_url}')`,
+                    //   backgroundPosition: 'center',
+                    //   backgroundSize: 'cover',
+                    // }}
                     url={avatar_url}
                     size={150}
                     onUpload={(event, url) => {

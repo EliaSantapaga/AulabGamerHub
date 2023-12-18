@@ -3,8 +3,6 @@ import { createContext } from 'react';
 //* Il contesto contiene un oggetto
 
 const AppContext = createContext({
-  admin: false,
-  setAdmin: () => {},
   games: [],
   setGames: (games) => games,
   genres: [],

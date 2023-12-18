@@ -34,8 +34,6 @@ function App() {
     <AuthContext.Provider value={data}>
       <AppContext.Provider
         value={{
-          admin,
-          setAdmin,
           games,
           setGames,
           genres,
