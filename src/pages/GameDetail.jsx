@@ -1,12 +1,13 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import GameDetailLayout from '../layout/GameDetailLayout';
-import Space from '../components/Space';
+import Space from '../components/Layout/Space';
 import Messages from '../components/LiveChat/Messages';
 import supabase from '../supabase/client';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 import useProfile from '../hooks/useProfile';
 import FavouriteButton from '../components/FavouriteButton';
 import ReviewSwiper from '../components/ReviewSwiper';
+import GameInfo from '../components/GameDetails/GameInfo';
 
 export async function getSingleGame({ params }) {
   const response = await fetch(
@@ -46,6 +47,8 @@ function GameDetail() {
     }
   };
 
+  const filtered = game.platforms.filter((data) => data.platform.name == 'PC');
+
   return (
     <GameDetailLayout>
       <div className="container">
@@ -68,7 +71,7 @@ function GameDetail() {
           <div className="col-12 col-md-6 mt-3">
             <div className="space-20"></div>
 
-            <div className="game-details ">
+            <div className="game-details">
               {/*//* FAVOURITES BUTTON ----------------- */}
               <div className="fav-container p-2">
                 <FavouriteButton game={game} />
@@ -82,6 +85,8 @@ function GameDetail() {
 
               {/* //* GAME DETAILS ------------------------ */}
               <div className="p-4">
+                <GameInfo game={game} />
+
                 <div
                   className="accordion accordion-flush"
                   id="accordionFlushExample"
@@ -104,7 +109,20 @@ function GameDetail() {
                       data-bs-parent="#accordionFlushExample"
                     >
                       <div className="accordion-body game-description text-white ff-gotu text-justified">
-                        {game.description_raw}
+                        <p className="border-bottom pb-3 mb-3 ff-gotu">
+                          {game.description_raw}
+                        </p>
+
+                        {filtered[0].requirements.minimum && (
+                          <div>
+                            <h6 className="text-center mb-3">
+                              PC Requirements
+                            </h6>
+                            <p className="ff-gotu">
+                              {filtered[0].requirements.minimum}
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -118,7 +136,7 @@ function GameDetail() {
 
           {/* //* LIVE CHAT ---------------------------- */}
           {profile ? (
-            <div className="col-12 col-md-6 px-0 px-lg-5">
+            <div className="col-12 col-md-6 px-0 px-lg-5 live-chat-anim">
               <div className="sticky-top mt-0 mt-lg-3">
                 <div className="space-20"></div>
                 <div className="chat-container rounded-25 text-light p-3">
@@ -146,7 +164,7 @@ function GameDetail() {
               </div>
             </div>
           ) : (
-            <div className="col-12 col-md-6 px-lg-5">
+            <div className="col-12 col-md-6 px-lg-5 live-chat-anim">
               <div className="sticky-top mt-3">
                 <div className="space-20"></div>
                 <div className="chat-container rounded-25 text-light box-shadow-gold p-3">

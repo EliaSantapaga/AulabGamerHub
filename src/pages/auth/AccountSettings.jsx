@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import Space from '../../components/Space';
+import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import supabase from '../../supabase/client';
 import AuthLayout from '../../layout/AuthLayout';
@@ -122,11 +122,6 @@ export default function Settings() {
                 <div className="col-12 col-md-6 center-flex">
                   {/*//* PROFILE PIC ----------------------------------- */}
                   <Avatar
-                    // style={{
-                    //   backgroundImage: `url('${avatar_url}')`,
-                    //   backgroundPosition: 'center',
-                    //   backgroundSize: 'cover',
-                    // }}
                     url={avatar_url}
                     size={150}
                     onUpload={(event, url) => {

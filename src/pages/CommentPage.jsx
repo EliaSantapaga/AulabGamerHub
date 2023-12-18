@@ -2,7 +2,7 @@ import supabase from '../supabase/client';
 import { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import AuthLayout from '../layout/AuthLayout';
-import Space from '../components/Space';
+import Space from '../components/Layout/Space';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 
 function CommentPage() {

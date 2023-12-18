@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import Space from '../../components/Space';
+import Space from '../../components/Layout/Space';
 import AuthLayout from '../../layout/AuthLayout';
 import supabase from '../../supabase/client';
 import { Formik, Form, Field } from 'formik';

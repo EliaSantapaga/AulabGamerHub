@@ -43,7 +43,7 @@ export default function ReviewSwiper({ game }) {
   }, []);
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 review-swiper-anim">
       <div>
         <h2 className="shadow-neon text-center fs-1 my-0">User Reviews</h2>
 

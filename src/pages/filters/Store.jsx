@@ -4,7 +4,7 @@ import AppContext from '../../context/AppContext';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import PrestoCard from '../../components/Card/GameCard';
 import AppLayout from '../../layout/AppLayout';
-import Space from '../../components/Space';
+import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import SelectYourGame from '../../components/Pagination/SelectYourGame';
 

@@ -10,7 +10,7 @@ function PaginationUp() {
   };
 
   return (
-    <div className="col-1 col-md-3 d-flex justify-content-start">
+    <div className="col-1 col-md-3 d-flex justify-content-end justify-content-md-start align-items-center">
       <i
         className="fa-solid fa-chevron-right pagination-up fs-1 text-light neon cursor-pointer"
         onClick={handlePaginationUp}

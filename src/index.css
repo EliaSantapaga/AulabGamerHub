@@ -119,11 +119,6 @@ Link {
   text-shadow: 2px -2px 0px var(--gold);
 }
 
-.shadow-pink {
-  text-shadow: 2px -2px 0px var(--pink);
-  font-size: 50px;
-}
-
 .shadow-dark {
   color: white;
   text-shadow:
@@ -616,6 +611,10 @@ input[type='file']::-webkit-file-upload-button:hover {
     neon 1.5s infinite alternate;
 }
 
+.form-control {
+  margin: 0px !important;
+}
+
 /*//* FAVOURITES ------------------------------------ */
 .fav-container {
   position: absolute;
@@ -713,6 +712,38 @@ input[type='file']::-webkit-file-upload-button:hover {
 .game-details {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+}
+
+.game-genres {
+  font-size: 13px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.custom-box {
+  position: relative;
+  width: auto;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 13px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.custom-text {
+  position: absolute;
+  width: fit-content;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+  padding-left: 15px;
+}
+
+.custom-icon {
+  transform: translate(150%, -130%);
+  text-shadow: white;
+  /* background-color: rgba(255, 255, 255, 0.9);
+  width: 23px;
+  height: 23px;
+  border: 1px solid red; */
 }
 
 .collapsed {
@@ -756,17 +787,21 @@ input[type='file']::-webkit-file-upload-button:hover {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border-radius: 25px;
-  max-height: 490px;
+  max-height: 575px;
 }
 
 .user-review-box,
 .user-fav-box {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 410px;
+  max-height: 495px;
 }
 
 /*//* LIVE CHAT ------------------------------- */
+
+.live-chat-anim {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
+}
 
 .chat-container {
   background-color: rgba(0, 0, 0, 0.6);
@@ -835,6 +870,10 @@ input[type='file']::-webkit-file-upload-button:hover {
 }
 
 /*//* REVIEWS ------------------------------- */
+
+.review-swiper-anim {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.4s both;
+}
 
 .swiper-wrapper {
   max-height: fit-content !important;

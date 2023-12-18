@@ -1,5 +1,5 @@
-import AppNavbar from "../components/AppNavbar";
-import AppFooter from "../components/AppFooter";
+import AppNavbar from "../components/Layout/AppNavbar";
+import AppFooter from "../components/Layout/AppFooter";
 
 function AppLayout({
   children,

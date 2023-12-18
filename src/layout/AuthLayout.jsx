@@ -1,5 +1,4 @@
-// import { Outlet } from "react-router-dom";
-import AppNavbar from "../components/AppNavbar";
+import AppNavbar from '../components/Layout/AppNavbar';
 
 function AuthLayout({
   children,

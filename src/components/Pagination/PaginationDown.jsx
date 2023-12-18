@@ -12,7 +12,7 @@ function PaginationDown() {
   };
 
   return (
-    <div className="col-1 col-md-3 d-flex justify-content-end">
+    <div className="col-1 col-md-3 d-flex justify-content-start justify-content-md-end align-items-center">
       <i
         className={`fa-solid fa-chevron-left fs-1  ${
           pagination === 1

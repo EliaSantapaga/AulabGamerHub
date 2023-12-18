@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import PrestoCard from '../components/Card/GameCard';
 import PacManLoader from '../components/Loader/PacManLoader';
-import Space from '../components/Space';
+import Space from '../components/Layout/Space';
 import AppLayout from '../layout/AppLayout';
 import FilterGenre from '../components/Filters/FilterGenre';
 import PaginationUp from '../components/Pagination/PaginationUp';

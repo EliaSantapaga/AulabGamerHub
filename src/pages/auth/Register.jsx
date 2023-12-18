@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthLayout from '../../layout/AuthLayout';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import Space from '../../components/Space';
+import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 
 //* VALIDATION FORM

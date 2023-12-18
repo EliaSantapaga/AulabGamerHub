@@ -13,7 +13,7 @@ function SearchPagination() {
         <div>
           <form className="d-flex" role="search">
             <input
-              className="form-control me-2 rounded-pill text-center"
+              className="form-control me-2 rounded-pill text-center m-0"
               type="search"
               id="search"
               placeholder="Cerca il tuo gioco..."

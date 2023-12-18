@@ -4,7 +4,7 @@ import AppLayout from '../../layout/AppLayout';
 import getProfileImg from '../../utils/getProfileImg';
 import AuthContext from '../../context/AuthContext';
 import supabase from '../../supabase/client';
-import Space from '../../components/Space';
+import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import formatMessageDate from '../../utils/formatMessageDate';
@@ -100,51 +100,31 @@ function AccountProfile() {
                     backgroundSize: 'cover',
                   }}
                 />
-                {/* <img
-                    src={profile && getProfileImg(profile.avatar_url)}
-                    alt="profile"
-                    className="img-avatar"
-                  /> */}
-                {/* </div> */}
               </div>
 
-              <div className="row mt-3 border-bottom">
-                <div className="col-5 mb-0 d-flex align-items-end">
-                  <p className="fs-6 mb-0">First Name:</p>
-                </div>
-                <div className="col-7 text-center mb-0 d-flex justify-content-end">
+              <div class="col-12 custom-box text-white rounded mb-3">
+                <div class="custom-text shadow-neon">First Name</div>
+                <div className="ms-3">
                   {profile && <p className="mb-0">{profile.first_name}</p>}
                 </div>
               </div>
 
-              <div className="row mt-3 border-bottom">
-                <div className="col-5 mb-0 d-flex align-items-end">
-                  <p className="fs-6 mb-0">Last Name:</p>
-                </div>
-                <div className="col-7 text-center mb-0 d-flex justify-content-end">
-                  <p className="mb-0">
-                    {profile && <p className="mb-0">{profile.last_name}</p>}
-                  </p>
+              <div class="col-12 custom-box text-white rounded mb-3">
+                <div class="custom-text shadow-neon">Last Name</div>
+                <div className="ms-3">
+                  {profile && <p className="mb-0">{profile.last_name}</p>}
                 </div>
               </div>
 
-              <div className="row mt-3 border-bottom">
-                <div className="col-5 mb-0 d-flex align-items-end">
-                  <p className="fs-6 mb-0">E-mail:</p>
-                </div>
-                <div className="col-7 text-center mb-0 d-flex justify-content-end">
-                  <p className="mb-0">{session.user.email}</p>
-                </div>
+              <div class="col-12 custom-box text-white rounded mb-3">
+                <div class="custom-text shadow-neon">E-mail</div>
+                <div className="ms-3">{session.user.email}</div>
               </div>
 
-              <div className="row mt-3 border-bottom">
-                <div className="col-5 mb-0 d-flex align-items-end">
-                  <p className="fs-6 mb-0">Last Login:</p>
-                </div>
-                <div className="col-7 text-center mb-0 d-flex justify-content-end">
-                  <p className="mb-0">
-                    {formatMessageDate(session.user.last_sign_in_at)}
-                  </p>
+              <div class="col-12 custom-box text-white rounded mb-3">
+                <div class="custom-text shadow-neon">Last Login</div>
+                <div className="ms-3">
+                  {formatMessageDate(session.user.last_sign_in_at)}
                 </div>
               </div>
             </div>
@@ -156,26 +136,32 @@ function AccountProfile() {
               <h4 className="text-center shadow-neon mb-3 mt-1">
                 Your Reviews
               </h4>
-              <div className="user-review-box  px-4">
+              <div className="user-review-box px-4">
                 {comments.map((comment) => (
-                  <div key={comment.id}>
-                    <div className="row px-2 border-top pt-3">
-                      <h6 className="text-center mb-2">{comment.game_name}</h6>
-                      <div className="col-11">
-                        <p className="ff-gotu">{comment.review_content}</p>
-                      </div>
+                  <div key={comment.id} className="mt-5">
+                    <div className="col-12 custom-box text-white rounded mb-3 ">
+                      <div className="d-flex justify-content-end">
+                        <p className="custom-text shadow-neon">
+                          {comment.game_name}
+                        </p>
 
-                      <div className="col-1">
-                        <i
-                          className="fa-solid fa-xmark text-danger cursor-pointer"
-                          onClick={() => removeReview(comment.id)}
-                        ></i>
+                        <span className="custom-icon rounded-pill center-flex ">
+                          <i
+                            className="fa-solid fa-xmark text-danger cursor-pointer"
+                            onClick={() => removeReview(comment.id)}
+                          />
+                        </span>
                       </div>
-                    </div>
-                    <div className="d-flex justify-content-end">
-                      <p className="fs-7">
-                        {formatMessageDate(comment.created_at)}
-                      </p>
+                      <div>
+                        <p className="ff-gotu text-center">
+                          {comment.review_content}
+                        </p>
+                        <div className="d-flex justify-content-end">
+                          <p className="fs-7">
+                            {formatMessageDate(comment.created_at)}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}

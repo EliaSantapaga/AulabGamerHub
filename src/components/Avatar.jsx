@@ -68,23 +68,20 @@ export default function Avatar({ url, size, onUpload }) {
   return (
     <div className="center-flex col-12 col-md-6">
       {avatarUrl ? (
-        <div className="avatar-box rounded-pill overflow-hidden box-shadow-gold">
-          <img src={avatarUrl} alt="Avatar" className="img-avatar" />
-        </div>
+        <div
+          style={{
+            backgroundImage: `url('${avatarUrl}')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+          className="avatar-box rounded-pill overflow-hidden box-shadow-gold"
+        />
       ) : (
         <div className="avatar-box rounded-pill overflow-hidden box-shadow-gold center-flex">
           <i class="fa-solid fa-circle-user"></i>
         </div>
       )}
       <div className="my-4 center-flex">
-        {/* <input
-          className="text-white center-flex"
-          type="file"
-          id="single"
-          accept="image/*"
-          onChange={uploadAvatar}
-          disabled={uploading}
-        /> */}
         <button
           type="button"
           className="game-list-button mt-3"
@@ -101,7 +98,6 @@ export default function Avatar({ url, size, onUpload }) {
           onChange={uploadAvatar}
           disabled={uploading}
           ref={fileInputRef}
-          // onChange={handleFileChange}
         />
       </div>
     </div>

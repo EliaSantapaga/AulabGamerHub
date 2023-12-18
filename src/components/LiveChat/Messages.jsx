@@ -102,28 +102,32 @@ function Messages({ game }) {
                       </div>
                     </div>
                     <div className="col-2 d-flex align-items-end justify-content-end p-0 pe-0 pe-md-2">
-                      <div className="avatar-chat-box rounded-pill overflow-hidden center-flex ms-1">
-                        <img
-                          src={profile && getProfileImg(profile.avatar_url)}
-                          alt="profile"
-                          className="img-avatar-chat"
-                        />
-                      </div>
+                      <div
+                        className="avatar-chat-box rounded-pill overflow-hidden center-flex"
+                        style={{
+                          backgroundImage: `url('${
+                            profile && getProfileImg(message.profile.avatar_url)
+                          }')`,
+                          backgroundPosition: 'center',
+                          backgroundSize: 'cover',
+                        }}
+                      />
                     </div>
                   </div>
                 ) : (
                   //* OTHER USERS MESSAGES ---------------------------- *
                   <div className="row m-0">
                     <div className="col-2 p-0 pe-0">
-                      <div className="avatar-chat-box rounded-pill overflow-hidden center-flex">
-                        <img
-                          src={
+                      <div
+                        className="avatar-chat-box rounded-pill overflow-hidden center-flex"
+                        style={{
+                          backgroundImage: `url('${
                             profile && getProfileImg(message.profile.avatar_url)
-                          }
-                          alt="profile"
-                          className="img-avatar-chat"
-                        />
-                      </div>
+                          }')`,
+                          backgroundPosition: 'center',
+                          backgroundSize: 'cover',
+                        }}
+                      />
                     </div>
                     <div className="col-10 p-0 ">
                       <div className="py-2 px-3 other-user-message">
