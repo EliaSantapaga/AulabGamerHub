@@ -74,7 +74,7 @@ function AccountProfile() {
                 data-aos-delay="100"
                 data-aos-anchor-placement="center-bottom"
               >
-                Welcome, {profile.username}!
+                Welcome, {profile.username || profile.email}!
               </h1>
             )}
           </div>
@@ -85,9 +85,9 @@ function AccountProfile() {
       <div className="container">
         {loading && <PacManLoader />}
 
-        <div className="row fade-in-up">
+        <div className="row profile-details">
           {/*//* PROFILE DETAILS ------------------------------- */}
-          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-5">
+          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-3">
             <div className="info-box box-shadow-gold p-4 mb-2 mb-md-5">
               <div className="col-12 center-flex">
                 <div
@@ -131,14 +131,14 @@ function AccountProfile() {
           </div>
 
           {/*//* REVIEWS ------------------------------- */}
-          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-5">
+          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-3 profile-reviews">
             <div className="info-box p-3 px-2">
               <h4 className="text-center shadow-neon mb-3 mt-1">
                 Your Reviews
               </h4>
               <div className="user-review-box px-4">
                 {comments.map((comment) => (
-                  <div key={comment.id} className="mt-5">
+                  <div key={comment.id} className="mt-4">
                     <div className="col-12 custom-box text-white rounded mb-3 ">
                       <div className="d-flex justify-content-end">
                         <p className="custom-text shadow-neon">
@@ -170,7 +170,7 @@ function AccountProfile() {
           </div>
 
           {/*//* FAVORITES ----------------------------- */}
-          <div className="col-12 col-lg-4 ps-md-3 pe-md-4 mb-5">
+          <div className="col-12 col-lg-4 ps-md-3 pe-md-4 mb-3 profile-fav">
             <div className="info-box p-3 px-2">
               <h4 className="text-center shadow-neon mb-3 mt-1">
                 Your Favorites
