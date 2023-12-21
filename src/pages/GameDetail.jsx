@@ -6,7 +6,7 @@ import supabase from '../supabase/client';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 import useProfile from '../hooks/useProfile';
 import FavouriteButton from '../components/FavouriteButton';
-import ReviewSwiper from '../components/ReviewSwiper';
+import ReviewSwiper from '../components/Reviews/ReviewSwiper';
 import GameInfo from '../components/GameDetails/GameInfo';
 
 export async function getSingleGame({ params }) {

@@ -6,13 +6,12 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import useProfile from '../hooks/useProfile';
-import AppContext from '../context/AppContext';
+import useProfile from '../../hooks/useProfile';
+import AppContext from '../../context/AppContext';
 import { Link } from 'react-router-dom';
-import supabase from '../supabase/client';
-import getProfileImg from '../utils/getProfileImg';
-import formatMessageDate from '../utils/formatMessageDate';
-// import AuthContext from '../context/AuthContext';
+import supabase from '../../supabase/client';
+import getProfileImg from '../../utils/getProfileImg';
+import formatMessageDate from '../../utils/formatMessageDate';
 
 export default function ReviewSwiper({ game }) {
   const [comments, setComments] = useState([]);
@@ -29,12 +28,6 @@ export default function ReviewSwiper({ game }) {
       alert(error.message);
     } else {
       setComments(data);
-
-      // const filtered = data
-      //   .filter((data) => data.profile_id == user.id)
-      //   .filter((data) => data.game_id == game.id);
-      // console.log(data);
-      // console.log(filtered);
     }
   };
 
@@ -85,7 +78,7 @@ export default function ReviewSwiper({ game }) {
                     <h4 className="text-white mt-3">
                       {comment.profile.username}
                     </h4>
-                    <p className="text-white fs-6 mb-4 ">
+                    <p className="text-white fs-6 mb-4">
                       {formatMessageDate(comment.created_at)}
                     </p>
                     <div className="blockquote text-light fs-6 rounded py-3 px-2 m-0 box-shadow-gold">

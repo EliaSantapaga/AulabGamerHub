@@ -8,7 +8,7 @@ import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import formatMessageDate from '../../utils/formatMessageDate';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function AccountProfile() {
   const { profile, loading } = useProfile();
