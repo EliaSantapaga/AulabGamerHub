@@ -32,7 +32,10 @@ function FilterPublisher() {
         <ul className="dropdown-menu dropdown-menu-dark">
           {publisherGames.map((publisher) => (
             <li key={publisher.id} value={publisher.id}>
-              <Link className="dropdown-item" to={`/games/publishers/${publisher.slug}`}>
+              <Link
+                className="dropdown-item"
+                to={`/games/publishers/${publisher.slug}`}
+              >
                 {publisher.name}
               </Link>
             </li>

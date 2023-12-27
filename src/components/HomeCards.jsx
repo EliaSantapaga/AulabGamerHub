@@ -18,7 +18,7 @@ function HomeCards() {
       <LeafDecoration />
 
       <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div className="col-12 col-lg-4 home-card-container">
+        <div className="col-12 col-lg-4 px-4">
           <div
             className="feature box-shadow-playstation rounded game-card playstation-game-card d-flex align-items-center justify-content-between flex-column"
             data-aos="flip-left"
@@ -31,7 +31,7 @@ function HomeCards() {
               className="img-fluid img-card"
             />
 
-            <h4 className="text-white text-center px-4 ">
+            <h4 className="text-white text-center px-4">
               Here's the new <br /> PlayStation®Plus
             </h4>
 
@@ -52,7 +52,7 @@ function HomeCards() {
           </div>
         </div>
 
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-4 px-4">
           <div
             className="feature box-shadow-xbox rounded game-card xbox-game-card d-flex align-items-center justify-content-between flex-column"
             data-aos="flip-left"
@@ -86,7 +86,7 @@ function HomeCards() {
           </div>
         </div>
 
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-4 px-4">
           <div
             className="feature box-shadow-nintendo rounded game-card nintendo-game-card d-flex align-items-center justify-content-between flex-column"
             data-aos="flip-left"

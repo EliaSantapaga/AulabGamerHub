@@ -11,7 +11,24 @@ function AppFooter() {
     >
       <div className="container center-flex footer-container">
         <div className="row">
-          <div className="col-12 col-lg-6 mb-4 center-flex mt-4 logo-git">
+          <div className="col-12 col-lg-4 mb-3 center-flex text-center text-white git-sentence">
+            <h4 className="ff-cinzel fs-3 px-3 shadow-neon mb-4">
+              Contact us!
+            </h4>
+            <div>
+              <div className="col-12 custom-box text-white rounded mb-3">
+                <div className="custom-text shadow-neon">E-mail</div>
+                <div>elia.santapaga@gmail.com</div>
+              </div>
+
+              <div className="col-12 custom-box text-white rounded mb-3">
+                <div className="custom-text shadow-neon">Phone</div>
+                <div>+39 393 839 3077</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-lg-4 center-flex mt-4 logo-git ">
             <a
               href="https://gamesintime.altervista.org"
               target="_blank"
@@ -25,7 +42,7 @@ function AppFooter() {
             </a>
           </div>
 
-          <div className="col-12 col-lg-6 mb-3 center-flex text-center text-white git-sentence ">
+          <div className="col-12 col-lg-4 mb-3 center-flex text-center text-white git-sentence">
             <p className="ff-cinzel fs-4 px-3">
               Visit our blog <br />
               <a
@@ -41,7 +58,9 @@ function AppFooter() {
               <br /> All news you need at hand!
             </p>
           </div>
+        </div>
 
+        <div className="row mt-3">
           <LeafDecoration />
 
           <div className="col-12 center-flex overflow-hidden slider-social">
