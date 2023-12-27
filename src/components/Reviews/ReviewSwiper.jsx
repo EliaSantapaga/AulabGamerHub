@@ -57,15 +57,16 @@ export default function ReviewSwiper({ game }) {
             coverflowEffect={{
               rotate: 50,
               stretch: 0,
-              depth: 100,
+              depth: 200,
               modifier: 1,
               slideShadows: true,
+              autoplay: true,
             }}
             modules={[EffectCoverflow, Pagination]}
             className="mySwiper"
           >
             {comments.map((comment) => (
-              <SwiperSlide key={comment.id} className="center-flex pt-5">
+              <SwiperSlide key={comment.id} className="center-flex pt-5 m-0">
                 <div class="snip1390 center-flex">
                   <div className="avatar-review-box rounded-pill overflow-hidden center-flex ms-2 box-shadow-gold">
                     <img
@@ -93,7 +94,9 @@ export default function ReviewSwiper({ game }) {
             ))}
           </Swiper>
         ) : (
-          <h4 className="text-center text-light my-4 pb-4 shadow-neon">No reviews yet!</h4>
+          <h4 className="text-center text-light my-4 pb-4 shadow-neon">
+            No reviews yet!
+          </h4>
         )}
       </div>
     </div>
