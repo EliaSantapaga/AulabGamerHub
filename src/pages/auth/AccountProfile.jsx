@@ -102,29 +102,53 @@ function AccountProfile() {
               </div>
 
               <div class="col-12 custom-box text-white rounded mb-3">
-                <div class="custom-text shadow-neon">First Name</div>
-                <div className="ms-3">
-                  {profile && <p className="mb-0">{profile.first_name}</p>}
-                </div>
+                <label className="custom-text shadow-neon" htmlFor="email">
+                  First Name
+                </label>
+
+                <input
+                  name="email"
+                  id="email"
+                  type="text"
+                  value={profile && profile.first_name}
+                  disabled
+                  className="form-field text-white"
+                />
               </div>
 
               <div class="col-12 custom-box text-white rounded mb-3">
-                <div class="custom-text shadow-neon">Last Name</div>
-                <div className="ms-3">
-                  {profile && <p className="mb-0">{profile.last_name}</p>}
-                </div>
+                <label className="custom-text shadow-neon" htmlFor="email">
+                  Last Name
+                </label>
+
+                <input
+                  name="email"
+                  id="email"
+                  type="text"
+                  value={profile && profile.last_name}
+                  disabled
+                  className="form-field text-white"
+                />
               </div>
 
               <div class="col-12 custom-box text-white rounded mb-3">
-                <div class="custom-text shadow-neon">E-mail</div>
-                <div className="ms-3">{session.user.email}</div>
+                <label className="custom-text shadow-neon" htmlFor="email">
+                  E-mail
+                </label>
+
+                <input
+                  name="email"
+                  id="email"
+                  type="text"
+                  value={session.user.email}
+                  disabled
+                  className="form-field text-white"
+                />
               </div>
 
               <div class="col-12 custom-box text-white rounded mb-3">
                 <div class="custom-text shadow-neon">Last Login</div>
-                <div className="ms-3">
-                  {formatMessageDate(session.user.last_sign_in_at)}
-                </div>
+                <div>{formatMessageDate(session.user.last_sign_in_at)}</div>
               </div>
             </div>
           </div>

@@ -327,7 +327,6 @@ Link {
   height: 1000px;
   margin-bottom: -235px;
   padding: 0px;
-  /* z-index: -2; */
 
   position: relative;
 
@@ -618,6 +617,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 .form-field {
   background-color: transparent !important;
   border: none;
+  width: 100%;
 }
 
 .form-field:focus {

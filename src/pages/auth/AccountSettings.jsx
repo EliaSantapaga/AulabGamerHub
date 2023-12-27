@@ -16,7 +16,6 @@ export default function Settings() {
   const [first_name, setFirstName] = useState(null);
   const [last_name, setLastName] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
-  // const navigate = useNavigate();
 
   console.log(username);
 
