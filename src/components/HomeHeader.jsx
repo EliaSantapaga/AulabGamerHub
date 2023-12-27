@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../fonts/MantiniaRegular.otf';
 
 function HomeHeader() {
@@ -10,11 +11,19 @@ function HomeHeader() {
             Gamer Hub
           </h2>
 
-          <h3 className="mt-5 ff-cinzel header-text text-white fs-1 shadow-neon">
-            Select your game!
-          </h3>
+          <Link
+            className="text-decoration-none"
+            to="/games"
+          >
+            <h3
+              className="mt-5 ff-cinzel header-text text-white fs-1 shadow-neon"
+              type="button"
+            >
+              Select your game!
+            </h3>
 
-          <i className="fa-solid fa-angles-down my-4 mb-5 text-white neon arrow"></i>
+            <i className="fa-solid fa-angles-down my-4 mb-5 text-white neon arrow"></i>
+          </Link>
         </div>
       </div>
     </header>

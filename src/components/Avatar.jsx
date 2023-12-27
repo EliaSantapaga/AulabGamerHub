@@ -91,7 +91,7 @@ export default function Avatar({ url, size, onUpload }) {
         </button>
         <input
           id="single"
-          style={{ visibility: 'hidden' }}
+          style={{ visibility: 'hidden', height: '1px' }}
           className="text-white center-flex"
           type="file"
           accept="image/*"

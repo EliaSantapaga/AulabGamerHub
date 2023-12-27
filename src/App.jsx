@@ -6,7 +6,6 @@ import AuthContext from './context/AuthContext';
 import useAuth from './hooks/useAuth';
 
 function App() {
-  const [admin, setAdmin] = useState(true);
   const [games, setGames] = useState([]);
   const [genres, setGenres] = useState([]);
   const [gamesSearched, setGamesSearched] = useState([]);
@@ -28,7 +27,7 @@ function App() {
       setGamesSearched(parsedResponse);
     }
     getGames();
-  }, [games]);
+  }, []);
 
   return (
     <AuthContext.Provider value={data}>

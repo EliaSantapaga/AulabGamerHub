@@ -19,17 +19,17 @@ function FilterStore() {
   }, []);
 
   return (
-    <div className="col-6 col-md-2 d-flex justify-content-center">
+    <div className="col-12 col-md-2 d-flex justify-content-center my-2 store-anim">
       <div className="dropdown">
         <button
-          className="game-list-button dropdown-toggle "
+          className="game-list-button dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Stores
         </button>
-        <ul className="dropdown-menu dropdown-menu-dark ">
+        <ul className="dropdown-menu dropdown-menu-dark">
           {storeGames.map((store) => (
             <li key={store.id} value={store.id}>
               <Link

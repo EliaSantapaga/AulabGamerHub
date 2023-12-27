@@ -8,10 +8,7 @@ import FilterGenre from '../components/Filters/FilterGenre';
 import PaginationUp from '../components/Pagination/PaginationUp';
 import LeafDecoration from '../components/Decorations/LeafDecoration';
 import PaginationDown from '../components/Pagination/PaginationDown';
-import FilterPlatform from '../components/Filters/FilterPlatform';
-import FilterDeveloper from '../components/Filters/FilterDeveloper';
-import FilterPublisher from '../components/Filters/FilterPublisher';
-import Filterstore from '../components/Filters/FilterStore';
+import Filters from '../components/Filters/Filters';
 
 function GameList() {
   const {
@@ -90,15 +87,11 @@ function GameList() {
         </div>
 
         {/*//* FILTERS  */}
-        <div className="row my-5 d-flex justify-content-center">
-          <FilterGenre />
-          <FilterPlatform />
-          <FilterDeveloper />
-          <FilterPublisher />
-          <Filterstore />
+        <div className="row my-3 my-lg-4 d-flex justify-content-center">
+          <Filters />
         </div>
 
-        <div className="row mb-3 fade-in-up">
+        <div className="row mb-3 search-pagination">
           <PaginationDown />
           <div className="col-10 col-md-6">
             <div>

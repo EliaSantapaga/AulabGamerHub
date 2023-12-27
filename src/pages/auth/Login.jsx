@@ -65,168 +65,162 @@ function Login() {
           <LeafDecoration />
         </div>
 
-        <div className="row justify-content-around mt-4 mb-5">
-          <div
-            id="LoginEmail"
-            className="col-12 col-md-5 align-items-center justify-content-center text-white"
-          >
-            <h3 className="text-center text-white shadow-neon ff-cinzel fs-2 mt-3 mt-md-none">
-              Sign in here
-            </h3>
-            {/* <form onSubmit={handleLogin}>
-              <div className="mb-3">
-                <label htmlFor="registerEmail" className="form-label">
-                  E-mail
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  className="form-control"
-                  id="email"
-                />
+        <div className="row center-flex my-5">
+          <div className="col-11 col-md-10 account-settings">
+            <div className="row d-flex align-items-center py-3">
+              <div
+                className="col-12 col-lg-4 center-flex avatar-settings py-4"
+                id="LoginSocial"
+              >
+                <div className="avatar-anim">
+                  <h4 className="text-center text-white shadow-neon ff-cinzel fs-3">
+                    Sign in here
+                  </h4>
+
+                  <button
+                    type="submit"
+                    className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-github"
+                  >
+                    <i className="fa-brands fa-github me-3"></i> Login with
+                    Github
+                  </button>
+
+                  <button
+                    type="submit"
+                    className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-discord"
+                    onClick={handleLoginWithDiscord}
+                  >
+                    <i className="fa-brands fa-discord me-3"></i>Login with
+                    Discord
+                  </button>
+
+                  <button
+                    type="submit"
+                    className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-google"
+                  >
+                    <i className="fa-brands fa-google me-3"></i>Login with
+                    Google
+                  </button>
+                </div>
               </div>
-              <div className="mb-3">
-                <label htmlFor="registerPassword" className="form-label">
-                  Password
-                </label>
-                <input
-                  name="password"
-                  type="password"
-                  className="form-control"
-                  id="password"
-                />
-              </div>
-              <div className="d-flex align-items-center justify-content-around">
-                <button
-                  type="submit"
-                  className="cardbutton btn btn-prezzo ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4"
+
+              <div className="col-12 col-lg-8 center-flex overflow-hidden">
+                <div
+                  id="LoginEmail"
+                  className="col-10 text-white pt-4 account-info-anim"
                 >
-                  Login
-                </button>
-              </div>
-            </form> */}
+                  {/*//* VALIDATION - INITIAL VALUES ----------------------------------- */}
+                  <Formik
+                    initialValues={{
+                      email: '',
+                      password: '',
+                    }}
+                    validationSchema={schemaValidation}
+                    onSubmit={(values) => {
+                      handleLoginFormik(values);
+                    }}
+                  >
+                    {({ errors, touched }) => (
+                      <Form>
+                        {/* //* E-MAIL ----------------------------------- */}
+                        {errors.email && touched.email ? (
+                          <div className="col-12 mb-3">
+                            <label
+                              htmlFor="registerName"
+                              className="form-label text-danger"
+                            >
+                              E-mail
+                            </label>
 
-            {/*//* VALIDATION - INITIAL VALUES ----------------------------------- */}
-            <Formik
-              initialValues={{
-                email: '',
-                password: '',
-              }}
-              validationSchema={schemaValidation}
-              onSubmit={(values) => {
-                handleLoginFormik(values);
-              }}
-            >
-              {({ errors, touched }) => (
-                <Form>
-                  {/* //* E-MAIL ----------------------------------- */}
-                  {errors.email && touched.email ? (
-                    <div className="mb-3">
-                      <label
-                        htmlFor="registerName"
-                        className="form-label text-danger"
-                      >
-                        E-mail
-                      </label>
-                      <Field
-                        name="email"
-                        type="email"
-                        className="form-control box-shadow-danger"
-                        placeholder="name.lastname@example.com"
-                      />
-                      <div className="text-danger mt-2">{errors.email}</div>
-                    </div>
-                  ) : (
-                    <div className="mb-3">
-                      <label htmlFor="registerName" className="form-label">
-                        E-mail
-                      </label>
-                      <Field
-                        name="email"
-                        type="email"
-                        className="form-control focus-shadow"
-                        placeholder="name.lastname@example.com"
-                      />
-                    </div>
-                  )}
+                            <Field
+                              name="email"
+                              type="email"
+                              className="form-control box-shadow-danger"
+                              placeholder="Insert your e-mail"
+                            />
+                            <div className="text-danger mt-2">
+                              {errors.email}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="col-12 mb-3">
+                            <label
+                              htmlFor="registerName"
+                              className="form-label"
+                            >
+                              E-mail
+                            </label>
 
-                  {/* //* PASSWORD ----------------------------------- */}
-                  {errors.password && touched.password ? (
-                    <div className="mb-3">
-                      <label
-                        htmlFor="registerName"
-                        className="form-label text-danger"
-                      >
-                        Password
-                      </label>
+                            <Field
+                              name="email"
+                              type="email"
+                              className="form-control focus-shadow"
+                              placeholder="Insert your e-mail"
+                            />
+                            <div className="text-danger mt-2">
+                              {errors.email}
+                            </div>
+                          </div>
+                        )}
 
-                      <Field
-                        name="password"
-                        type="password"
-                        className="form-control box-shadow-danger"
-                        placeholder="Insert your password"
-                      />
-                      <div className="text-danger mt-2">{errors.password}</div>
-                    </div>
-                  ) : (
-                    <div className="mb-3">
-                      <label htmlFor="registerName" className="form-label">
-                        Password
-                      </label>
-                      <Field
-                        name="password"
-                        type="password"
-                        className="form-control focus-shadow"
-                        placeholder="Insert your password"
-                      />
-                    </div>
-                  )}
+                        {/* //* PASSWORD ----------------------------------- */}
+                        {errors.password && touched.password ? (
+                          <div className="col-12 mb-3">
+                            <label
+                              htmlFor="registerName"
+                              className="form-label text-danger"
+                            >
+                              Password
+                            </label>
 
-                  {/* //* BUTTON LOGIN ----------------------------------- */}
-                  <div className="d-flex align-items-center justify-content-around">
-                    <button type="submit" className="game-list-button mt-4">
-                      Login
-                    </button>
+                            <Field
+                              name="password"
+                              type="password"
+                              className="form-control box-shadow-danger"
+                              placeholder="Insert your password"
+                            />
+                            <div className="text-danger mt-2">
+                              {errors.password}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="col-12 mb-3">
+                            <label
+                              htmlFor="registerName"
+                              className="form-label"
+                            >
+                              Password
+                            </label>
+                            <Field
+                              name="password"
+                              type="password"
+                              className="form-control focus-shadow"
+                              placeholder="Insert your password"
+                            />
+                          </div>
+                        )}
+
+                        {/* //* BUTTON LOGIN ----------------------------------- */}
+                        <div className="d-flex align-items-center justify-content-around">
+                          <button
+                            type="submit"
+                            className="game-list-button mt-4"
+                          >
+                            Login
+                          </button>
+                        </div>
+                      </Form>
+                    )}
+                  </Formik>
+
+                  <div className="col-12 align-items-center justify-content-center text-white text-center mt-4">
+                    <Link className="text-white" to="/register">
+                      <p className="ff-cinzel">Click here to Register</p>
+                    </Link>
                   </div>
-                </Form>
-              )}
-            </Formik>
-
-            <div className="col-12 align-items-center justify-content-center text-white text-center mt-4">
-              <Link className="text-white" to="/register">
-                <p className="ff-cinzel">Click here to Register</p>
-              </Link>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div
-            id="LoginSocial"
-            className="col-12 col-md-5 d-flex align-items-center flex-column text-white"
-          >
-            <h3 className="text-center text-white shadow-neon ff-cinzel fs-2 mt-3 mt-md-none">
-              Or
-            </h3>
-            <button
-              type="submit"
-              className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-github"
-            >
-              <i className="fa-brands fa-github me-3"></i> Login with Github
-            </button>
-
-            <button
-              type="submit"
-              className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-discord"
-              onClick={handleLoginWithDiscord}
-            >
-              <i className="fa-brands fa-discord me-3"></i>Login with Discord
-            </button>
-
-            <button
-              type="submit"
-              className="ff-cinzel d-flex align-items-center justify-content-center text-white linkCard mt-4 btn-google"
-            >
-              <i className="fa-brands fa-google me-3"></i>Login with Google
-            </button>
           </div>
         </div>
       </div>

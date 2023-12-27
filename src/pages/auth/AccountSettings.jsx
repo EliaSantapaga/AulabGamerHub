@@ -6,7 +6,6 @@ import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import supabase from '../../supabase/client';
 import AuthLayout from '../../layout/AuthLayout';
-import PacManLoader from '../../components/Loader/PacManLoader';
 import Avatar from '../../components/Avatar';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,10 +13,10 @@ export default function Settings() {
   const { session } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
-  const [first_name, setfirstName] = useState(null);
+  const [first_name, setFirstName] = useState(null);
   const [last_name, setLastName] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   console.log(username);
 
@@ -45,7 +44,7 @@ export default function Settings() {
           console.warn(error);
         } else if (data) {
           setUsername(data.username);
-          setfirstName(data.first_name);
+          setFirstName(data.first_name);
           setLastName(data.last_name);
           setAvatarUrl(data.avatar_url);
         }
@@ -104,178 +103,156 @@ export default function Settings() {
           <LeafDecoration />
         </div>
 
-        <Formik
-          initialValues={{
-            username: '',
-            email: '',
-            password: '',
-            confirm_password: '',
-          }}
-          validationSchema={schemaValidation}
-          onSubmit={(values) => {
-            handleRegisterFormik(values);
-          }}
-        >
-          {({ errors, touched }) => (
-            <Form onSubmit={updateProfile}>
-              <div className="row d-flex align-items-center">
-                <div className="col-12 col-md-6 center-flex">
-                  {/*//* PROFILE PIC ----------------------------------- */}
-                  <Avatar
-                    url={avatar_url}
-                    size={150}
-                    onUpload={(event, url) => {
-                      updateProfile(event, url);
-                    }}
-                  />
-                </div>
-
-                <div className="col-12 col-md-6 mt-4 mt-md-0">
-                  <div className="row text-white">
-                    {/*//* FIRST NAME -----------------------------------*/}
-                    {errors.first_name && touched.first_name ? (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label
-                          htmlFor="first_name"
-                          className="form-label text-danger"
-                        >
-                          First Name
-                        </label>
-                        <Field
-                          name="first_name"
-                          type="text"
-                          className="form-control box-shadow-danger"
-                          placeholder="Ranni"
-                        />
-                        <div className="text-danger mt-2">
-                          {errors.first_name}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="first_name" className="form-label">
-                          First Name
-                        </label>
-                        <Field
-                          name="first_name"
-                          type="text"
-                          className="form-control focus-shadow"
-                          placeholder="Ranni"
-                          value={first_name || ''}
-                          onChange={(e) => setfirstName(e.target.value)}
+        <div className="row center-flex mb-4">
+          <div className="col-11 col-md-10 account-settings">
+            <Formik
+              initialValues={{
+                username: '',
+                email: '',
+                password: '',
+                confirm_password: '',
+              }}
+              validationSchema={schemaValidation}
+              onSubmit={(values) => {
+                handleRegisterFormik(values);
+              }}
+            >
+              {({ errors, touched }) => (
+                <Form onSubmit={updateProfile}>
+                  <div className="row d-flex align-items-center p-2">
+                    <div className="col-12 col-lg-4 center-flex pt-4 mt-2 mb-3 avatar-settings">
+                      <div className="center-flex avatar-anim">
+                        {/*//* PROFILE PIC --------------------------------- */}
+                        <Avatar
+                          url={avatar_url}
+                          size={150}
+                          onUpload={(event, url) => {
+                            updateProfile(event, url);
+                          }}
                         />
                       </div>
-                    )}
-
-                    {/* //* LAST NAME -----------------------------------*/}
-                    {errors.last_name && touched.last_name ? (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label
-                          htmlFor="last_name"
-                          className="form-label text-danger"
-                        >
-                          Last Name
-                        </label>
-                        <Field
-                          name="last_name"
-                          type="text"
-                          className="form-control box-shadow-danger"
-                          placeholder="De Witch"
-                        />
-                        <div className="text-danger mt-2">
-                          {errors.last_name}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="last_name" className="form-label">
-                          Last Name
-                        </label>
-                        <Field
-                          name="last_name"
-                          type="text"
-                          className="form-control focus-shadow"
-                          placeholder="De Witch"
-                          value={last_name || ''}
-                          onChange={(e) => setLastName(e.target.value)}
-                        />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="row text-white">
-                    {/*//* E-MAIL ------------------------------------- */}
-                    <div className="col-12 col-md-6 mb-3">
-                      <label htmlFor="email" className="form-label">
-                        E-mail
-                      </label>
-                      <Field
-                        name="email"
-                        id="email"
-                        type="text"
-                        value={session.user.email}
-                        disabled
-                        className="form-control focus-shadow"
-                      />
                     </div>
 
-                    {/* //* USERNAME -----------------------------------*/}
-                    {errors.username && touched.username ? (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label
-                          htmlFor="username"
-                          className="form-label text-danger"
-                        >
-                          Username
-                        </label>
-                        <Field
-                          name="username"
-                          id="username"
-                          type="text"
-                          required
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          className="form-control box-shadow-danger"
-                        />
-                        <div className="text-danger mt-2">
-                          {errors.username}
+                    {/*//* PROFILE INFO ------------------------------------- */}
+                    <div className="col-12 col-lg-8 py-3 py-lg-5 mt-md-0 px-3 px-md-5 account-info">
+                      <div className="account-info-anim">
+                        <h4 className="text-center shadow-neon mb-4">
+                          Edit your profile information
+                        </h4>
+                        <div className="row">
+                          {/*//* FIRST NAME -----------------------------------*/}
+                          <div className="col-12 col-md-6 mb-3">
+                            <div class="custom-box text-white rounded">
+                              <label
+                                className="custom-text shadow-neon"
+                                htmlFor="first_name"
+                              >
+                                First Name
+                              </label>
+
+                              <Field
+                                name="first_name"
+                                type="text"
+                                className="form-field text-white"
+                                placeholder="Ranni"
+                                value={first_name || ''}
+                                onChange={(e) => setFirstName(e.target.value)}
+                              />
+                            </div>
+                          </div>
+
+                          {/* //* LAST NAME -----------------------------------*/}
+                          <div className="col-12 col-md-6 mb-3">
+                            <div class="custom-box text-white rounded">
+                              <label
+                                className="custom-text shadow-neon"
+                                htmlFor="last_name"
+                              >
+                                Last Name
+                              </label>
+
+                              <Field
+                                name="last_name"
+                                type="text"
+                                className="form-field text-white"
+                                placeholder="Ranni"
+                                value={last_name || ''}
+                                onChange={(e) => setLastName(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="row">
+                          {/*//* E-MAIL ------------------------------------- */}
+                          <div className="col-12 col-lg-6 mb-3">
+                            <div class="custom-box text-white rounded">
+                              <label
+                                className="custom-text shadow-neon"
+                                htmlFor="email"
+                              >
+                                E-mail
+                              </label>
+
+                              <Field
+                                name="email"
+                                id="email"
+                                type="text"
+                                value={session.user.email}
+                                disabled
+                                className="form-field text-white"
+                              />
+                            </div>
+                          </div>
+
+                          {/* //* USERNAME -----------------------------------*/}
+                          <div className="col-12 col-lg-6 mb-3">
+                            <div class="custom-box text-white rounded">
+                              <label
+                                className="custom-text shadow-neon"
+                                htmlFor="username"
+                              >
+                                Username
+                              </label>
+
+                              <Field
+                                name="username"
+                                type="text"
+                                className="form-field text-white"
+                                value={username || ''}
+                                onChange={(e) => setUsername(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="col-12 center-flex mt-4">
+                          {loading ? (
+                            <button
+                              className="game-list-button block primary"
+                              type="submit"
+                              disabled={loading}
+                            >
+                              Loading...
+                            </button>
+                          ) : (
+                            <button
+                              className="game-list-button block primary"
+                              type="submit"
+                              disabled={loading}
+                            >
+                              Update
+                            </button>
+                          )}
                         </div>
                       </div>
-                    ) : (
-                      <div className="col-12 col-md-6 mb-3">
-                        <label htmlFor="username" className="form-label">
-                          Username
-                        </label>
-                        <Field
-                          name="username"
-                          id="username"
-                          type="text"
-                          required
-                          value={username || ''}
-                          onChange={(e) => setUsername(e.target.value)}
-                          className="form-control focus-shadow"
-                        />
-                      </div>
-                    )}
+                    </div>
                   </div>
-                  <div className="col-12 center-flex mt-4">
-                    {loading ? (
-                      <PacManLoader />
-                    ) : (
-                      <button
-                        className="game-list-button block primary"
-                        type="submit"
-                        disabled={loading}
-                      >
-                        Update
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </Form>
-          )}
-        </Formik>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </div>
       </div>
     </AuthLayout>
   );

@@ -72,7 +72,7 @@ function HomeCards() {
             <p className="text-white text-center px-4 mt-3">
               Gioca ai nuovi titoli il giorno del lancio. In più, gioca con gli
               amici a centinaia di titoli di grande qualità su console, PC o
-              cloud.{' '}
+              cloud.
             </p>
 
             <a
@@ -106,7 +106,7 @@ function HomeCards() {
 
             <p className="text-white text-center px-4 mt-3">
               Goditi la tua esperienza su Nintendo Switch con il gioco online,
-              il cloud, un catalogo di giochi classNameici e altro ancora!
+              il cloud, un catalogo di giochi classici e altro ancora!
             </p>
 
             <a

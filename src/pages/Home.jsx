@@ -1,15 +1,16 @@
-import HomeHeader from "../components/HomeHeader";
-import HomeCards from "../components/HomeCards";
-import HomeTrailer from "../components/HomeTrailer";
-import AppLayout from "../layout/AppLayout";
+import HomeHeader from '../components/HomeHeader';
+import HomeCards from '../components/HomeCards';
+import HomeTrailer from '../components/HomeTrailer';
+import AppLayout from '../layout/AppLayout';
+import Space from '../components/Layout/Space';
 
 function Home() {
   return (
     <AppLayout>
       <HomeHeader />
 
-      <div className="space"></div>
-      <div className="space"></div>
+      <Space />
+      <Space />
 
       <HomeCards />
 

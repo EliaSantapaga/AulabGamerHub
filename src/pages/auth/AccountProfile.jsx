@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import useProfile from '../../hooks/useProfile';
-import AppLayout from '../../layout/AppLayout';
+import AuthLayout from '../../layout/AuthLayout';
 import getProfileImg from '../../utils/getProfileImg';
 import AuthContext from '../../context/AuthContext';
 import supabase from '../../supabase/client';
@@ -8,7 +8,6 @@ import Space from '../../components/Layout/Space';
 import LeafDecoration from '../../components/Decorations/LeafDecoration';
 import PacManLoader from '../../components/Loader/PacManLoader';
 import formatMessageDate from '../../utils/formatMessageDate';
-// import { Link } from 'react-router-dom';
 
 function AccountProfile() {
   const { profile, loading } = useProfile();
@@ -62,10 +61,10 @@ function AccountProfile() {
   }, []);
 
   return (
-    <AppLayout>
-      <div className="container">
+    <AuthLayout>
+      <div className="container mb-4">
         <Space />
-        <div className="row mb-5">
+        <div className="row">
           <div className="col-12 d-flex justify-content-center pt-5 pb-2 overflow-hidden">
             {profile && (
               <h1
@@ -87,8 +86,8 @@ function AccountProfile() {
 
         <div className="row profile-details">
           {/*//* PROFILE DETAILS ------------------------------- */}
-          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-3">
-            <div className="info-box box-shadow-gold p-4 mb-2 mb-md-5">
+          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-3 profile-details-anim">
+            <div className="info-box box-shadow-gold p-4 mb-2">
               <div className="col-12 center-flex">
                 <div
                   className="avatar-box rounded-pill overflow-hidden center-flex box-shadow-gold mb-4"
@@ -131,15 +130,15 @@ function AccountProfile() {
           </div>
 
           {/*//* REVIEWS ------------------------------- */}
-          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-3 profile-reviews">
+          <div className="col-12 col-lg-4 ps-md-4 pe-md-2 mb-4 mb-lg-0 profile-reviews">
             <div className="info-box p-3 px-2">
               <h4 className="text-center shadow-neon mb-3 mt-1">
                 Your Reviews
               </h4>
-              <div className="user-review-box px-4">
+              <div className="user-review-box px-3 pt-2">
                 {comments.map((comment) => (
                   <div key={comment.id} className="mt-4">
-                    <div className="col-12 custom-box text-white rounded mb-3 ">
+                    <div className="col-12 custom-box text-white rounded">
                       <div className="d-flex justify-content-end">
                         <p className="custom-text shadow-neon">
                           {comment.game_name}
@@ -157,7 +156,7 @@ function AccountProfile() {
                           {comment.review_content}
                         </p>
                         <div className="d-flex justify-content-end">
-                          <p className="fs-7">
+                          <p className="fs-7 m-0">
                             {formatMessageDate(comment.created_at)}
                           </p>
                         </div>
@@ -175,16 +174,20 @@ function AccountProfile() {
               <h4 className="text-center shadow-neon mb-3 mt-1">
                 Your Favorites
               </h4>
-              <div className="user-review-box  px-3">
+              <div className="user-review-box px-3">
                 {fav &&
                   fav.map((favGame) => (
-                    <div
-                      className="border-top d-flex align-items-center justify-content-center my-1"
-                      key={favGame.id}
-                    >
-                      {/* <Link to=`/game/:${favGame.game_slug}`> */}
-                      <p className="my-3 text-center">{favGame.game_name}</p>
-                      {/* </Link> */}
+                    <div className="mt-3" key={favGame.id}>
+                      <div className="col-12 custom-box text-white rounded">
+                        <div className="d-flex justify-content-end">
+                          {/* <p className="custom-text shadow-neon">Fav Game</p> */}
+                        </div>
+                        <div className="py-2">
+                          <p className="ff-gotu text-center m-0">
+                            {favGame.game_name}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   ))}
               </div>
@@ -192,7 +195,7 @@ function AccountProfile() {
           </div>
         </div>
       </div>
-    </AppLayout>
+    </AuthLayout>
   );
 }
 

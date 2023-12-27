@@ -36,7 +36,7 @@ export default function ReviewSwiper({ game }) {
   }, []);
 
   return (
-    <div className="mt-4 review-swiper-anim">
+    <div className="mt-4 game-details p-0 pt-4">
       <div>
         <h2 className="shadow-neon text-center fs-1 my-0">User Reviews</h2>
 
@@ -65,9 +65,9 @@ export default function ReviewSwiper({ game }) {
             className="mySwiper"
           >
             {comments.map((comment) => (
-              <SwiperSlide key={comment.id}>
+              <SwiperSlide key={comment.id} className="center-flex pt-5">
                 <div class="snip1390 center-flex">
-                  <div className="avatar-review-box rounded-pill overflow-hidden center-flex ms-2">
+                  <div className="avatar-review-box rounded-pill overflow-hidden center-flex ms-2 box-shadow-gold">
                     <img
                       src={getProfileImg(comment.profile.avatar_url)}
                       alt="profile"
@@ -75,14 +75,17 @@ export default function ReviewSwiper({ game }) {
                     />
                   </div>
                   <figcaption>
-                    <h4 className="text-white mt-3">
+                    <h4 className="text-white mt-3 shadow-neon">
                       {comment.profile.username}
                     </h4>
-                    <p className="text-white fs-6 mb-4">
+                    <p className="text-white fs-6 mb-3">
                       {formatMessageDate(comment.created_at)}
                     </p>
-                    <div className="blockquote text-light fs-6 rounded py-3 px-2 m-0 box-shadow-gold">
-                      <p>"{comment.review_content}"</p>
+
+                    <div className="col-12 custom-box text-white rounded">
+                      <div className="blockquote text-light fs-6 rounded p-1 px-2 m-0">
+                        <p className="ff-gotu">"{comment.review_content}"</p>
+                      </div>
                     </div>
                   </figcaption>
                 </div>
@@ -90,7 +93,7 @@ export default function ReviewSwiper({ game }) {
             ))}
           </Swiper>
         ) : (
-          <h3 className="text-center text-light my-4">No reviews yet!</h3>
+          <h4 className="text-center text-light my-4 pb-4 shadow-neon">No reviews yet!</h4>
         )}
       </div>
     </div>
