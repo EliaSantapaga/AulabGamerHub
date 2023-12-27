@@ -32,12 +32,12 @@ function HomeCards() {
             />
 
             <h4 className="text-white text-center px-4 ">
-              Ecco il nuovo PlayStation®Plus
+              Here's the new <br /> PlayStation®Plus
             </h4>
 
             <p className="text-white text-center px-4 mt-3">
-              Libera il massimo potenziale di PlayStation e scopri il tuo nuovo
-              gioco preferito con una nuova selezione di piani di abbonamento.
+              Unleash the full potential of PlayStation and discover your new
+              favorite game with our selection of subscription plans.
             </p>
 
             <a
@@ -66,13 +66,12 @@ function HomeCards() {
             />
 
             <h4 className="text-white text-center px-4">
-              Ecco il nuovo <br /> Xbox Game Pass
+              Here's the new <br /> Xbox Game Pass
             </h4>
 
             <p className="text-white text-center px-4 mt-3">
-              Gioca ai nuovi titoli il giorno del lancio. In più, gioca con gli
-              amici a centinaia di titoli di grande qualità su console, PC o
-              cloud.
+              Play new games on launch day. In addition, play hundreds of
+              high-quality games with friends on console, pc or cloud gaming.
             </p>
 
             <a
@@ -101,12 +100,12 @@ function HomeCards() {
             />
 
             <h4 className="text-white text-center px-4">
-              Ecco il nuovo <br /> Nintendo Switch Online
+              Here's the new <br /> Nintendo Switch Online
             </h4>
 
             <p className="text-white text-center px-4 mt-3">
-              Goditi la tua esperienza su Nintendo Switch con il gioco online,
-              il cloud, un catalogo di giochi classici e altro ancora!
+              Enjoy your Nintendo Switch experience with online play, cloud
+              gaming, a huge catalog of classic games and so much more!
             </p>
 
             <a
