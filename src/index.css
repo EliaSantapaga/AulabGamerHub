@@ -331,7 +331,7 @@ Link {
 
   position: relative;
 
-  background: url('/src/assets/roundtable-hold.png');
+  background: url('/src/assets/roundtable-hold.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -684,7 +684,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 /*//* TRAILER ----------------------------------- */
 
 .trailer {
-  background-image: url('./assets/Elden-Ring-background-Erdtree-transparent.png');
+  background-image: url('./assets/Elden-Ring-background-Erdtree-transparent.webp');
   background-position: top;
   background-repeat: none;
   background-size: cover;
