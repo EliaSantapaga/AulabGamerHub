@@ -68,7 +68,7 @@ export default function ReviewSwiper({ game }) {
             {comments.map((comment) => (
               <SwiperSlide key={comment.id} className="center-flex pt-5 m-0">
                 <div class="snip1390 center-flex">
-                  <div className="avatar-review-box rounded-pill overflow-hidden center-flex ms-2 box-shadow-gold">
+                  <div className="avatar-review-box rounded-pill overflow-hidden center-flex ms-2">
                     <img
                       src={getProfileImg(comment.profile.avatar_url)}
                       alt="profile"

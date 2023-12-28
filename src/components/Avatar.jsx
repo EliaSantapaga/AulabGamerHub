@@ -74,10 +74,10 @@ export default function Avatar({ url, size, onUpload }) {
             backgroundPosition: 'center',
             backgroundSize: 'cover',
           }}
-          className="avatar-box rounded-pill overflow-hidden box-shadow-gold"
+          className="avatar-box rounded-pill overflow-hidden"
         />
       ) : (
-        <div className="avatar-box rounded-pill overflow-hidden box-shadow-gold center-flex">
+        <div className="avatar-box rounded-pill overflow-hidden center-flex">
           <i class="fa-solid fa-circle-user"></i>
         </div>
       )}

@@ -90,7 +90,7 @@ function AccountProfile() {
             <div className="info-box box-shadow-gold p-4 mb-2">
               <div className="col-12 center-flex">
                 <div
-                  className="avatar-box rounded-pill overflow-hidden center-flex box-shadow-gold mb-4"
+                  className="avatar-box rounded-pill overflow-hidden center-flex mb-4"
                   style={{
                     backgroundImage: `url('${
                       profile && getProfileImg(profile.avatar_url)
