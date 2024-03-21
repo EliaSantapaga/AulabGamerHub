@@ -456,7 +456,9 @@ input[type='file'] + label {
 
 /*//? Avatar Review */
 .img-avatar-review {
-  width: 80px;
+  height: 80px;
+  background-position: center;
+  background-size: cover;
 }
 .avatar-review-box {
   width: 80px;

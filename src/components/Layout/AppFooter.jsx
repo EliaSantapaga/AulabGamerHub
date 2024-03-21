@@ -6,7 +6,7 @@ import Space from './Space';
 function AppFooter() {
   return (
     <footer
-      className="container-fluid footer fade-in-up pt-5"
+      className="container-fluid footer fade-in-up pt-5 pt-lg-0"
       data-aos="fade-up"
       data-aos-anchor-placement="top"
     >
@@ -44,7 +44,7 @@ function AppFooter() {
           </div>
 
           <div className="col-12 col-lg-4 mb-3 center-flex text-center text-white git-sentence">
-            <p className="ff-cinzel fs-4 px-3">
+            <p className="ff-cinzel fs-4 px-3 mt-4 mt-lg-0">
               Visit our blog <br />
               <a
                 href="https://gamesintime.altervista.org"
