@@ -53,12 +53,12 @@ function HomeTrailer() {
                 <span className="ff-cinzel neon mx-3" id="games-number">
                   {count}k
                 </span>
-                videogames available...
+                <br /> videogames available...
+                <br /> ...and many others
+                <br /> coming soon!
               </h4>
 
-              <h4 className="text-center px-4 ff-cinzel text-trailer fs-3">
-                ...and many others <br /> coming soon!
-              </h4>
+              <h4 className="text-center px-4 ff-cinzel text-trailer fs-3"></h4>
             </div>
 
             <button className="ff-cinzel game-list-button my-4">

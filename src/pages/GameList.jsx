@@ -110,7 +110,7 @@ function GameList() {
           <PaginationUp />
         </div>
 
-        <div className="row mb-5">
+        <div className="row mb-3">
           {/* //* Mostra i dati nell'interfaccia */}
           {error && (
             <div className="center-flex">
@@ -123,6 +123,25 @@ function GameList() {
 
           {games &&
             games.map((game) => <PrestoCard game={game} key={game.id} />)}
+        </div>
+
+        <div className="row mb-5 search-pagination">
+          <PaginationDown />
+          <div className="col-10 col-md-6">
+            <div>
+              <form className="d-flex" role="search">
+                <input
+                  className="form-control me-2 rounded-pill text-center"
+                  type="search"
+                  id="search"
+                  placeholder="Search your game..."
+                  aria-label="Search"
+                  onChange={handleSearch}
+                />
+              </form>
+            </div>
+          </div>
+          <PaginationUp />
         </div>
       </div>
     </AppLayout>

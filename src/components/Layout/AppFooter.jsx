@@ -1,11 +1,12 @@
 import logoImage from '../../assets/Logo-nuovo-nuovo-nuovo-1-768x281.png';
 import {} from '@fortawesome/react-fontawesome';
 import LeafDecoration from '../Decorations/LeafDecoration';
+import Space from './Space';
 
 function AppFooter() {
   return (
     <footer
-      className="container-fluid footer fade-in-up"
+      className="container-fluid footer fade-in-up pt-5"
       data-aos="fade-up"
       data-aos-anchor-placement="top"
     >
