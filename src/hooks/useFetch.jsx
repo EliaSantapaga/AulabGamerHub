@@ -3,7 +3,7 @@ function useFetch() {
     setError('');
     setLoading(true);
 
-    async function getDeveloper() {
+    async function getDeveloper({developer}) {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BASE_URL}games?key=${

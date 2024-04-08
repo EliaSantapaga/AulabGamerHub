@@ -28,7 +28,6 @@ export default function Avatar({ url, size, onUpload }) {
   }, [url]);
 
   // Funzione che controlla il path dell'immagine da inserire...
-
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
