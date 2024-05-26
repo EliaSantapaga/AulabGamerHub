@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import '../fonts/MantiniaRegular.otf';
 
 function HomeHeader() {
+
   return (
     <header className="container-fluid">
       <div className="row">
@@ -11,10 +12,7 @@ function HomeHeader() {
             Gamer Hub
           </h2>
 
-          <Link
-            className="text-decoration-none"
-            to="/games"
-          >
+          <Link className="text-decoration-none" to="/games">
             <h3
               className="mt-5 ff-cinzel header-text text-white fs-1 shadow-neon"
               type="button"
